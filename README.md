@@ -15,7 +15,7 @@ $ gulp watch
 2. 切换到 gh-pages 分支
 
 ```bash
-$ git clone git@gitlab.hotpu.cn:FED/RUI.git
+$ git clone https://github.com/r-ui/rui.git
 $ git checkout gh-pages
 ```
 
