@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RUI</title>
+        
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <script type="text/javascript" src="../static/js/jquery.js"></script>
+    <script type="text/javascript" src="../static/js/transition.js"></script>
+    <script type="text/javascript" src="../static/js/tab.js"></script>
+    <script type="text/javascript" src="../static/js/dropdown.js"></script>
+    <script type="text/javascript" src="../static/js/tooltip.js"></script>
+    <script type="text/javascript" src="../static/js/popover.js"></script>
+    <script type="text/javascript" src="../static/js/modal.js"></script>
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                RUI
+            
+        </div>
+        <ul><li><a href="../index.html">首页</a></li><li class="active"><a href="../html/快速入门.html">快速入门</a></li><li><a href="../html/基础框架.html">基础框架</a></li><li><a href="../html/组件.html">组件</a></li><li><a href="../html/javascript组件.html">javascript组件</a></li></ul>
+        
+        
+        <div class="forkgithub"><a target="_blank" href="http://gitlab.hotpu.cn:8010/FED/RUI">fork on github</a></div>
+        
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0说明">说明</a></li><li><a href="#t1普通使用方法">普通使用方法</a></li><li><a href="#t2高科技使用方法😄">高科技使用方法😄</a><ul><li><a href="#t3全部加载">全部加载</a></li><li><a href="#t4部分样式加载">部分样式加载</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0&#x8BF4;&#x660E;">&#x8BF4;&#x660E; <a href="#t0&#x8BF4;&#x660E;"> # </a></h1>
+<p>&#x6211;&#x4EEC;&#x7684;CSS&#x662F;&#x901A;&#x8FC7; <code>stylus</code> &#x7684;&#x683C;&#x5F0F;&#x4E66;&#x5199;CSS&#x751F;&#x6210;<code>min.css</code>&#xFF0C;</p>
+<ul>
+<li>&#x5982;&#x679C;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x4E5F;&#x4F7F;&#x7528; <code>stylus</code> &#x5199;&#x6837;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<strong>&#x9AD8;&#x7EA7;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</strong>&#x3002;</li>
+<li>&#x5982;&#x679C;&#x4F60;&#x53EA;&#x60F3;&#x7B80;&#x5355;&#x4F7F;&#x7528; &#x53EF;&#x53C2;&#x8003;&#x666E;&#x901A;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</li>
+</ul>
+<h1 id="t1&#x666E;&#x901A;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;">&#x666E;&#x901A;&#x4F7F;&#x7528;&#x65B9;&#x6CD5; <a href="#t1&#x666E;&#x901A;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;"> # </a></h1>
+<p>&#x5728;HTML&#x9875;&#x9762;&#x5F15;&#x7528; <code>RUI/dist/css/RUI.min.css</code> </p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">&quot;UTF-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>RUI<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">link</span> <span class="hljs-attribute">rel</span>=<span class="hljs-value">&quot;stylesheet&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/css&quot;</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;/dist/css/RUI.min.css&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+</code></pre>
+<h1 id="t2&#x9AD8;&#x79D1;&#x6280;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x1F604;">&#x9AD8;&#x79D1;&#x6280;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x1F604; <a href="#t2&#x9AD8;&#x79D1;&#x6280;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x1F604;"> # </a></h1>
+<h2 id="t3&#x5168;&#x90E8;&#x52A0;&#x8F7D;">&#x5168;&#x90E8;&#x52A0;&#x8F7D; <a href="#t3&#x5168;&#x90E8;&#x52A0;&#x8F7D;"> # </a></h2>
+<p>&#x5728;&#x4F60;&#x5199;&#x7684; <code>styl</code> &#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x5F15;&#x7528;&#x4E00;&#x4E0B; <code>index.styl</code> &#x5C31;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>RUI</code> &#x7684;&#x5DE5;&#x5177;&#x4E86;&#xFF0C;&#x5728;HTML&#x4E2D;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>RUI</code> &#x6837;&#x5F0F;&#x4E86;&#x3002;</p>
+<blockquote>
+<p>@import &apos;RUI/styl/index.styl&apos;</p>
+</blockquote>
+<h2 id="t4&#x90E8;&#x5206;&#x6837;&#x5F0F;&#x52A0;&#x8F7D;">&#x90E8;&#x5206;&#x6837;&#x5F0F;&#x52A0;&#x8F7D; <a href="#t4&#x90E8;&#x5206;&#x6837;&#x5F0F;&#x52A0;&#x8F7D;"> # </a></h2>
+<p>&#x5728;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x53EA;&#x60F3;&#x52A0;&#x8F7D;&#x4E00;&#x90E8;&#x5206;CSS&#x53BB;&#x6389;&#x5927;&#x90E8;&#x5206;&#x6CA1;&#x6709;&#x7528;&#x7684;&#x6837;&#x5F0F;&#x3002;</p>
+<p>&#x53D8;&#x91CF;&#x58F0;&#x660E;(&#x5FC5;&#x987B;&#x52A0;&#x8F7D;)</p>
+<blockquote>
+<p>@import &apos;RUI/styl/variables.styl&apos;</p>
+</blockquote>
+<p>&#x6838;&#x5FC3; mixins (&#x5FC5;&#x987B;&#x52A0;&#x8F7D;)</p>
+<blockquote>
+<p>@import &apos;RUI/styl/mixins.styl&apos; </p>
+</blockquote>
+<pre><code class="lang-styl"><span class="hljs-at_rule">@import</span> <span class="hljs-string">&apos;RUI/styl/scaffolding.styl&apos;</span> <span class="hljs-comment">//&#x57FA;&#x7840;&#x624B;&#x811A;&#x67B6;</span>
+<span class="hljs-at_rule">@import</span> <span class="hljs-string">&apos;RUI/styl/buttons.styl&apos;</span> <span class="hljs-comment">//&#x52A0;&#x8F7D;button&#x6309;&#x94AE;&#x6837;&#x5F0F;</span>
+</code></pre>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

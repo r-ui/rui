@@ -1,0 +1,14 @@
+// Mixins
+// --------------------------
+
+icon-icon()
+    display inline-block;
+    font normal normal normal $icon-font-size-base / $icon-line-height-base FontAwesome // shortening font declaration
+    font-size inherit // can't have font-size inherit on line above, so need to override
+    text-rendering auto // optimizelegibility throws things off #1094
+    font-smoothing antialiased
+    font-smoothing grayscale
+
+
+
+

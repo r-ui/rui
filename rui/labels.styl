@@ -1,0 +1,33 @@
+/**   
+* @Title: 标签 样式
+* @Description: ${todo}(用一句话描述该文件做什么) 
+* @author name
+* @date 2015-10-19
+* @version V1.0   
+*/
+
+.label
+    display inline
+    padding .3em .6em .3em
+    font-size 75%
+    font-weight bold
+    line-height 1
+    color $label_color
+    text-align center
+    white-space nowrap
+    vertical-align baseline   //默认。元素放置在父元素的基线上。
+    border-radius .25em
+ //添加悬停效果，但仅限于链接
+.label_default
+    label-variant($label_default_bg)   
+.label_primary
+    label-variant($label_primary_bg)                    
+.label_success
+    label-variant($label_success_bg)
+.label_info
+    label-variant($label_info_bg)  
+.label_warning
+    label-variant($label_warning_bg)
+.label_danger
+    label-variant($label_danger_bg)          
+                  

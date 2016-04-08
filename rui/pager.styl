@@ -1,0 +1,48 @@
+/**   
+* @Title: 简单的分页
+* @Description: ${todo}(用一句话描述该文件做什么) 
+* @author name
+* @date 2015-10-19
+* @version V1.0   
+*/
+
+
+        
+
+
+.pager
+    padding-left 0
+    margin $line_height_computed 0
+    list-style none
+    text-align center
+    clearfix()
+
+    li
+        display inline
+        > a,
+        > span
+            @extends .btn 
+            @extends .btn_default
+            border-radius $pager_border_radius
+
+        > a:hover,
+        > a:focus
+            text-decoration none
+
+    .next
+        > a,
+        > span
+            float right
+
+    .previous
+        > a,
+        > span
+            float left
+
+    .disabled
+        cursor $cursor_disabled
+        > a,
+        > a:hover,
+        > a:focus,
+        > span
+            cursor $cursor_disabled

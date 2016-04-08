@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表组</title>
+    <link rel="stylesheet" type="text/css" href="css/rui.all.min.css">
+    <style type="text/css">
+     a{text-decoration: none;}
+     p.list_group_item_text{font-size: 12px;}
+     button{font-size: inherit;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row show_grid">
+            <div class="col_md_4">
+                <h2>普通式</h2>
+                <ul class="list_group">
+                    <li class="list_group_item">这是一个列表组</li>
+                    <li class="list_group_item">这是一个列表组</li>
+                    <li class="list_group_item">这是一个列表组</li>
+                    <li class="list_group_item">这是一个列表组</li>
+                    <li class="list_group_item">这是一个列表组</li>
+                </ul>
+            </div>
+
+            <div class="col_md_4">
+                <h2>链接式</h2>
+                <div class="list_group">
+                    <a href="#" class="list_group_item active">这是一个链接式的列表组</a>
+                    <a href="#" class="list_group_item">这是一个链接式的列表组</a>
+                    <a href="#" class="list_group_item">这是一个链接式的列表组</a>
+                    <a href="#" class="list_group_item">这是一个链接式的列表组</a>
+                    <a href="#" class="list_group_item">这是一个链接式的列表组</a>
+                </div>
+            </div>
+
+            <div class="col_md_4">
+                <h2>禁用的条目</h2>
+                <div class="list_group">
+                    <a href="#" class="list_group_item disabled">被禁用的条目</a>
+                    <a href="#" class="list_group_item">链接式的列表组</a>
+                    <a href="#" class="list_group_item">链接式的列表组</a>
+                    <a href="#" class="list_group_item">链接式的列表组</a>
+                    <a href="#" class="list_group_item">链接式的列表组</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row show_grid">
+            <div class="col_md_4">
+                <h2>按钮式</h2>
+                <div class="list_group">
+                    <button class="list_group_item">这是一个按钮式的列表组</button>
+                    <button class="list_group_item">这是一个按钮式的列表组</button>
+                    <button class="list_group_item">这是一个按钮式的列表组</button>
+                    <button class="list_group_item">这是一个按钮式的列表组</button>
+                    <button class="list_group_item">这是一个按钮式的列表组</button>
+                </div>
+            </div>
+
+            <div class="col_md_4">
+                <h2>徽章</h2>
+                <ul class="list_group">
+                    <li class="list_group_item"><span class="badge">2</span>一般信息列表组 </li>
+                    <li class="list_group_item"> <span class="badge">2</span>成功列表组</li>
+                    <li class="list_group_item"><span class="badge">2</span>报警列表组 </li>
+                    <li class="list_group_item"><span class="badge">2</span>错误信息列表组</li>
+                </ul>
+            </div>
+            
+            <div class="col_md_4">
+                <h2>标题式</h2>
+                <div class="list_group">
+                    <a href="#" class="list_group_item active">
+                        <h4 class="list_group_item_heading">列表组的标题</h4>
+                        <p class="list_group_item_text">带有标题式的列表组列表组带有标题式的列表组列表组带有标题式的列表组列表组带有标题式的列表组列表组</p>
+                    </a>
+                    <a href="#" class="list_group_item">
+                        <h4 class="list_group_item_heading">列表组的标题</h4>
+                        <p class="list_group_item_text">带有标题式的列表组列表组带有标题式的列表组列表组带有标题式的列表组列表组带有标题式的列表组列表组</p>
+                    </a>
+                    <a href="#" class="list_group_item">
+                        <h4 class="list_group_item_heading">列表组的标题</h4>
+                        <p class="list_group_item_text">带有标题式的列表组列表组带有标题式的列表组列表组带有标题式的列表组列表组带有标题式的列表组列表组</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row show_grid">
+            <div class="col_md_4">
+                <h2>情境类</h2>
+                <ul class="list_group">
+                    <li class="list_group_item list_group_item_info">一般信息列表组</li>
+                    <li class="list_group_item list_group_item_success">成功列表组</li>
+                    <li class="list_group_item list_group_item_warning">报警列表组</li>
+                    <li class="list_group_item list_group_item_danger">错误信息列表组</li>
+                </ul>
+            </div>
+            <div class="col_md_4">
+                <h2>情境类链接式</h2>
+                <div class="list_group">
+                    <a href="#" class="list_group_item list_group_item_info">一般信息列表组</a>
+                    <a href="#" class="list_group_item list_group_item_success">成功列表组</a>
+                    <a href="#" class="list_group_item list_group_item_warning">报警列表组</a>
+                    <a href="#" class="list_group_item list_group_item_danger">错误信息列表组</a>
+                </div>
+            </div>
+
+            <div class="col_md_4">
+                <h2>情境类链接式active</h2>
+                <div class="list_group">
+                    <a href="#" class="list_group_item list_group_item_info active">一般信息列表组</a>
+                    <a href="#" class="list_group_item list_group_item_success active">成功列表组</a>
+                    <a href="#" class="list_group_item list_group_item_warning active">报警列表组</a>
+                    <a href="#" class="list_group_item list_group_item_danger active">错误信息列表组</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>导航</title>
+    <link rel="stylesheet" type="text/css" href="css/rui.all.min.css">
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/dropdown.js"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+</head>
+<body>
+<style type="text/css">
+	 h1{font-size: 20px;font-weight: bold;}	
+     a{text-decoration: none;}
+    p.tit{font-size: 30px;border-bottom: 3px solid #767676;line-height: 50px;}
+    .container{border:1px solid #e7e7e7;padding-top: 20px;padding-bottom: 20px;}
+/*
+    .relative_example{border: 1px solid red; position: relative;}
+    .relative_example .navbar{border:1px solid red; position: absolute;}*/
+</style>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="container">
+    <p class="tit">导航</p>
+    <h1>标签页</h1>
+    注意 .nav_tabs 类依赖 .nav 基类。
+    <br/>
+    <br/>
+    <ul class="nav nav_tabs">
+        <li role="presentation" class="active"><a href="#tab1" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#tab2" data-toggle="tab">Profile</a></li>
+        <li role="presentation"><a href="#tab3" data-toggle="tab">Messages</a></li>
+    </ul>
+
+    <div class="tab_content">
+        <div class="tab_pane active" id="tab1"> 1 </p></div>
+        <div class="tab_pane" id="tab2"><p> 2 </p></div>
+        <div class="tab_pane" id="tab3"><p> 3 </p></div>
+    </div>
+
+
+
+    <h1>胶囊式标签页</h1>
+    HTML 标记相同，但使用 .nav_pills 类：
+    <br/>
+    <br/>
+    <ul class="nav nav_pills">
+        <li role="presentation" class="active"><a href="#pill1" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#pill2" data-toggle="tab">Profile</a></li>
+        <li role="presentation"><a href="#pill3" data-toggle="tab">Messages</a></li>
+    </ul>
+    <div class="tab_content">
+        <div class="tab_pane active" id="pill1"> 1 </p></div>
+        <div class="tab_pane" id="pill2"><p> 2 </p></div>
+        <div class="tab_pane" id="pill3"><p> 3 </p></div>
+    </div>
+
+
+
+    <br/>
+    <ul class="nav nav_pills nav_stacked nav_pills_stacked_example">
+        <li role="presentation" class="active"><a href="#stacked1"  data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#stacked2"  data-toggle="tab">Profile</a></li>
+        <li role="presentation"><a href="#stacked3"  data-toggle="tab">Messages</a></li>
+    </ul>
+    <div class="tab_content">
+        <div class="tab_pane active" id="stacked1"> 1 </p></div>
+        <div class="tab_pane" id="stacked2"><p> 2 </p></div>
+        <div class="tab_pane" id="stacked3"><p> 3 </p></div>
+    </div>
+
+    <h1>两端对齐的标签页</h1>
+    <br/>
+    <br/>
+    <ul class="nav nav_tabs nav_justified">
+        <li role="presentation" class="active"><a href="#justified1" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#justified2" data-toggle="tab">Profile</a></li>
+        <li role="presentation"><a href="#justified3" data-toggle="tab">Messages</a></li>
+    </ul>
+    <div class="tab_content">
+        <div class="tab_pane active" id="justified1"> 1 </p></div>
+        <div class="tab_pane" id="justified2"><p> 2 </p></div>
+        <div class="tab_pane" id="justified3"><p> 3 </p></div>
+    </div>
+    <br/>
+    <ul class="nav nav_pills nav_justified">
+        <li role="presentation" class="active"><a href="#just1" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#just2" data-toggle="tab">Profile</a></li>
+        <li role="presentation"><a href="#just3" data-toggle="tab">Messages</a></li>
+    </ul>
+    <div class="tab_content">
+        <div class="tab_pane active" id="just1"> 1 </p></div>
+        <div class="tab_pane" id="just2"><p> 2 </p></div>
+        <div class="tab_pane" id="just3"><p> 3 </p></div>
+    </div>
+
+    <h1>禁用的链接</h1>
+    <br/>
+    <br/>
+    <ul class="nav nav_pills">
+        <li role="presentation"><a href="#">Clickable link</a></li>
+        <li role="presentation"><a href="#">Clickable link</a></li>
+        <li role="presentation" class="disabled"><a href="#">Disabled link</a></li>
+    </ul>
+
+    <h1>添加下拉菜单</h1>
+    <br/>
+    <br/>
+    <ul class="nav nav_tabs">
+        <li role="presentation" class="active"><a href="#">Home</a></li>
+        <li role="presentation"><a href="#">Help</a></li>
+        <li role="presentation" class="dropdown">
+            <a class="" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Dropdown <span class="caret"></span>
+            </a>
+            <ul class="dropdown_menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+            </ul>
+        </li>
+    </ul>
+
+
+    <h1>带下拉菜单的胶囊式标签页</h1>
+    <ul class="nav nav_pills">
+        <li role="presentation" class="active"><a href="#">Home</a></li>
+        <li role="presentation"><a href="#">Help</a></li>
+        <li role="presentation" class="dropdown">
+            <a class="" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Dropdown <span class="caret"></span>
+            </a>
+            <ul class="dropdown_menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+            </ul>
+        </li>
+    </ul>
+
+
+
+</div>
+<div class="container">
+    <p class="tit">导航条</p>
+    <h1>默认样式的导航条</h1>
+    <nav class="navbar navbar_default">
+        <div class="container_fluid">
+            <div class="navbar_header">
+                <button type="button" class="navbar_toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr_only">Toggle navigation</span>
+                        <span class="icon_bar"></span>
+                        <span class="icon_bar"></span>
+                        <span class="icon_bar"></span>
+                </button>
+                <a class="navbar_brand" href="#">Brand</a>
+            </div>
+            <div class="collapse navbar_collapse" id="">
+                <ul class="nav navbar_nav">
+                    <li class="active"><a href="#">Link <span class="sr_only">(current)</span></a></li>
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown clearfix">
+                        <a href="#" class="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown_menu"  style="display:">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                        
+                    </li>
+                    
+                </ul>
+                <form class="navbar_form navbar_left" role="search">
+                    <div class="form_group">
+                        <input type="text" class="form_control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn_default">Submit</button>
+                </form>
+                <ul class="nav navbar_nav navbar_right">
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown clearfix">
+                        <a href="#" class="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown_menu ">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+
+
+    <nav class="navbar navbar_default">
+        <div class="container_fluid">
+            <div class="navbar_header">
+                <button type="button" class="navbar_toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr_only">Toggle navigation</span>
+                        <span class="icon_bar"></span>
+                        <span class="icon_bar"></span>
+                        <span class="icon_bar"></span>
+                </button>
+                <a class="navbar_brand" href="#">Brand</a>
+            </div>
+            <div class="collapse navbar_collapse" id="">
+                <ul class="nav navbar_nav">
+                    <li class="active"><a href="#">Link <span class="sr_only">(current)</span></a></li>
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown clearfix">
+                        <a href="#" class="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown_menu"  style="display:">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                        
+                    </li>
+                    
+                </ul>
+                <ul class="nav navbar_nav navbar_right">
+                    <li class="dropdown clearfix">
+                        <a href="#" class="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown_menu ">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+
+
+    <h1>品牌图标</h1>
+    将导航条内放置品牌标志的地方替换为 <img> 元素即可展示自己的品牌图标。由于 .navbar_brand 已经被设置了内补（padding）和高度（height），你需要根据自己的情况添加一些 CSS 代码从而覆盖默认设置。
+    <br/>
+    <br/>
+    <nav class="navbar navbar_default">
+        <div class="navbar_header">
+          <a class="navbar_brand" href="#">
+            <img alt="Brand" width="20" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAA81BMVEX///9VPnxWPXxWPXxWPXxWPXxWPXxWPXz///9hSYT6+vuFc6BXPn37+vz8+/z9/f2LeqWMe6aOfqiTg6uXiK5bQ4BZQX9iS4VdRYFdRYJfSINuWI5vWY9xXJF0YJR3Y5Z4ZZd5ZZd6Z5h9apq0qcW1qsW1q8a6sMqpnLyrn76tocCvpMGwpMJoUoprVYxeRoJjS4abjLGilLemmbrDutDFvdLPx9nX0eDa1OLb1uPd1+Td2OXe2eXh3Ofj3+nk4Orl4evp5u7u7PLv7fPx7/T08vb08/f19Pf29Pj39vn6+fuEcZ9YP35aQn/8/P1ZQH5fR4PINAOdAAAAB3RSTlMAIWWOw/P002ipnAAAAPhJREFUeF6NldWOhEAUBRvtRsfdfd3d3e3/v2ZPmGSWZNPDqScqqaSBSy4CGJbtSi2ubRkiwXRkBo6ZdJIApeEwoWMIS1JYwuZCW7hc6ApJkgrr+T/eW1V9uKXS5I5GXAjW2VAV9KFfSfgJpk+w4yXhwoqwl5AIGwp4RPgdK3XNHD2ETYiwe6nUa18f5jYSxle4vulw7/EtoCdzvqkPv3bn7M0eYbc7xFPXzqCrRCgH0Hsm/IjgTSb04W0i7EGjz+xw+wR6oZ1MnJ9TWrtToEx+4QfcZJ5X6tnhw+nhvqebdVhZUJX/oFcKvaTotUcvUnY188ue/n38AunzPPE8yg7bAAAAAElFTkSuQmCC">
+          </a>
+        </div>
+      </nav>
+
+      <h1>表单</h1>
+      将表单放置于 .navbar_form 之内可以呈现很好的垂直对齐，并在较窄的视口（viewport）中呈现折叠状态。 使用对齐选项可以规定其在导航条上出现的位置。
+      <br/>
+      <br/>
+        <nav class="navbar navbar_default">
+            <div class="container_fluid">
+                <div class="navbar_header">
+                    <button type="button" class="navbar_toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false">
+                        <span class="sr_only">Toggle navigation</span>
+                        <span class="icon_bar"></span>
+                        <span class="icon_bar"></span>
+                        <span class="icon_bar"></span>
+                    </button>
+                    <a class="navbar_brand" href="#">Brand</a>
+                </div>
+                <div class="collapse navbar_collapse" id="bs-example-navbar-collapse-2">
+                    <form class="navbar_form navbar_left" role="search">
+                        <div class="form_group">
+                            <input type="text" class="form_control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn_default">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+
+        <h1>按钮</h1>
+        <nav class="navbar navbar_default">
+            <div class="container_fluid">
+                <div class="navbar_header">
+                    <button type="button" class="navbar_toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-3" aria-expanded="false">
+                        <span class="sr_only">Toggle navigation</span>
+                        <span class="icon_bar"></span>
+                        <span class="icon_bar"></span>
+                        <span class="icon_bar"></span>
+                    </button>
+                    <a class="navbar_brand" href="#">Brand</a>
+                </div>
+                <div class="collapse navbar_collapse" id="bs-example-navbar-collapse-3">
+                    <button type="button" class="btn btn_default navbar_btn">Sign in</button>
+                </div>
+            </div>
+        </nav>
+
+        <h1>文本</h1>
+        <nav class="navbar navbar_default">
+            <div class="container_fluid">
+                <div class="navbar_header">
+                    <button type="button" class="navbar_toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-4" aria-expanded="false">
+                        <span class="sr_only">Toggle navigation</span>
+                        <span class="icon_bar"></span>
+                        <span class="icon_bar"></span>
+                        <span class="icon_bar"></span>
+                    </button>
+                    <a class="navbar_brand" href="#">Brand</a>
+                </div>
+                <div class="collapse navbar_collapse" id="bs-example-navbar-collapse-4">
+                    <p class="navbar_text">Signed in as Mark Otto</p>
+                </div>
+            </div>
+        </nav>
+        <h1>非导航的链接</h1>
+        <nav class="navbar navbar_default">
+            <div class="container_fluid">
+                <div class="navbar_header">
+                    <button type="button" class="navbar_toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-5" aria-expanded="false">
+                        <span class="sr_only">Toggle navigation</span>
+                        <span class="icon_bar"></span>
+                        <span class="icon_bar"></span>
+                        <span class="icon_bar"></span>
+                    </button>
+                        <a class="navbar_brand" href="#">Brand</a>
+                </div>
+                <div class="collapse navbar_collapse  " id="bs-example-navbar-collapse-5">
+                    <p class="navbar_text navbar_right">Signed in as <a href="#" class="navbar_link">Mark Otto</a></p>
+                </div>
+            </div>
+        </nav>
+
+        <h1>组件排列</h1>
+        通过添加 .navbar_left 和 .navbar_right 工具类让导航链接、表单、按钮或文本对齐。两个类都会通过 CSS 设置特定方向的浮动样式。例如，要对齐导航链接，就要把它们放在个分开的、应用了工具类的 ul 标签里。
+这些类是 .left 和 .right 的 mixin 版本，但是他们被限定在了媒体查询（media query）中，这样可以更容易的在各种尺寸的屏幕上处理导航条组件。
+        <br/>
+        <br/>
+        <h1>固定在顶部</h1>
+        <div class="alert alert_success" role="alert">
+                指向顶部导航菜单
+        </div>
+        <div class="relative_example" >
+            <nav class="navbar navbar_default navbar_fixed_top">
+                <div class="container_fluid">
+                    <div class="navbar_header">
+                        <button type="button" class="navbar_toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6" aria-expanded="false">
+                            <span class="sr_only">Toggle navigation</span>
+                            <span class="icon_bar"></span>
+                            <span class="icon_bar"></span>
+                            <span class="icon_bar"></span>
+                        </button>
+                        <a class="navbar_brand" href="#">Brand</a>
+                    </div>
+
+                    <div class="collapse navbar_collapse" id="bs-example-navbar-collapse-6">
+                        <ul class="nav navbar_nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#">Link</a></li>
+                            <li><a href="#">Link</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <h1>固定在底部</h1>
+        <div class="alert alert_success" role="alert">
+                指向底部导航菜单
+        </div>
+        
+        <nav class="navbar navbar_default navbar_fixed_bottom">
+            <div class="container_fluid">
+                <div class="navbar_header">
+                    <button type="button" class="navbar_toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6" aria-expanded="false">
+                        <span class="sr_only">Toggle navigation</span>
+                        <span class="icon_bar"></span>
+                        <span class="icon_bar"></span>
+                        <span class="icon_bar"></span>
+                    </button>
+                    <a class="navbar_brand" href="#">Brand</a>
+                </div>
+
+                <div class="collapse navbar_collapse" id="bs-example-navbar-collapse-6">
+                    <ul class="nav navbar_nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <h1>静止在顶部</h1>
+        通过添加 .navbar_static_top 类即可创建一个与页面等宽度的导航条，它会随着页面向下滚动而消失。还可以包含一个 .container 或 .container_fluid 容器，用于将导航条居中对齐并在两侧添加内补（padding）。<br/><br/>
+
+通过添加 .navbar_static_top 类即可创建一个与页面等宽度的导航条，它会随着页面向下滚动而消失。还可以包含一个 .container 或 .container_fluid 容器，用于将导航条居中对齐并在两侧添加内补（padding）。
+<br/><br/>
+        <nav class="navbar navbar_default navbar_static_top">
+            <div class="container_fluid">
+                <div class="navbar_header">
+                    <button type="button" class="navbar_toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-8" aria-expanded="false">
+                        <span class="sr_only">Toggle navigation</span>
+                        <span class="icon_bar"></span>
+                        <span class="icon_bar"></span>
+                        <span class="icon_bar"></span>
+                    </button>
+                    <a class="navbar_brand" href="#">Brand</a>
+                </div>
+                <div class="collapse navbar_collapse" id="bs-example-navbar-collapse-8">
+                    <ul class="nav navbar_nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <h1>反色的导航条</h1>
+
+        通过添加 .navbar_inverse 类可以改变导航条的外观。
+        <br/>
+        <br/>
+        <nav class="navbar navbar_inverse">
+            <div class="container_fluid">
+                <div class="navbar_header">
+                    <button type="button" class="navbar_toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                        <span class="sr_only">Toggle navigation</span>
+                        <span class="icon_bar"></span>
+                        <span class="icon_bar"></span>
+                        <span class="icon_bar"></span>
+                    </button>
+                    <a class="navbar_brand" href="#">Brand</a>
+                </div>
+
+                <div class="collapse navbar_collapse" id="bs-example-navbar-collapse-9">
+                    <ul class="nav navbar_nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <h1>路径导航</h1>
+        在一个带有层次的导航结构中标明当前页面的位置。<br/><br/>
+
+各路径间的分隔符已经自动通过 CSS 的 :before 和 content 属性添加了。<br/><br/>
+        <ol class="breadcrumb">
+            <li class="active">Home</li>
+        </ol>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li class="active">Library</li>
+        </ol>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Library</a></li>
+            <li class="active">Data</li>
+        </ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="height:300px;"></div> 
+</body>
+</html>

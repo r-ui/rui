@@ -1,0 +1,135 @@
+/**   
+* @Title: 按钮样式
+* @Description: ${todo}(用一句话描述该文件做什么) 
+* @author name
+* @date 2015_10_19
+* @version V1.0   
+*/
+
+.btn
+    display inline-block
+    margin-bottom 0 
+    font-weight $btn_font_weight
+    text-align center
+    vertical-align middle
+    touch-action manipulation
+    cursor pointer
+    background-image none 
+    border 1px solid transparent
+    white-space nowrap
+    button-size($padding_base_vertical, $padding_base_horizontal, $font_size_base, $line_height_base, $btn_border_radius_base)
+    user-select none
+
+    &,
+    &:active,
+    &.active
+        &:focus,
+        &.focus
+            tab-focus()
+
+    &:hover,
+    &:focus,
+    &.focus
+        color $btn_default_color
+        text-decoration none
+
+    &:active,
+    &.active
+        outline 0
+        background-image none
+        box-shadow inset 0 8px 32px -8px rgba(0,0,0,0.3)
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] &
+        cursor $cursor-disabled
+        opacity .75
+        box-shadow none
+
+
+    a&
+        &.disabled,
+        fieldset[disabled] &
+            pointer-events none //标签“<a>”停止跳转
+
+// 备用按钮样式
+// --------------------------------------------------
+
+.btn_default
+    button-variant($btn_default_color, $btn_default_bg, $btn_default_border)
+
+.btn_primary
+    button-variant($btn_primary_color, $btn_primary_bg, $btn_primary_border)
+
+// 成功将显示为绿色
+.btn_success
+    button-variant($btn_success_color, $btn_success_bg, $btn_success_border)
+
+// 信息显示为 蓝色
+.btn_info
+    button-variant($btn_info_color, $btn_info_bg, $btn_info_border)
+
+// 警告显示为橘黄色
+.btn_warning
+    button-variant($btn_warning_color, $btn_warning_bg, $btn_warning_border)
+
+// 危险显示为红色
+.btn_danger
+    button-variant($btn_danger_color, $btn_danger_bg, $btn_danger_border)
+
+.btn_link
+    color $link_color
+    font-weight normal
+    border-radius 0
+    &,
+    &:active,
+    &.active,
+    &[disabled] &
+        background-color transparent
+        box-shadow none
+
+    &,
+    &:hover,
+    &:focus,
+    &:active
+        border-color transparent
+
+    &:hover,
+    &:focus
+        color $link_hover_color
+        text-decoration $link_hover_decoration
+        background-color transparent
+    &[disabled] &
+        &:hover,
+        &:focus
+            color $btn-link-disabled-color
+            text-decoration none
+
+
+// Button Sizes
+// --------------------------------------------------
+
+.btn_l
+    // 大号按钮
+    button-size($padding_large_vertical, $padding_large_horizontal, $font_size_large, $line_height_large, $btn_border_radius_large)
+
+.btn_s
+    // 小号按钮
+    button-size($padding_small_vertical, $padding_small_horizontal, $font_size_small, $line_height_small, $btn_border_radius_small)
+
+.btn_x 
+    // 特小号按钮
+    button-size($padding_xs_vertical, $padding_xs_horizontal, $font_size_small, $line_height_small, $btn_border_radius_small)
+
+
+// Block Button 
+// --------------------------------------------------
+
+// 按钮一行宽度100%展现
+.btn_block
+    display block
+    width 100%
+
+//兄弟按钮中间给间距
+.btn_block + .btn_block
+    margin-top 5px

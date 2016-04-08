@@ -1,0 +1,169 @@
+/**   
+* @Title: 表单样式 
+* @Description: ${todo}(表单样式) 
+* @author 徐锐
+* @date 2015-10-19
+* @version V1.0   
+*/
+
+
+//基本样式
+.input_group
+    position relative //下拉列表样式
+    display table
+    
+    //防止输入的组继承时放置在表中的表格单元格的边框样式
+    border-collapse separate 
+
+    //撤消填充和网格类浮动
+    &[class*="col_"]
+        float none
+        padding-left 0
+        padding-right 0
+
+    .form_control
+        position relative
+        z-index 2
+
+        float left
+
+        width 100%
+        margin-bottom 0
+
+
+.input_group_lg > .form_control,
+.input_group_lg > .input_group_addon,
+.input_group_lg > .input_group_btn > .btn
+    @extend .input_lg
+    
+.input_group_sm > .form_control,
+.input_group_sm > .input_group_addon,
+.input_group_sm > .input_group_btn > .btn
+    @extend .input_sm
+
+
+
+.input_group_addon,
+.input_group_btn,
+.input_group .form_control
+    display table-cell
+    &:not(:first-child):not(:last-child)
+        border-radius 0
+
+.input_group_addon,
+.input_group_btn
+    width:1%
+    white-space nowrap
+    vertical-align middle
+
+.input_group_addon
+    padding $padding_base_vertical $padding_base_horizontal
+    font-size $font_size_base
+    font-weight normal
+    line-height 1
+    color $input_color
+    text-align center
+    background-color $input_group_addon_bg
+    border 1px solid $input_group_addon_border_color
+    border-radius $border_radius_base
+      
+    &.input_sm
+        padding $padding_small_vertical $padding_small_horizontal
+        font-size $font_size_small
+        border-radius $border_radius_small
+    &.input_lg
+        padding $padding_large_vertical $padding_large_horizontal
+        font-size $font_size_large
+        border-radius $border_radius_large
+        border 1px solid red
+    
+    input[type="radio"],
+    input[type="checkbox"]
+        margin-top 0
+    .icon
+        font normal normal normal 14px  FontAwesome // shortening font declaration
+    
+
+.input_group .form_control:first-child,
+.input_group_addon:first-child,
+.input_group_btn:first-child > .btn,
+.input_group_btn:first-child > .btn_group > .btn,
+.input_group_btn:first-child > .dropdown_toggle,
+.input_group_btn:last-child > .btn:not(:last-child):not(.dropdown_toggle)
+.input_group_btn:last-child > .btn_group:not(:last-child) > .btn
+    border-right-radius(0)
+    
+
+.input_group .form_control:last-child,
+.input_group_addon:last-child,
+.input_group_btn:last-child > .btn,
+.input_group_btn:last-child > .btn_group > .btn,
+.input_group_btn:last-child > .dropdown_toggle,
+.input_group_btn:first-child > .btn:not(:first-child),
+.input_group_btn:first-child > .btn_group:not(:first-child) > .btn
+  border-left-radius(0)
+
+
+
+
+//重置圆角
+
+
+.input_group_addon:first-child
+    border-top-right-radius 0
+    border-bottom-right-radius 0
+
+
+.input_group_addon:first-child
+    border-right 0
+    
+
+
+
+
+
+.input_group_addon:last-child,
+.input_group .form_control:last-child
+    border-top-left-radius 0
+    border-bottom-left-radius 0
+
+.input_group_addon:last-child
+    border-left 0
+
+.input_group_btn
+    position relative
+    font-size 0
+    white-space nowrap
+    
+
+
+.input_group_btn
+    position relative
+    font-size 0
+    white-space nowrap
+    > .btn
+        position relative
+        + .btn
+            margin-left -1px
+        &:hover,
+        &:focus,
+        &:active
+            z-index 2
+          
+    &:first-child
+        > .btn,
+        > .btn_group
+            z-index 2
+            margin-right -2px
+
+    &:last-child
+        > .btn,
+        > .btn_group
+          margin-left -1px
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+
+table_row_variant($state, $background)
+    //精确选择器状态需要重写class类，防止继承了上级class
+    .table > thead > tr,
+    .table > tbody > tr,
+    .table > tfoot > tr
+        > td.{$state},
+        > th.{$state},
+        &.{$state} > td,
+        &.{$state} > th
+            background-color $background
+            
+    // 悬停状态 （不适用于内 thead 或 tfoot 单元格或行）
+    .table_hover > tbody > tr
+        > td.{$state}:hover,
+        > th.{$state}:hover,
+        &.{$state}:hover > td,
+        &:hover > .{$state},
+        &.{$state}:hover > th
+            background-color darken($background, 5%)
+

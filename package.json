@@ -1,0 +1,45 @@
+{
+  "name": "rui",
+  "version": "1.0.0",
+  "description": "hotpu ui",
+  "main": "rui.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-stylus": "^2.1.0",
+    "gulp-uglify": "^1.4.2",
+    "gulp-watch": "^4.3.5"
+  },
+
+ "name": "RUI",
+    "version": "0.0.1",
+    "description": "一套前端开发框架，视觉体验一致的基础样式库，借助开源力量为客服系统 Web 开发量身设计，可以令我们开发的系统使用感知更加统一。我们希望借助gulp加载正在使用的部分CSS代码。",
+    "keywords": [
+        "RUI"
+    ],
+    "homepage": "",
+    "author": "",
+    "repository": {
+        "type": "git",
+        "url": "http://gitlab.hotpu.cn:8010/FED/RUI"
+    },
+    "licenses": "MIT",
+    "idoc": {
+        "theme": "idoc-theme-rui",
+        "md": [
+            "首页.md",
+            "快速入门.md",
+            "基础框架.md",
+            "组件.md",
+            "javascript组件.md"
+        ]
+    }
+
+}
+   

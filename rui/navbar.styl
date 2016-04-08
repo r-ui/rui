@@ -1,0 +1,492 @@
+/**   
+* @Title: 导航位置 - 用一个带方向的层次表明当前页面的位置。
+* @Description: ${todo}(用一句话描述该文件做什么) 
+* @author 徐锐
+* @date 2015-10-19
+* @version V1.0   
+*/
+
+.navbar
+    position relative
+    
+    // 确保导航栏总是显示
+    min-height $navbar_height 
+    margin-bottom $navbar_margin_bottom
+    border 1px solid transparent
+
+    clearfix()
+
+    @media (min-width $grid_float_breakpoint)
+        border-radius $navbar_border_radius
+
+.navbar_header
+    clearfix()
+
+    @media (min-width $grid_float_breakpoint)
+        float left
+
+.navbar_collapse
+    overflow-x visible
+    padding-right $navbar_padding_horizontal
+    padding-left $navbar_padding_horizontal
+    border-top 1px solid transparent
+    box-shadow inset 0 1px 0 rgba(255, 255, 255, .1)
+    clearfix()
+    -webkit-overflow-scrolling touch
+
+    &.in
+        overflow-y auto
+
+    @media (min-width $grid_float_breakpoint)
+        width auto
+        border-top 0
+        box-shadow none
+        
+        &.collapse
+            display block !important
+            height auto !important
+            padding-bottom 0 
+            overflow visible !important
+            
+        
+        &.in
+            overflow-y visible
+        .navbar_fixed_top &,
+        .navbar_static_top &,
+        .navbar_fixed_bottom &
+            padding-left 0
+            padding-right 0
+
+
+.navbar_fixed_top,
+.navbar_fixed_bottom
+    .navbar_collapse
+        max-height $navbar_collapse_max_height
+
+        @media (max-device-width $screen_xs_min) and (orientation landscape)
+            max-height 200px
+
+.container,.container_fluid
+    > .navbar_header,
+    > .navbar_collapse
+        margin-right (-($navbar_padding_horizontal))
+        margin-left (-($navbar_padding_horizontal))
+
+        @media (min-width $grid_float_breakpoint)
+            margin-right 0
+            margin-left 0
+          
+.navbar_static_top
+    z-index $zindex_navbar
+    border-width 0 0 1px
+
+    @media (min-width $grid_float_breakpoint)
+        border-radius 0
+
+.navbar_fixed_top,
+.navbar_fixed_bottom
+    position fixed
+    right 0
+    left 0
+    z-index $zindex_navbar_fixed
+
+    // Undo the rounded corners
+    @media (min-width $grid_float_breakpoint)
+        border-radius 0
+    
+.navbar_fixed_top
+  top 0
+  border-width 0 0 1px
+
+.navbar_fixed_bottom
+  bottom 0
+  margin-bottom 0 // override .navbar defaults
+  border-width 1px 0 0
+  
+
+.navbar_brand
+    float left
+    padding $navbar_padding_vertical $navbar_padding_horizontal
+    font-size $font_size_large
+    line-height $line_height_computed
+    height $navbar_height
+
+    &:hover,
+    &:focus
+        text-decoration none
+
+    > img
+        display block
+
+    @media (min-width $grid_float_breakpoint)
+        .navbar > .container &,
+        .navbar > .container_fluid &
+            margin-left (-($navbar_padding_horizontal))
+
+.navbar_toggle
+    position relative
+    float right
+    margin-right $navbar_padding_horizontal
+    padding 9px 10px
+    navbar_vertical_align(34px)
+    background-color transparent
+    background-image none // Reset unusual Firefox-on-Android default style see https://github.com/necolas/normalize.css/issues/214
+    border 1px solid transparent
+    border-radius $border_radius_base
+
+    &:focus
+        outline 0
+
+    // Bars
+    .icon_bar
+        display block
+        width 22px
+        height 2px
+        border-radius 1px
+    .icon_bar + .icon_bar
+        margin-top 4px
+
+    @media (min-width $grid_float_breakpoint)
+        display none
+
+
+.navbar_nav
+    margin ($navbar_padding_vertical / 2) (-($navbar_padding_horizontal))
+
+    > li > a
+        padding-top 10px
+        padding-bottom 10px
+        line-height $line_height_computed
+
+    @media (max-width $grid_float_breakpoint_max)
+    // Dropdowns get custom display when collapsed
+        .open .dropdown_menu
+            position static
+            float none
+            width auto
+            margin-top 0
+            background-color transparent
+            border 0
+            box-shadow none
+            > li > a,
+            .dropdown_header
+                padding 5px 15px 5px 25px
+            > li > a
+                line-height $line_height_computed
+                &:hover,
+                &:focus
+                    background-image none
+
+    // Uncollapse the nav
+    @media (min-width $grid_float_breakpoint)
+        float left
+        margin 0
+
+        > li
+            float left
+            > a
+                padding-top $navbar_padding_vertical
+                padding-bottom $navbar_padding_vertical
+
+
+.navbar_form
+    margin-left (-($navbar_padding_horizontal))
+    margin-right (-($navbar_padding_horizontal))
+    padding 10px $navbar_padding_horizontal
+    border-top 1px solid transparent
+    border-bottom 1px solid transparent
+    box-shadow inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 0 rgba(255, 255, 255, .1)
+    @extend .form_inline
+
+    .form_group
+        @media (max-width $grid_float_breakpoint_max)
+            margin-bottom 5px
+
+            &:last-child
+                margin-bottom 0
+
+    navbar_vertical_align($input_height_base)
+
+  // Undo 100% width for pull classes
+.navbar_form
+    @media (min-width $grid_float_breakpoint)
+        width auto
+        border 0
+        margin-left 0
+        margin-right 0
+        padding-top 0
+        padding-bottom 0
+        box-shadow none
+
+.navbar_nav > li > .dropdown_menu
+    margin-top 0
+    border-top-radius(0)
+.navbar_fixed_bottom .navbar_nav > li > .dropdown_menu
+    margin-bottom 0
+    border-top-radius($navbar_border_radius)
+    border-bottom-radius(0)
+
+
+
+.navbar_btn
+    navbar_vertical_align($input_height_base)
+
+    &.btn_sm
+        navbar_vertical_align($input_height_small)
+    &.btn_xs
+        navbar_vertical_align(22)
+        
+.navbar_text
+    navbar_vertical_align($line_height_computed)
+
+    @media (min-width $grid_float_breakpoint)
+        float left
+        margin-left $navbar_padding_horizontal
+        margin-right $navbar_padding_horizontal
+
+
+@media (min-width $grid_float_breakpoint)
+    .navbar_left
+        float left !important
+
+    .navbar_right
+        float right !important
+        margin-right -($navbar_padding_horizontal)
+
+    ~ .navbar_right
+        margin-right 0
+
+
+
+//默认导航条
+.navbar_default
+    background-color $navbar_default_bg
+    border-color $navbar_default_border
+    
+    .navbar_brand
+        color $navbar_default_brand_color
+        &:hover,
+        &:focus
+            color $navbar_default_brand_hover_color
+            background-color $navbar_default_brand_hover_bg
+    
+    .navbar_text
+        color $navbar_default_color
+    
+    .navbar_nav
+        > li > a
+            color $navbar_default_link_color
+
+            &:hover,
+            &:focus
+                color $navbar_default_link_hover_color
+                background-color $navbar_default_link_hover_bg
+        
+        > .active > a
+            &,
+            &:hover,
+            &:focus
+                color $navbar_default_link_active_color
+                background-color $navbar_default_link_active_bg
+                
+
+        > .disabled > a
+            &,
+            &:hover,
+            &:focus
+                color $navbar_default_link_disabled_color
+                background-color $navbar_default_link_disabled_bg
+    .navbar_toggle
+        border-color $navbar_default_toggle_border_color
+        
+        &:hover,
+        &:focus
+            background-color $navbar_default_toggle_hover_bg
+        .icon_bar
+            background-color $navbar_default_toggle_icon_bar_bg
+            
+
+    .navbar_collapse,
+    .navbar_form
+        border-color $navbar_default_border
+        
+    .navbar_nav
+        > .open > a
+            &,
+            &:hover,
+            &:focus
+                background-color $navbar_default_link_active_bg
+                color $navbar_default_link_active_color
+        @media (max-width $grid_float_breakpoint_max)
+            .open .dropdown_menu
+                > .dropdown_header
+                    border-color $navbar_inverse_border
+                .divider
+                    background-color $navbar_inverse_border
+                > li > a
+                    color $navbar_default_link_color
+                    &:hover,
+                    &:focus
+                        color $navbar_default_link_hover_color
+                        background-color $navbar_default_link_hover_bg
+                > .active > a
+                    &,
+                    &:hover,
+                    &:focus
+                        color $navbar_default_link_active_color
+                        background-color $navbar_default_link_active_bg
+                > .disabled > a
+                    &,
+                    &:hover,
+                    &:focus
+                        color $navbar_default_link_disabled_color
+                        background-color $navbar_default_link_disabled_bg
+                    
+
+    .navbar_link
+        color $navbar_default_link_color
+
+        &:hover
+            color $navbar_default_link_hover_color
+
+    .btn_link
+        color $navbar_default_link_color
+
+        &:hover,
+        &:focus
+            color $navbar_default_link_hover_color
+
+        &[disabled],
+        fieldset[disabled] &
+        &:hover,
+        &:focus
+            color $navbar_default_link_disabled_color
+
+
+// 设置导航颜色
+.navbar_inverse
+    background-color $navbar_inverse_bg
+    border-color $navbar_inverse_border
+    
+    .navbar_brand
+        color $navbar_inverse_brand_color
+        &:hover,
+        &:focus
+            color $navbar_inverse_brand_hover_color
+            background-color $navbar_inverse_brand_hover_bg
+    
+    .navbar_text
+        color $navbar_inverse_color
+    
+    .navbar_nav
+        > li > a
+            color $navbar_inverse_link_color
+
+            &:hover,
+            &:focus
+                color $navbar_inverse_link_hover_color
+                background-color $navbar_inverse_link_hover_bg
+        
+        > .active > a
+            &,
+            &:hover,
+            &:focus
+                color $navbar_inverse_link_active_color
+                background-color $navbar_inverse_link_active_bg
+                
+
+        > .disabled > a
+            &,
+            &:hover,
+            &:focus
+                color $navbar_inverse_link_disabled_color
+                background-color $navbar_inverse_link_disabled_bg
+    .navbar_toggle
+        border-color $navbar_inverse_toggle_border_color
+        
+        &:hover,
+        &:focus
+            background-color $navbar_inverse_toggle_hover_bg
+        .icon_bar
+            background-color $navbar_inverse_toggle_icon_bar_bg
+            
+
+    .navbar_collapse,
+    .navbar_form
+        border-color darken($navbar_inverse_bg, 10%)
+        
+    .navbar_nav
+        > .open > a
+            &,
+            &:hover,
+            &:focus
+                background-color $navbar_inverse_link_active_bg
+                color $navbar_inverse_link_active_color
+        @media (max-width $grid_float_breakpoint_max)
+            .open .dropdown_menu
+                > .dropdown_header
+                    border-color $navbar_inverse_border
+                .divider
+                    background-color $navbar_inverse_border
+                > li > a
+                    color $navbar_inverse_link_color
+                    &:hover,
+                    &:focus
+                        color $navbar_inverse_link_hover_color
+                        background-color $navbar_inverse_link_hover_bg
+                > .active > a
+                    &,
+                    &:hover,
+                    &:focus
+                        color $navbar_inverse_link_active_color
+                        background-color $navbar_inverse_link_active_bg
+                > .disabled > a
+                    &,
+                    &:hover,
+                    &:focus
+                        color $navbar_inverse_link_disabled_color
+                        background-color $navbar_inverse_link_disabled_bg
+                    
+
+    .navbar_link
+        color $navbar_inverse_link_color
+
+        &:hover
+            color $navbar_inverse_link_hover_color
+
+    .btn_link
+        color $navbar_inverse_link_color
+
+        &:hover,
+        &:focus
+            color $navbar_inverse_link_hover_color
+
+        &[disabled],
+        fieldset[disabled] &
+        &:hover,
+        &:focus
+            color $navbar_inverse_link_disabled_color
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

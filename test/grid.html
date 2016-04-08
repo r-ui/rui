@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>样式</title>
+    <link rel="stylesheet" type="text/css" href="css/rui.all.min.css">
+</head>
+<body>
+<style type="text/css">
+ h1{font-size: 20px;font-weight: bold;}    
+ .show_grid{margin-bottom:15px}
+ .show_grid [class^=col_]{padding-top:10px;padding-bottom:10px;background-color:#eee;background-color:rgba(180,180,180,.5);border:1px solid #ddd;border:1px solid rgba(86,61,124,.2)}
+</style>
+
+<div class="container">
+        <br/>
+        <h1>12等分-列布局</h1>
+        <br/>
+        <div class="row show_grid">
+                <div class="col_md_1">.col_md_1</div>
+                <div class="col_md_1">.col_md_1</div>
+                <div class="col_md_1">.col_md_1</div>
+                <div class="col_md_1">.col_md_1</div>
+                <div class="col_md_1">.col_md_1</div>
+                <div class="col_md_1">.col_md_1</div>
+                <div class="col_md_1">.col_md_1</div>
+                <div class="col_md_1">.col_md_1</div>
+                <div class="col_md_1">.col_md_1</div>
+                <div class="col_md_1">.col_md_1</div>
+                <div class="col_md_1">.col_md_1</div>
+                <div class="col_md_1">.col_md_1</div>
+        </div>
+        <br/>
+        <h1>3等分-列布局</h1>
+        <br/>
+        <div class="row show_grid">
+                <div class="col_md_4">.col_md_4</div>
+                <div class="col_md_4">.col_md_4</div>
+                <div class="col_md_4">.col_md_4</div>
+        </div>
+        <br/>
+        <h1>4等分-列布局</h1>
+        <br/>
+        <div class="row show_grid">
+                <div class="col_sm_3">.col_sm_3</div>
+                <div class="col_sm_3">.col_sm_3</div>
+                <div class="col_sm_3">.col_sm_3</div>
+                <div class="col_sm_3">.col_sm_3</div>
+        </div>
+        <br/>
+        <h1>3-9分-列布局</h1>
+        <br/>
+        <div class="row show_grid">
+                <div class="col_lg_3">.col_lg_3</div>
+                <div class="col_lg_9">.col_lg_9</div>
+        </div>
+        <br/>
+        <h1>9-3分-列布局</h1>
+        <br/>
+        <div class="row show_grid">
+                <div class="col_xs_9">.col_xs_9</div>
+                <div class="col_xs_3">.col_xs_3</div>
+        </div>
+        <br/>
+        <h1>8-4分-列布局</h1>
+        <br/>
+        <div class="row show_grid">
+                <div class="col_xs_12 col_md_8">.col_xs_12 .col_md_8</div>
+                <div class="col_xs_6 col_md_4">.col_xs_6 .col_md_4</div>
+        </div>
+        <br/>
+        <h1>大于12列布局</h1>
+        <br/>
+        .row 内包含的列大于12个，包含多余列的元素将作为一个整体单元被另起一行排列。
+        <br/>
+        <br/>
+        <div class="row show_grid">
+                <div class="col_xs_9">.col_xs_9</div>
+                <div class="col_xs_4">.col_xs_4<br>当列大于12的时候，会重新换到新的一行作为一个连续单元</div>
+                <div class="col_xs_8">.col_xs_8<br>后面的列继续沿着前面的列</div>
+        </div>
+
+
+        <br/>
+        <h1>列偏移</h1>
+        <br/>
+        通过 offset 将列向右偏移
+        <br/>
+        <br/>
+        <div class="row show_grid">
+                <div class="col_md_4">.col_md_4</div>
+                <div class="col_md_4 col_md_offset_4">.col_md_4 .col_md_offset_4</div>
+        </div>
+        <div class="row show_grid">
+                <div class="col_md_3 col_md_offset_3">.col_md_3 .col_md_offset_3</div>
+                <div class="col_md_3 col_md_offset_3">.col_md_3 .col_md_offset_3</div>
+        </div>
+        <div class="row show_grid">
+                <div class="col_md_6 col_md_offset_3">.col_md_6 .col_md_offset_3</div>
+        </div>
+
+        <br/>
+        <h1>列嵌套</h1>
+        <br/>
+        栅格内将内容再次嵌套，需添加一个新的 .row 元素，被嵌套的行所包含的列的个数不能超过12
+        <br/>
+        <br/>
+        <div class="row show_grid">
+                <div class="col_sm_10">
+                层 1: .col_sm_10
+                        <div class="row">
+                                <div class="col_xs_8 col_sm_6">
+                                层 2: .col_xs_8 .col_sm_6
+                                </div>
+                                <div class="col_xs_4 col_sm_6">
+                                层 2: .col_xs_4 .col_sm_6
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <br/>
+        <h1>列排序</h1>
+        <br/>
+        通过使用 .col-md-push-* 和 .col-md-pull-* 就可以很容易的改变列的顺序。
+        <br/>
+        <br/>
+        <div class="row show_grid">
+                <div class="col_md_9 col_md_push_3">.col_md_9 .col_md_push_3</div>
+                <div class="col_md_3 col_md_pull_9">.col_md_3 .col_md_pull_9</div>
+        </div>
+</div>
+
+</body>
+</html>

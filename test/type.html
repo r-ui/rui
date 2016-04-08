@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>排版</title>
+    <link rel="stylesheet" type="text/css" href="css/rui.all.min.css">
+	<style type="text/css">
+    ul, ol{margin:0 0 0 25px;}
+    ul{ list-style: disc;}
+    ol{list-style:decimal;}
+    ul ul, ol ul{ list-style: circle;}
+    dl{margin-bottom: 0;}
+    cite{ font-style: italic;}
+    strong{ font-weight: 700;}
+    em{ font-style:italic;}
+	</style>
+</head>
+<body>
+<div class="container">
+<br/>
+    <h2>标题</h2>
+	<h1>h1标题</h1>
+	<h2>h2标题</h2>
+	<h3>h3标题</h3>
+	<h4>h4标题</h4>
+	<h5>h5标题</h5>
+	<h6>h6标题</h6>
+ <br />
+  
+    <h2>标题内嵌入small标签</h2>
+	<h1>h1标题<small>RUI文本</small></h1>
+	<h2>h2标题<small>RUI文本</small></h2>
+	<h3>h3标题<small>RUI文本</small></h3>
+	<h4>h4标题<small>RUI文本</small></h4>
+	<h5>h5标题<small>RUI文本</small></h5>
+	<h6>h6标题<small>RUI文本</small></h6>
+<br/>
+
+    <h2>标题内赋予.small类的元素</h2>
+    <h1>h1标题<span class="small">RUI文本</span></h1>
+    <h2>h2标题<a class="small">RUI文本</a></h2>
+    <h3>h3标题<div class="small">RUI文本</div></h3>
+    <h4>h4标题<i class="small">RUI文本</i></h4>
+    <h5>h5标题<p class="small">RUI文本</p></h5>
+    <h6>h6标题<strong class="small">RUI文本</strong></h6>
+<br/>
+
+    <h2>页面主体</h2>
+    <p>一套前端开发框架，视觉体验一致的基础样式库，由热璞前端团队为客服系统 Web 开发量身设计，可以令我们开发的系统使用感知更加统一。包含button、cell、dialog、toast、article、icon等各式元素。</p>
+<br/>
+
+    <h2>中心内容</h2>
+    <p class="lead">在你写的 styl 文件中，引用一下 index.styl 就，可以使用 RUI 的工具了，在HTML中就可以使用 RUI 样式了。</p>  
+<br/>
+
+    <h2>内联文本元素</h2>
+    <p>您可以使用该商标标记<mark>亮点</mark>文本。</p>
+<br/>
+    
+    <h2>.mark类的文本元素</h2>
+    <p class="mark">您可以使用该商标标记</p>
+<br/>
+
+    <h2>被删除的文本</h2> 
+    <del>这行文字是为了被视为已删除的文字</del>
+<br/>
+
+    <h2>无用文本</h2>
+    <s>这行文字是为了被视为不再使用。</s> 
+<br/>
+
+    <h2>插入文本</h2>
+    <ins>这行文字是为了被视为额外插入的文件。</ins>
+<br/>
+
+    <h2>带下划线的文本</h2>   
+    <u>这行文字将呈现为下划线</u> 
+<br/>
+
+    <h2>小号文本</h2>
+    <small>这行文字是为了被视为小字。</small> 
+<br/> 
+     
+    <h2>行内元素赋予.small类的样式</h2>
+    <span class="small">这行文字是为了被视为小字。</span>
+<br/>
+
+    <h2>着重</h2> 
+    <strong>呈现为粗体文本</strong>
+<br/> 
+
+    <h2>斜体</h2>
+    <em>呈现为斜体</em> 
+<br/>
+
+    <h2>对齐</h2>
+    <p class="text_left">左对齐的文本。</p>
+	<p class="text_center">居中文本。</p>
+	<p class="text_right">右对齐文本。</p>
+	<p class="text_justify">对齐文本。</p>
+	<p class="text_nowrap">没用包裹的文字。</p>
+<br/>
+
+    <h2>改变大小写</h2>
+    <p class="text_lowerccase">lowercased text.</p>
+    <p class="text_uppercased">uppercased text.</p>
+    <p class="text_uapitalized">capitalized text.</p>	
+<br/>
+
+    <h2>状态</h2>
+    <p class="muted">默认默认</p>
+    <p class="text_primary bg_primary">首选项（primary）</p>
+    <p class="text_warning bg_warning">警告（warning）警告（warning）</p>
+    <p class="text_danger bg_danger">报错（error）报错（error）</p>
+    <p class="text_info bg_info">一般信息（info）一般信息（info）</p>
+    <p class="text_success bg_success">成功（success）成功（success）</p>
+<br/>  
+
+    <h2>缩略语</h2>
+    <abbr title="attribute">attr</abbr>
+<br/>
+
+    <h2>首写母缩略语</h2>
+    <abbr title="HyperText Markup Language" class="initialism">HTML</abbr>  
+<br/>
+
+    <h2>地址</h2>
+    <address>
+     	<strong>热璞科技</strong>
+     	上海市，青浦区，徐泾镇<br/>
+     	盈港东路2075弄1号<br/>
+     	<abbr title="Phone">P:</abbr>(021) 6155-9355
+     </address>  
+<br/>
+
+    <h2>引用</h2>
+    <blockquote>
+    	<p>引用文本引用文本引用文本引用文本</p>
+    </blockquote>
+<br/>
+
+    <h2>引用字段嵌入footer标签及cite标签</h2>
+    <blockquote>
+    	<p>引用字段引用字段引用字段引用字段</p>
+        <footer>用于标明引用来源。来源的名称可以包裹进cite标签内<cite titile="source title">source title</cite></footer>
+    </blockquote>
+<br/>
+
+    <h2>引用字段嵌入small标签</h2> 
+    <blockquote>
+        <small>引用字段引用字段引用字段引用字段</small>
+    </blockquote>
+<br/>
+
+    <h2>引用字段嵌入.small类</h2>
+    <blockquote>
+        <p class="small">引用字段引用字段引用字段引用字段</p>
+    </blockquote>
+<br/>
+
+    <h2>引用字段嵌入ul标签</h2>
+    <blockquote>
+        <ul>
+            <li>这是个引用字段</li>
+            <li>这是个引用字段</li>
+            <li>这是个引用字段</li>
+        </ul>
+    </blockquote>
+<br/>
+
+    <h2>引用字段嵌入ol标签</h2>
+    <blockquote>
+        <ol>
+            <li>这是个引用字段</li>
+            <li>这是个引用字段</li>
+            <li>这是个引用字段</li>
+        </ol>
+    </blockquote>
+<br/>
+
+    <h2>嵌入footer标签及cite标签，右对齐</h2>
+    <blockquote class="blockquote_reverse">
+    	<p>引用字段引用字段引用字段引用字段引用字段引用字段引用字段引用字段</p>
+        <footer>用于标明引用来源。来源的名称可以包裹进cite标签内<cite>source title</cite></footer>
+    </blockquote>   
+<br/>
+
+    <h2>引用字段嵌入small标签， 右对齐</h2>
+    <blockquote class="blockquote_reverse">
+        <small>引用字段引用字段引用字段引用字段引用字段引用字段引用字段引用字段</small>
+    </blockquote>
+<br/> 
+
+    <h2>引用字段嵌入.small类,右对齐</h2>
+    <blockquote class="blockquote_reverse">
+        <span class="small">引用字段引用字段引用字段引用字段引用字段引用字段引用字段引用字段</span>
+    </blockquote>
+<br/>
+
+    <h2>无序列表</h2>
+    <ul>
+    	<li>项目一</li>
+        <li>项目二</li>
+        <li>项目三
+             <ul>
+                 <li>项目一</li>
+                 <li>项目一</li>
+                 <li>项目一</li>
+                 <li>项目一</li>
+             </ul>
+        </li>
+        <li>项目四</li>
+    </ul>  
+<br/>
+
+    <h2>有序列表</h2>
+    <ol>
+    	<li>项目一</li>
+        <li>项目二</li>
+        <li>项目三</li>
+        <li>项目四</li>
+    </ol>
+<br/>
+
+    <h2>无样式列表</h2>
+    <ul class="list_unstyled">
+    	<li>项目一</li>
+        <li>项目二
+            <ul>
+                <li>项目一</li>
+                <li>项目一</li>
+                <li>项目一</li>
+            </ul>
+        </li>
+        <li>项目三</li>
+        <li>项目四</li>
+    </ul>
+<br/>
+
+    <h2>内联列表</h2>
+    <ul class="list_inline">
+    	<li>项目一</li>
+        <li>项目二</li>
+        <li>项目三</li>
+        <li>项目四</li>
+    </ul>
+<br/>
+    
+    <h2>描述</h2>
+    <dl>
+    	<dt>说明列表</dt>
+    	<dd>说明列表是完美的定义条款。</dd>
+    </dl>
+    <dl>
+        <dt>说明列表</dt>
+        <dd>说明列表是完美的定义条款。</dd>
+    </dl>
+<br/>
+
+    <h2>水平排列的描述</h2>
+    <dl class="dl_horizontal">
+        <dt>说明列表</dt>
+        <dd>说明列表是完美的定义条款。</dd>
+    </dl>
+    <dl class="dl_horizontal">
+        <dt>说明列表</dt>
+        <dd>说明列表是完美的定义条款。</dd>
+    </dl>
+
+</div>	
+</body>
+</html>

@@ -1,0 +1,170 @@
+/**   
+* @Title: 导航位置 - 用一个带方向的层次表明当前页面的位置。
+* @Description: ${todo}(用一句话描述该文件做什么) 
+* @author 徐锐
+* @date 2015-10-19
+* @version V1.0   
+*/
+
+
+.nav
+    margin-bottom 0
+    padding-left 0
+    list-style none
+    clearfix()
+    > li
+        position relative
+        display block
+        > a
+            position relative
+            display block
+            padding $nav_link_padding
+            &:hover,
+            &:focus
+                text-decoration none
+                background-color $nav_link_hover_bg
+                
+        //禁用状态 设置文本颜色 鼠标悬停状态
+            
+        &.disabled > a
+            color $nav_disabled_link_color
+            &:hover,
+            &:focus
+                color $nav_disabled_link_hover_color
+                text-decoration none
+                background-color transparent
+                cursor $cursor_disabled
+    
+    .open > a
+        &,
+        &:hover,
+        &:focus
+            background-color $nav_link_hover_bg
+            border-color $link_color
+    
+    .nav_divider
+        nav_divider()
+    > li > a > img
+        max-width none
+     
+
+//.nav_tabs
+
+.nav_tabs
+    border-bottom 1px solid $nav_tabs_border_color
+    >li
+        float left
+        margin-bottom -1px
+        > a
+            margin-right 2px
+            line-height $line_height_base
+            border 1px solid transparent
+            border-radius $border_radius_base $border_radius_base 0 0
+            &:hover
+                border-color $nav_tabs_link_border_color $nav_tabs_link_border_color $nav_tabs_border_color
+        &.active > a
+            &,
+            &:hover,
+            &:focus
+                color $nav_tabs_active_link_hover_color
+                background-color $nav_tabs_active_link_hover_bg
+                border 1px solid $nav_tabs_active_link_hover_border_color
+                border-bottom-color transparent
+                cursor default
+        
+
+
+
+// .nav_pills
+
+.nav_pills
+    > li
+        float left
+        > a
+            border-radius $nav_pills_border_radius
+        + li
+            margin-left 2px
+        &.active > a
+            &,
+            &:hover,
+            &:focus
+                color $nav_pills_active_link_hover_color
+                background-color $nav_pills_active_link_hover_bg
+
+// .nav_stacked
+
+.nav_stacked
+    > li
+        float none
+        + li
+            margin-top 2px
+            margin-left 0
+
+
+// .nav_justified
+
+.nav_justified
+    width 100%
+    > li
+        float none
+        > a
+            text-align center
+            margin-bottom 5px
+    
+    > .dropdown .dropdown_menu
+        top auto
+        left auto
+    @media (min-width $screen_sm_min)
+        > li
+            display table-cell
+            width 1%
+
+            > a
+                margin-bottom 0
+
+.nav_tabs_justified
+    border-bottom 0
+    > li > a
+        margin-right 0
+        border-radius $border_radius_base
+    > .active > a,
+    > .active > a:hover,
+    > .active > a:focus
+        border 1px solid $nav_tabs_justified_link_border_color
+    
+    @media (min-width $screen_sm_min)
+        > li > a
+            border-bottom 1px solid $nav_tabs_justified_link_border_color
+            border-radius $border_radius_base $border_radius_base 0 0
+    > .active > a,
+    > .active > a:hover,
+    > .active > a:focus
+        border-bottom-color $nav_tabs_justified_active_link_border_color
+
+.nav_tabs.nav_justified
+    @extend .nav_justified
+    @extend .nav_tabs_justified
+
+.tab_content
+    > .tab_pane
+        display none
+
+    > .active
+        display block
+
+.nav_tabs .dropdown_menu
+    margin-top -1px
+    border-top-radius(0)
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,128 @@
+
+//container 容器宽度调用variables($grid_gutter_width)变量
+container_fixed($gutter = $grid_gutter_width)
+    margin-right auto
+    margin-left auto
+    padding-left ($gutter / 2)
+    padding-right ($gutter / 2)
+    clearfix()
+    
+
+make_row($gutter = $grid_gutter_width)
+    margin-left ceil($gutter / -2)
+    margin-right floor($gutter / -2)
+    clearfix()
+    
+
+
+// $grid_gutter_width 列边距 ==>  variables 变量 
+
+
+// 超小屏幕（手机，小于 768px）列宽自动   percentage＝百分比
+make_xs_column($columns, $gutter = $grid_gutter_width)
+    position relative
+    float left
+    width percentage(($columns / $grid_columns))
+    min-height 1px
+    padding-left ($gutter / 2)
+    padding-right ($gutter / 2)
+
+make_xs_column_offset($columns)
+    //列偏移
+    margin-left percentage(($columns / $grid_columns))
+
+make_xs_column_push($columns)
+    //列右排序
+    left percentage(($columns / $grid_columns))
+
+make_xs_column_pull($columns)
+    //列左排序
+    right percentage(($columns / $grid_columns))
+    
+// 超小屏幕（手机，小于 768px）列宽 end
+
+
+
+
+// 小屏幕栅格列宽   percentage＝百分比
+make_sm_column($columns, $gutter = $grid_gutter_width)
+    position relative
+    min-height 1px
+    padding-left ($gutter / 2)
+    padding-right ($gutter / 2)
+
+    @media (min-width $screen_sm_min)
+        float left
+        width percentage(($columns / $grid_columns))
+
+make_sm_column_offset($columns)
+    //列偏移
+    @media (min-width $screen_sm_min)
+        margin-left percentage(($columns / $grid_columns))
+
+make_sm_column_push($columns)
+    //列右排序
+    @media (min-width $screen_sm_min)
+        left percentage(($columns / $grid_columns))
+
+make_sm_column_pull($columns)
+    //列左排序
+    @media (min-width $screen_sm_min)
+        right percentage(($columns / $grid_columns))
+
+// 小屏幕栅格列宽  end
+
+
+
+
+//** 中等屏幕栅格列宽（桌面显示器，大于等于 992px）
+make_md_column($columns, $gutter = $grid_gutter_width)
+    position relative
+    min-height 1px
+    padding-left ($gutter / 2)
+    padding-right ($gutter / 2)
+
+    @media (min-width $screen_md_min)
+        float left
+        width percentage(($columns / $grid_columns))
+
+make_md_column_offset($columns)
+    @media (min-width $screen_md_min)
+        margin-left percentage(($columns / $grid_columns))
+
+make_md_column_push($columns)
+    @media (min-width $screen_md_min)
+        left percentage(($columns / $grid_columns))
+
+make_md_column_pull($columns)
+    @media (min-width $screen_md_min)
+        right percentage(($columns / $grid_columns))
+
+//** 中等屏幕栅格列宽 end（桌面显示器，大于等于 992px）
+
+
+
+//** 大屏幕栅格列宽（大桌面显示器，大于等于 1200px）
+make_lg_column($columns, $gutter = $grid_gutter_width)
+    position relative
+    min-height 1px
+    padding-left ($gutter / 2)
+    padding-right ($gutter / 2)
+
+    @media (min-width $screen_lg_min)
+        float left
+        width percentage(($columns / $grid_columns))
+
+make_lg_column_offset($columns)
+    @media (min-width $screen_lg_min)
+        margin-left percentage(($columns / $grid_columns))
+
+make_lg_column_push($columns)
+    @media (min-width $screen_lg_min)
+        left percentage(($columns / $grid_columns))
+
+make_lg_column_pull($columns)
+    @media (min-width $screen_lg_min)
+        right percentage(($columns / $grid_columns))
+
+//** 大屏幕栅格列宽 end（大桌面显示器，大于等于 1200px）

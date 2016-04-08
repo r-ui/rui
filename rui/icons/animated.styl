@@ -1,0 +1,27 @@
+// Animated Icons
+// --------------------------
+
+.{$icon-css-prefix}-spin 
+    animation icon-spin 2s infinite linear
+
+
+.{$icon-css-prefix}-pulse 
+    animation icon-spin 1s infinite steps(8)
+
+
+@-webkit-keyframes icon-spin 
+    0% 
+        transform: rotate(0deg)
+  
+    100% 
+        transform: rotate(359deg)
+  
+
+
+@keyframes icon-spin 
+    0% 
+        transform: rotate(0deg)
+
+    100% 
+        transform: rotate(359deg)
+

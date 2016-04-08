@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出层</title>
+    <link rel="stylesheet" type="text/css" href="../dist/css/rui.all.min.css">
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/modal.js"></script>
+    <script type="text/javascript" src="../js/transition.js"></script>
+
+</head>
+<style type="text/css">
+    body{position:relative;}
+    .btn{margin-bottom: 5px;}
+    .alert{margin-top: 50px;}
+</style>
+<script type="text/javascript">
+//     $(function (){ 
+// $('#myModal').modal('toggle');
+//     })
+</script>
+<body>
+<br/>
+<br/>
+<br/>
+<div class="container">
+<h1>默认弹出层样式</h1>
+    <button type="button" class="btn btn_primary btn_lg js_name" data-toggle="modal" data-target="#myModal">
+    弹出层
+    </button>
+
+
+    <div class="modal fade "  id="myModal" tabindex="-1" role="dialog" >
+        <div class="modal_dialog" >
+            <div class="modal_content">
+                <div class="modal_header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal_title">标题</h4>
+                </div>
+                <div class="modal_body">
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                    内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容<br/>
+                </div>
+                <div class="modal_footer">
+                    <button type="button" class="btn btn_default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn_primary">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<button type="button" class="btn btn_primary" data-toggle="modal" data-target="#size_l">大尺寸</button>
+
+<div class="modal fade " id="size_l" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" >
+    <div class="modal_dialog modal_l">
+        <div class="modal_content">
+
+            <div class="modal_header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal_title" id="myLargeModalLabel">标题</h4>
+            </div>
+            <div class="modal_body">
+            ...
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn_primary" data-toggle="modal"  data-target="#size_s">小尺寸</button>
+
+<div class="modal fade" id="size_s" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" >
+    <div class="modal_dialog modal_s">
+        <div class="modal_content">
+
+            <div class="modal_header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal_title" id="myLargeModalLabel">标题</h4>
+            </div>
+            <div class="modal_body">
+            ...
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<br/>
+<br/>
+
+<h1>css3动画样式</h1>
+
+<button type="button" class="btn btn_primary btn_lg js_name" data-toggle="modal" data-target="#Modal1">bounceIn/bounceOut</button>
+<div class="modal"  data-easein="bounceIn" data-easeout="bounceOut" id="Modal1" tabindex="-1" role="dialog" >
+    <div class="modal_dialog" >
+        <div class="modal_content">
+            <div class="modal_header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal_title">标题</h4>
+            </div>
+            <div class="modal_body">
+                内容
+            </div>
+            <div class="modal_footer">
+                <button type="button" class="btn btn_default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn_primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn_primary btn_lg js_name" data-toggle="modal" data-target="#Modal2">bounceInDown/bounceOutDown</button>
+<div class="modal"  data-easein="bounceInDown" data-easeout="bounceOutDown" id="Modal2" tabindex="-1" role="dialog" >
+    <div class="modal_dialog" >
+        <div class="modal_content">
+            <div class="modal_header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal_title">标题</h4>
+            </div>
+            <div class="modal_body">
+                内容
+            </div>
+            <div class="modal_footer">
+                <button type="button" class="btn btn_default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn_primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn_primary btn_lg js_name" data-toggle="modal" data-target="#Modal3">bounceInLeft/bounceOutLeft</button>
+<div class="modal"  data-easein="bounceInLeft" data-easeout="bounceOutLeft" id="Modal3" tabindex="-1" role="dialog" >
+    <div class="modal_dialog" >
+        <div class="modal_content">
+            <div class="modal_header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal_title">标题</h4>
+            </div>
+            <div class="modal_body">
+                内容
+            </div>
+            <div class="modal_footer">
+                <button type="button" class="btn btn_default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn_primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn_primary btn_lg js_name" data-toggle="modal" data-target="#Modal4">bounceInRight/bounceOutRight</button>
+<div class="modal"  data-easein="bounceInRight" data-easeout="bounceOutRight" id="Modal4" tabindex="-1" role="dialog" >
+    <div class="modal_dialog" >
+        <div class="modal_content">
+            <div class="modal_header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal_title">标题</h4>
+            </div>
+            <div class="modal_body">
+                内容
+            </div>
+            <div class="modal_footer">
+                <button type="button" class="btn btn_default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn_primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn_primary btn_lg js_name" data-toggle="modal" data-target="#Modal5">fadeInUpBig/fadeOutRightBig</button>
+<div class="modal"  data-easein="fadeInUpBig" data-easeout="fadeOutRightBig" id="Modal5" tabindex="-1" role="dialog" >
+    <div class="modal_dialog" >
+        <div class="modal_content">
+            <div class="modal_header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal_title">标题</h4>
+            </div>
+            <div class="modal_body">
+                内容
+            </div>
+            <div class="modal_footer">
+                <button type="button" class="btn btn_default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn_primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<button type="button" class="btn btn_primary btn_lg js_name" data-toggle="modal" data-target="#Modal6">flip/flipOutX</button>
+<div class="modal"  data-easein="flip" data-easeout="flipOutX" id="Modal6" tabindex="-1" role="dialog" >
+    <div class="modal_dialog" >
+        <div class="modal_content">
+            <div class="modal_header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal_title">标题</h4>
+            </div>
+            <div class="modal_body">
+                内容
+            </div>
+            <div class="modal_footer">
+                <button type="button" class="btn btn_default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn_primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<button type="button" class="btn btn_primary btn_lg js_name" data-toggle="modal" data-target="#Modal7">flipInX/flipOutX</button>
+<div class="modal"  data-easein="flipInX" data-easeout="flipOutX" id="Modal7" tabindex="-1" role="dialog" >
+    <div class="modal_dialog" >
+        <div class="modal_content">
+            <div class="modal_header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal_title">标题</h4>
+            </div>
+            <div class="modal_body">
+                内容
+            </div>
+            <div class="modal_footer">
+                <button type="button" class="btn btn_default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn_primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<button type="button" class="btn btn_primary btn_lg js_name" data-toggle="modal" data-target="#Modal8">lightSpeedIn/lightSpeedOut</button>
+<div class="modal"  data-easein="lightSpeedIn" data-easeout="lightSpeedOut" id="Modal8" tabindex="-1" role="dialog" >
+    <div class="modal_dialog" >
+        <div class="modal_content">
+            <div class="modal_header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal_title">标题</h4>
+            </div>
+            <div class="modal_body">
+                内容
+            </div>
+            <div class="modal_footer">
+                <button type="button" class="btn btn_default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn_primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert_success" role="alert">更多使用方法 请参考说明文档！            </div>
+
+
+
+
+
+<br/>
+<br/>
+<h1>基于触发按钮改变弹出层内容</h1>
+
+<button type="button" class="btn btn_primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+<button type="button" class="btn btn_primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
+<button type="button" class="btn btn_primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@get">Open modal for @get</button>
+...more buttons...
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal_dialog" role="document">
+    <div class="modal_content">
+      <div class="modal_header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal_title" id="exampleModalLabel">New message</h4>
+      </div>
+      <div class="modal_body">
+        <form>
+          <div class="form_group">
+            <label for="recipient-name" class="control_label">Recipient:</label>
+            <input type="text" class="form_control" id="recipient-name">
+          </div>
+          <div class="form_group">
+            <label for="message-text" class="control_label">Message:</label>
+            <textarea class="form_control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal_footer">
+        <button type="button" class="btn btn_default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn_primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+$(function () { 
+    $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) 
+        var recipient = button.data('whatever') 
+        var modal = $(this)
+        modal.find('.modal_title').text('New message to ' + recipient)
+        modal.find('.modal_body input').val(recipient)
+        modal.find('.modal_body textarea').val(recipient)
+    })
+})
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+</body>
+</html>

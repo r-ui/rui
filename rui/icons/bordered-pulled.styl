@@ -1,0 +1,33 @@
+// Bordered & Pulled
+// -------------------------
+
+.{$icon-css-prefix}-border
+    padding .2em .25em .15em;
+    border solid .08em @icon-border-color
+    border-radius .1em
+
+
+.{$icon-css-prefix}-pull-left 
+    float left 
+.{$icon-css-prefix}-pull-right
+    float right
+
+.{$icon-css-prefix} 
+    &.{$icon-css-prefix}-pull-left 
+        margin-right .3em 
+    &.{$icon-css-prefix}-pull-right 
+        margin-left .3em
+
+
+/* Deprecated as of 4.4.0 */
+.pull-right
+    float right
+.pull-left
+    float left
+
+.{$icon-css-prefix} 
+    &.pull-left
+        margin-right .3em
+    &.pull-right
+        margin-left .3em
+

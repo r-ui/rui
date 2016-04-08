@@ -1,0 +1,284 @@
+/**   
+* @Title: 排版 
+* @Description: ${todo}(用一句话描述该文件做什么) 
+* @author name
+* @date 2015-10-19
+* @version V1.0   
+*/
+
+// 标题
+//----------------------
+
+h1, h2, h3, h4, h5, h6
+.h1, .h2, .h3, .h4, .h5, .h6
+    font-family $headings_font_family
+    font-weight $headings_font_weight
+    line-height $headings_line_height
+    color $headings_color
+    
+    small,
+    .small
+        font-weight normal
+        line-height 1
+        color $heading_small_color
+
+h1, .h1,
+h2, .h2,
+h3, .h3
+    margin-top $line_height_computed
+    margin-bottom ($line_height_computed / 2)    
+    
+    small,
+    .small
+        font-size 65%
+        
+h4, .h4,
+h5, .h5,
+h6, .h6
+    margin-top $line_height_computed
+    margin-bottom ($line_height_computed / 2)
+    
+    small,
+    .small
+        font-size 75%
+
+h1, .h1
+    font-size $font_size_h1    
+
+h2, .h2
+    font-size $font_size_h2
+
+h3, .h3
+    font-size $font_size_h3
+
+
+h4, .h4
+    font-size $font_size_h4
+
+h5, .h5
+    font-size $font_size_h5
+
+h6, .h6
+    font-size $font_size_h6    
+    
+
+// 文本样式
+p
+    margin 0 0($line_height_computed /2)
+    
+//中心内容样式
+.lead
+    margin-bottom $line_height_computed
+    font-size floor($font_size_base * 1.15)
+    fonnt-weight 300    
+    line-height 1.4
+    
+    @media (min-width $screen_sm_min)
+        font-size ($font_size_base * 1.5)
+
+//小号文本
+small, 
+.small
+    font-size floor(100% * $font_size_small / $font_size_base)
+
+        
+//标记文本
+mark,
+.mark
+    background-color $state_warning_bg
+    padding .2em
+
+//对齐
+.text_left
+    text-align left 
+    
+.text_center
+    text-align center    
+    
+.text_right
+    text-align right
+        
+.text_justify
+    text-align justify   // 对齐文本
+                                            
+.text_nowrap
+    white-space nowrap   //没用包裹的文字
+
+    
+//文本大小写
+.text_lowerccase
+    text-transform lowercase  //小写
+    
+.text_uppercased
+    text-transform uppercase  //大写
+    
+.text_uapitalized
+    text-transform capitalize  //首字母为大写
+    
+
+//状态文本色    
+.muted
+    color $text_muted
+    
+.text_primary
+    text_emphasis_variant($brand_primary)
+    
+.text_warning
+    text_emphasis_variant($state_warning_text)
+    
+.text_danger
+    text_emphasis_variant($state_danger_text)
+    
+.text_info
+    text_emphasis_variant($state_info_text)
+    
+.text_success
+    text_emphasis_variant($state_success_text)    
+
+//文本背景色
+.bg_primary
+    color #fff
+    bg_variant($brand_primary)    
+    
+.bg_warning
+    bg_variant($state_warning_bg)
+
+.bg_info
+    bg_variant($state_info_bg)
+
+.bg_danger
+    bg_variant($state_danger_bg)
+    
+.bg_success
+    bg_variant($state_success_bg)                
+        
+
+//列表
+//无序和有序列表------------
+ul, 
+ol
+    margin-top 0
+    margin-bottom ($line_height_computed / 2)
+   ul,
+   ol
+    margin-bottom 0
+
+//列表选项
+//无样式保存列表项的块级，只是删除​​默认浏览器，填充和列表样式
+.list_inline,
+.list_unstyled
+    padding-left 0
+    list-style none
+
+//内联列表
+.list_inline
+    margin-left -5px
+    
+    > li
+        display inline-block
+        padding-left 5px 
+        padding-right 5px
+        
+
+//描述列表
+dl
+    margin-top 0  //删除浏览器的默认
+    margin-bottom $line_height_computed
+    
+dt,
+dd
+    line-height $line_height_base
+
+dt
+    font-weight bold
+
+dd
+    margin-left 0 //删除浏览器的默认
+    
+//水平排列的描述
+.dl_horizontal
+    dd
+      clearfix()
+
+    @media (min-width $grid_float_breakpoint)
+        dt
+            float left
+            width ($dl_horizontal_offset - 20)
+            clear left
+            text-align right
+            text-overflow ()  //文本溢出
+        
+        dd
+            margin-left $dl_horizontal_offset        
+            
+//缩写
+abbr[title]
+    cursor help //光标问号显示
+    border-bottom 1px dotted $abbr_border_color
+
+.initialism
+    font-size 90%
+    text-transform uppercase //大写     
+     
+//引用
+blockquote
+    padding ($line_height_computed /2) $line_height_computed
+    margin 0 0 $line_height_computed
+    font-size $blockquote_font_size
+    border-left 5px solid $blockquote_border_color
+    p,
+    ul,
+    ol
+        &:last-child
+            margin-bottom 0    
+                    
+    footer,  //嵌入footer或其他标签样式        
+    small,
+    .small
+        display block
+        font-size 80% 
+        line-height $line_height_base
+        color $blockquote_small_color
+        
+        &:before
+            content '\2014 \00A0' //向左破折号，连接线
+        
+            
+                
+
+//引用字段样式右对齐
+.blockquote_reverse,
+blockquote.pull_right
+    padding-right 15px 
+    padding-left 0
+    border-right 5px solid $blockquote_border_color
+    border-left 0
+    text-align right
+    
+    footer,
+    small,  //嵌入其他标签样式     
+    .small
+        &:before
+            content ''
+        &:after
+            content '\00A0 \2014'    //向右破折号，连接线
+            
+//地址
+address
+    margin-bottom $line_height_computed
+    font-style normal
+    font-size $line_height_base            
+            
+    
+
+            
+
+            
+            
+            
+        
+    
+                 
+    
+        
+            

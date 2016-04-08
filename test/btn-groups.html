@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>按钮组</title>
+    <link rel="stylesheet" type="text/css" href="css/rui.all.min.css">
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/dropdown.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <h1>按钮组</h1>
+
+        <div class="btn_group" role="group" aria-label="...">
+            <button type="button" class="btn btn_default">Left</button>
+            <button type="button" class="btn btn_default">Middle</button>
+            <button type="button" class="btn btn_default">Right</button>
+        </div>
+        <div class="btn_group" role="group" aria-label="...">
+            <button type="button" class="btn btn_default">Left</button>
+        </div>
+        <div class="btn_group" role="group" aria-label="...">
+            <div class="btn_group" role="group">
+                <button id="btnGroupDrop1" type="button" class="btn btn_default dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown_menu" aria-labelledby="btnGroupDrop1">
+                    <li><a href="#">Dropdown link</a></li>
+                    <li><a href="#">Dropdown link</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <br>
+    <div class="row">
+        <h1>尺寸</h1>
+
+        <div class="btn_group" role="group" aria-label="...">
+            <button type="button" class="btn btn_warning">Left</button>
+            <button type="button" class="btn btn_success">Middle</button>
+            <button type="button" class="btn btn_info">Right</button>
+        </div>
+        <div class="btn_group btn_group_l" role="group" aria-label="...">
+            <button type="button" class="btn btn_danger">Left</button>
+            <button type="button" class="btn btn_danger">Middle</button>
+            <button type="button" class="btn btn_danger">Right</button>
+        </div>
+        <div class="btn_group btn_group_s" role="group" aria-label="...">
+            <button type="button" class="btn btn_success">Left</button>
+            <button type="button" class="btn btn_success">Middle</button>
+            <button type="button" class="btn btn_success">Right</button>
+        </div>
+        <div class="btn_group btn_group_x" role="group" aria-label="...">
+            <button type="button" class="btn btn_default">Left</button>
+            <button type="button" class="btn btn_default">Middle</button>
+            <button type="button" class="btn btn_default">Right</button>
+        </div>
+        
+    </div>
+    <br>
+    <div class="row">
+        <h1>按钮组合</h1>
+
+        <div class="btn_group" role="group" aria-label="Button group with nested dropdown">
+            <button type="button" class="btn btn_default">1</button>
+            <button type="button" class="btn btn_default">2</button>
+
+            <div class="btn_group" role="group">
+                <button id="btnGroupDrop1" type="button" class="btn btn_default dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown_menu" aria-labelledby="btnGroupDrop1">
+                    <li><a href="#">Dropdown link</a></li>
+                    <li><a href="#">Dropdown link</a></li>
+                </ul>
+            </div>
+        </div>
+            
+        <div class="btn_group dropdown " role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn_default dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown_menu" aria-labelledby="btnGroupDrop1">
+                <li><a href="#">Dropdown link</a></li>
+                <li><a href="#">Dropdown link</a></li>
+            </ul>
+        </div>
+        <div class="btn_group" role="group" aria-label="Button group with nested dropdown">
+            <div class="btn_group" role="group">
+                <button id="btnGroupDrop2" type="button" class="btn btn_default dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown_menu" aria-labelledby="btnGroupDrop2">
+                    <li><a href="#">Dropdown link</a></li>
+                    <li><a href="#">Dropdown link</a></li>
+                </ul>
+            </div>
+
+
+            <div class="btn_group" role="group">
+                <button id="btnGroupDrop3" type="button" class="btn btn_default dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown_menu" aria-labelledby="btnGroupDrop3">
+                    <li><a href="#">Dropdown link</a></li>
+                    <li><a href="#">Dropdown link</a></li>
+                </ul>
+            </div>
+            <button type="button" class="btn btn_default">1</button>
+            <button type="button" class="btn btn_default">2</button>
+
+        </div>
+        <div class="btn_group" role="group" aria-label="Button group with nested dropdown">
+            <button type="button" class="btn btn_default">1</button>
+            <div class="btn_group" role="group">
+                <button id="btnGroupDrop1" type="button" class="btn btn_default dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown_menu" aria-labelledby="btnGroupDrop1">
+                    <li><a href="#">Dropdown link</a></li>
+                    <li><a href="#">Dropdown link</a></li>
+                </ul>
+            </div>
+            <button type="button" class="btn btn_default">2</button>
+
+        </div>
+        <div class="container">
+
+            <div class="row">
+
+                <div class="btn_group" role="group" aria-label="Button group with nested dropdown">
+                    <button type="button" class="btn btn_default">1</button>
+                    <div class="btn_group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn_default dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Dropdown
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown_menu" aria-labelledby="btnGroupDrop1">
+                            <li><a href="#">Dropdown link</a></li>
+                            <li><a href="#">Dropdown link</a></li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn btn_default">2</button>
+
+                </div>
+                <div class="btn_group" role="group" aria-label="Button group with nested dropdown">
+
+                    <button type="button" class="btn btn_default">1</button>
+
+                    <div class="btn_group dropdown ">
+                        <button class="btn btn_default dropdown_toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            下拉
+                            <span class="caret"></span>   
+                        </button>
+                        <ul class="dropdown_menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">项目一</a></li>
+                            <li class="active"><a href="#">项目二</a></li>
+                            <li><a href="#">项目三</a></li>
+                            <li><a href="#">项目四</a></li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn btn_default">2</button>
+
+                </div>
+
+            </div>
+            
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+        <h1>竖排按钮组合</h1>
+
+        <div class="col_md_4">
+            <div class="btn_group_vertical" role="group" aria-label="Button group with nested dropdown">
+                <button type="button" class="btn btn_default">1</button>
+                <button type="button" class="btn btn_default">2</button>
+
+            </div>
+            <div class="btn_group_vertical" role="group" aria-label="Button group with nested dropdown">
+                <button type="button" class="btn btn_default">1</button>
+                <button type="button" class="btn btn_default">2</button>
+
+            </div>
+            
+        </div>
+        <div class="col_md_4">
+            <div class="btn_group_vertical" role="group" aria-label="Button group with nested dropdown">
+                <div class="btn_group dropdown" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn_default dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Dropdown
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown_menu" aria-labelledby="btnGroupDrop1">
+                        <li><a href="#">Dropdown link</a></li>
+                        <li><a href="#">Dropdown link</a></li>
+                    </ul>
+                </div>
+                <button type="button" class="btn btn_default">1</button>
+                <button type="button" class="btn btn_default">2</button>
+
+            </div>
+            <div class="btn_group_vertical" role="group" aria-label="Button group with nested dropdown">
+                <button type="button" class="btn btn_default">1</button>
+                <div class="btn_group dropdown" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn_default dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Dropdown
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown_menu" aria-labelledby="btnGroupDrop1">
+                        <li><a href="#">Dropdown link</a></li>
+                        <li><a href="#">Dropdown link</a></li>
+                    </ul>
+                </div>
+                <button type="button" class="btn btn_default">2</button>
+
+            </div>
+        </div>
+        <div class="col_md_4">
+            <div class="btn_group_vertical" role="group" aria-label="Button group with nested dropdown">
+                <button type="button" class="btn btn_default">1</button>
+                <button type="button" class="btn btn_default">2</button>
+
+                <div class="btn_group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn_default dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Dropdown
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown_menu" aria-labelledby="btnGroupDrop1">
+                        <li><a href="#">Dropdown link</a></li>
+                        <li><a href="#">Dropdown link</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <br>
+
+
+    <div class="row">
+        <h1>按钮式下拉菜单</h1>
+
+
+        <div class="btn_group">
+          <button type="button" class="btn btn_default dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Default <span class="caret"></span></button>
+          <ul class="dropdown_menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+        <div class="btn_group">
+          <button type="button" class="btn btn_primary dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Primary <span class="caret"></span></button>
+          <ul class="dropdown_menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+        <div class="btn_group">
+          <button type="button" class="btn btn_success dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Success <span class="caret"></span></button>
+          <ul class="dropdown_menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+        <div class="btn_group">
+          <button type="button" class="btn btn_info dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Info <span class="caret"></span></button>
+          <ul class="dropdown_menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+        <div class="btn_group">
+          <button type="button" class="btn btn_warning dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Warning <span class="caret"></span></button>
+          <ul class="dropdown_menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+        <div class="btn_group">
+          <button type="button" class="btn btn_danger dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Danger <span class="caret"></span></button>
+          <ul class="dropdown_menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+
+        <div class="btn_group dropdown">
+            <a class="btn btn_danger dropdown_toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
+              Dropdown <span class="caret"></span>
+            </a>
+            <ul class="dropdown_menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+    <br/>
+    <br/>
+
+    <div class="row">
+            
+        <h1>关于 a 元素</h1>
+
+        <div class="btn_group btn_group_justified " role="group" >
+            <a href="#" class="btn btn_default" role="button">Left</a>
+            <a href="#" class="btn btn_default" role="button">Middle</a>
+            <div class="btn_group " role="group">
+                <a href="#" class="btn btn_default dropdown_toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Dropdown <span class="caret"></span>
+                </a>
+                <ul class="dropdown_menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <br/>
+    <br/>
+    <div class="row">
+        <h1>关于 button 元素</h1>
+
+        <div class="btn_group btn_group_justified" role="group" aria-label="...">
+            <div class="btn_group" role="group">
+                <button type="button" class="btn btn_default">Left</button>
+            </div>
+            <div class="btn_group" role="group">
+                <button type="button" class="btn btn_default">Middle</button>
+            </div>
+            <div class="btn_group" role="group">
+                <button type="button" class="btn  btn_default">Right</button>
+            </div>
+        </div>
+    </div>
+
+    
+    <br/>
+    <br/>
+    <div class="row">
+        <h1>分裂式按钮下拉菜单</h1>
+
+        <div class="btn_group">
+            <button type="button" class="btn btn_danger">Action</button>
+            <button type="button" class="btn btn_danger dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr_only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown_menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+            </ul>
+        </div>
+        <div class="btn_group">
+            <button type="button" class="btn btn_default">Action</button>
+            <button type="button" class="btn btn_default dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr_only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown_menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <br/>
+    <br/>
+    <div class="row">
+        <h1>按钮组的尺寸</h1>
+
+        <div class="btn_group">
+            <button type="button" class="btn btn_l btn_success">这里是按钮事件</button>
+            <button type="button" class="btn btn_l btn_success dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr_only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown_menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <br/>
+    <br/>
+    <div class="row">
+        
+        <h1>向上弹出按钮</h1>
+
+        <div class="col_lg_3">
+            
+        </div>
+        
+        <div class="col_lg_9">
+
+            <div class="btn_group dropup">
+                <button type="button" class="btn btn_success">这里是按钮事件</button>
+                <button type="button" class="btn btn_success dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr_only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown_menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </div>
+            
+        </div>
+
+    </div>
+
+
+
+</div>
+</body>
+</html>

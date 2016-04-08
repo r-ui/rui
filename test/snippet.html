@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax加载部分HTML</title>
+    <link rel="stylesheet" type="text/css" href="css/rui.all.min.css">
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/snippet.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1>单页面加载非<s>iframe</s></h1>
+    
+    <div id='choMenu'>
+        <a href="/test/buttons.html?abc=1&snippet=1" class="btn btn_primary btn_sm" id="testUl" data-snippet="snippet1#wrap_button">加载按钮</a>
+        <a href="/test/image.html" class="btn btn_primary btn_sm" data-snippet="snippet2#wrap_button">加载表格</a>
+        <a href="/test/grid.html?snippet=1" class="btn btn_primary btn_sm" data-snippet="snippet3#wrap_button">加载grid</a>
+        
+    </div>
+
+
+    <div id="wrap_button">
+        
+    </div>
+    <div id="wrap_table">
+        
+    </div>
+    
+</div>
+
+
+<script type="text/javascript">
+    $.snippet().on('snippet.show',function(){
+        console.log("snippetasdfasdfds")
+    });
+</script>
+
+</body>
+</html>

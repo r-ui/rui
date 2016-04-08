@@ -1,0 +1,52 @@
+
+button-variant($color, $background, $border)
+    color $color
+    background-color $background
+    border-color $border
+
+    &:focus,
+    &.focus
+        color $color
+        background-color darken($background, 10%)
+        border-color darken($border, 25%)
+
+    &:hover
+        color $color
+        background-color darken($background, 10%)
+        border-color darken($border, 12%)
+
+    &:active,
+    &.active,
+    .open > .dropdown_toggle&
+        color $color
+        background-color darken($background, 10%)
+        border-color darken($border, 12%)
+        background-image none
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] &
+        &,
+        &:hover,
+        &:focus,
+        &.focus,
+        &:active,
+        &.active
+            background-color $background
+            border-color $border
+
+
+// Button sizes
+button-size($padding_vertical, $padding_horizontal, $font_size, $line_height, $border_radius)
+    padding $padding_vertical $padding_horizontal
+    font-size $font_size
+    line-height $line_height
+    border-radius $border_radius
+
+// WebKit-style focus
+tab-focus()
+    // Default
+    outline thin dotted
+    // WebKit
+    outline 5px auto -webkit-focus-ring-color
+    outline-offset -2px

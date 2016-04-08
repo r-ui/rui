@@ -1,0 +1,78 @@
+/**   
+* @Title: 列表组
+* @Description: ${todo}(用一句话描述该文件做什么) 
+* @author name
+* @date 2015-10-19
+* @version V1.0   
+*/
+
+
+//ul,ol,或<div>样式
+.list_group
+    margin-bottom 20px
+    padding-left 0
+    
+.list_group_item
+    position relative
+    display block
+    padding 10px 15px
+    margin-bottom -1px
+    background-color $list_group_bg           
+    border 1px solid $list_group_border
+    .badge
+        float right
+    
+    &:first-child
+        border-top-radius $list_group_border_radius
+    &:last-child
+        margin-bottom 0
+        border-bottom-radius $list_group_border_radius
+        
+    &.disabled,
+    &.disabled:hover,
+    &.disabled:focus
+        background-color $list_group_disabled_bg  
+        color $list_group_disabled_color     
+        cursor $cursor_disabled 
+        
+    &.active,
+    &.active:hover,
+    &.active:focus
+        z-index 2
+        color $list_group_active_color
+        background-color $list_group_active_bg
+        border-color $list_group_active_border
+        
+        .list_group_item_heading
+            color inherit 
+        .list_group_item_text
+             color $list_group_active_text_color    
+.list_group_item_heading
+    margin-top 0
+    margin-bottom 5px
+    color $list_group_link_heading_color
+.list_group_item_text
+     margin-bottom 0
+     line-height 1.3
+                 
+               
+a.list_group_item,
+button.list_group_item
+    color $list_group_link_color 
+    
+    &:hover,
+    &:focus
+        text-decoration none
+        color $list_group_link_hover_color
+        background-color $list_group_hover_bg 
+button.list_group_item 
+    width 100%
+    text-align left                
+    
+list-group-item-variant(success, $state_success_bg, $state_success_text)
+list-group-item-variant(info, $state_info_bg, $state_info_text)
+list-group-item-variant(warning, $state_warning_bg, $state_warning_text)
+list-group-item-variant(danger, $state_danger_bg, $state_danger_text)
+
+
+        

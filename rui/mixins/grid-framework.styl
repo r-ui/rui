@@ -1,0 +1,60 @@
+//生成栅格
+
+
+//用于生成网格 $classes 给出的正确数目
+make_grid_columns()
+    $col
+        position relative
+        //防止列为空的时候不占位置
+        min-height 1px
+        //填充内边距
+        padding-left ceil($grid_gutter_width / 2)
+        padding-right floor($grid_gutter_width / 2)
+        
+    //常见样式的所有大小的网格列，宽度 1-12
+    for $index in 1..$grid_columns
+        .col_xs_{$index}, .col_sm_{$index}, .col_md_{$index}, .col_lg_{$index}
+            @extend $col
+
+float_grid_columns($class)
+    $col_float_{$class}
+        float left
+
+    for $index in 1..$grid_columns
+        .col_{$class}_{$index}
+            @extend $col_float_{$class}
+    
+calc_grid_column($index, $class, $type)
+    if $type == width and $index > 0
+        .col_{$class}_{$index}
+            width percentage(($index / $grid_columns))
+    else if $type == push
+        if $index == 0
+            .col_{$class}_push_0
+                left auto
+        else
+            .col_{$class}_push_{$index}
+                left percentage(($index / $grid_columns))
+            
+    else if $type == pull
+        if $index == 0
+            .col_{$class}_pull_0
+                right auto
+        else
+            .col_{$class}_pull_{$index}
+                right percentage(($index / $grid_columns))
+    else if $type == offset
+        .col_{$class}_offset_{$index}
+            margin-left percentage(($index / $grid_columns))
+  
+loop_grid_columns($grid_columns, $class, $type)
+    for $index in $grid_columns..0
+        calc_grid_column($index, $class, $type)
+
+//为特定 $class 创建网格
+make_grid($class)
+    float_grid_columns($class)
+    loop_grid_columns($grid_columns, $class, width)
+    loop_grid_columns($grid_columns, $class, pull)
+    loop_grid_columns($grid_columns, $class, push)
+    loop_grid_columns($grid_columns, $class, offset)

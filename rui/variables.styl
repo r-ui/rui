@@ -1,0 +1,666 @@
+
+//== 颜色 Colors
+//-----------------------
+//## 对于颜色的全局使用
+
+$gray_base ?=           #000
+$gray_darker ?=         lighten($gray_base, 13.5%) // #222
+$gray_dark ?=           lighten($gray_base, 20%)   // #333
+$gray ?=                lighten($gray_base, 33.5%) // #555
+$gray_light ?=          lighten($gray_base, 46.7%) // #777
+$gray_lighter ?=        lighten($gray_base, 93.5%) // #eee
+
+$brand_primary ?=       darken(#428bca, 6.5%) // #337ab7  默认首选
+$brand_success ?=       #5cb85c     //成功
+$brand_info ?=          #5bc0de     //一般信息
+$brand_warning ?=       #f0ad4e     //警告
+$brand_danger ?=        #d9534f     //危险
+
+
+$gray_light ?=          lighten($gray_base, 46.7%) // #777
+$gray_lighter ?=        lighten($gray_base, 93.5%) // #eee
+
+
+
+//== 脚手架 Scaffolding
+//-----------------------
+//## 对于一些全局性的样式进行设置。Settings for some of the most global styles.
+
+//** `<body>` 的背景颜色。
+$body_bg ?=               #fff
+//** `<body>` 下继承的全局文本颜色。
+$text_color ?=            $gray_dark
+
+//** 全局超链接文本颜色.
+$link_color ?=            $brand_primary
+//** 链接悬停颜色通过 'darken()' 功能设置。
+$link_hover_color ?=      darken($link_color, 15%)
+//** 链接悬停下划线装饰。
+$link_hover_decoration ?= underline
+
+
+
+//== 按钮 Buttons
+//-----------------------
+//## 对于每个RUI的按钮，定义文本、 背景和边框的颜色。
+
+$btn_font_weight ?=              normal
+
+$btn_default_color ?=            #333
+$btn_default_bg ?=               #fff
+$btn_default_border ?=           #ccc
+
+
+$btn_default_color ?=            #333
+$btn_default_bg ?=               #fff
+$btn_default_border ?=           #ccc
+
+$btn_primary_color ?=            #fff
+$btn_primary_bg ?=               $brand_primary
+$btn_primary_border ?=           darken($btn_primary_bg, 5%)
+
+$btn_success_color ?=            #fff
+$btn_success_bg ?=               $brand_success
+$btn_success_border ?=           darken($btn_success_bg, 5%)
+
+$btn_info_color ?=               #fff
+$btn_info_bg ?=                  $brand_info
+$btn_info_border ?=              darken($btn_info_bg, 5%)
+
+$btn_warning_color ?=            #fff
+$btn_warning_bg ?=               $brand_warning
+$btn_warning_border ?=           darken($btn_warning_bg, 5%)
+
+$btn_danger_color ?=             #fff
+$btn_danger_bg ?=                $brand_danger
+$btn_danger_border ?=            darken($btn_danger_bg, 5%)
+
+$btn_link_disabled_color ?=      $gray_light
+
+// 定义按钮的圆角大小
+$btn_border_radius_base ?=       $border_radius_base
+$btn_border_radius_large ?=      $border_radius_large
+$btn_border_radius_small ?=      $border_radius_small
+
+
+
+//== 组件 Components
+//-----------------------
+//## 定义普通填充和边框半径大小。基于部分文本 14px 和1.428 line-height（~ 20px开始）。
+
+$padding_base_vertical ?=    6px
+$padding_base_horizontal ?=  12px
+
+$padding_large_vertical ?=   10px
+$padding_large_horizontal ?= 16px
+
+$padding_small_vertical ?=   5px
+$padding_small_horizontal ?= 10px
+
+$padding_xs_vertical ?=      1px
+$padding_xs_horizontal ?=    5px
+
+$line_height_large ?=        1.3333333 // extra decimals for Win 8.1 Chrome
+$line_height_small ?=        1.5
+
+$border_radius_base ?=       4px
+$border_radius_large ?=      6px
+$border_radius_small ?=      3px
+
+
+//active 时文本颜色 （下拉菜单）
+$component_active_color ?=    #fff
+//active 时背景色    （下拉菜单）
+$component_active_bg ?=       $brand_primary      
+
+//下拉箭头／插入符号宽度
+$caret_width_base ?=          4px
+
+
+
+// z-index 下拉菜单
+$zindex_dropdown ?=            1000
+
+
+
+//== pager 简单翻页
+//
+
+$pager_border_radius ?=       15px 
+
+
+
+
+//==下拉菜单容器和内容
+//
+
+//下拉菜单的背景
+$dropdown_bg ?=                          #fff
+// 下拉菜单 边框颜色.
+$dropdown_border ?=                      rgba(0, 0, 0, .15)
+// 下拉菜单边框颜色 for IE8
+$dropdown_fallback_border ?=             #ccc
+//下拉菜单内的分割线的颜色
+$dropdown_divider_bg ?=                  #e5e5e5
+//下拉菜单内链接内容颜色
+$dropdown_link_color ?=                  $gray_dark
+//下拉菜单内悬停／焦点状态
+$dropdown_link_hover_color ?=            darken($gray_dark, 5%)
+//下拉菜单内悬停／焦点 背景和边框的颜色
+$dropdown_link_hover_bg ?=               #f5f5f5
+
+//active 时下拉菜单的文本颜色
+$dropdown_link_active_color ?=           $component_active_color      
+//active 时下拉菜单文本背景色
+$dropdown_link_active_bg ?=              $component_active_bg
+
+//下拉菜单disabled文本
+$dropdown_link_disabled_color ?=         $gray_light 
+
+//下拉菜单标题颜色
+$dropdown_header_color ?=                 $gray_light         
+
+
+
+
+//== 版式 Typography
+//-----------------------
+//## Font, line-height, headings
+
+$font_family_sans_serif ?= "Helvetica Neue", Helvetica, Arial, sans-serif
+$font_family_serif ?=      Georgia, "Times New Roman", Times, serif
+//** 默认字体 for `<code>`, `<kbd>`, and `<pre>`.
+$font_family_monospace ?=  Menlo, Monaco, Consolas, "Courier New", monospace
+$font_family_base ?=       $font_family_sans_serif
+
+$font_size_base ?=         14px
+$font_size_large ?=        ceil($font_size_base * 1.25) // ~18px
+$font_size_small ?=        ceil($font_size_base * 0.85) // ~12px
+
+$font_size_h1 ?=           floor($font_size_base * 2.6) // ~36px
+$font_size_h2 ?=           floor($font_size_base * 2.15) // ~30px
+$font_size_h3 ?=           ceil($font_size_base * 1.7) // ~24px
+$font_size_h4 ?=           ceil($font_size_base * 1.25) // ~18px
+$font_size_h5 ?=           $font_size_base
+$font_size_h6 ?=           ceil($font_size_base * 0.85) // ~12px
+
+//**  `line-height` 在组件 buttons 中使用。
+$line_height_base ?=       1.428571429 // 20/14
+//** 计算 "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line_height_computed ?=   floor($font_size_base * $line_height_base) // ~20px
+
+//** 默认情况下，从`<body>`集成的heading样式
+$headings_font_family ?=   inherit
+$headings_font_weight ?=   500
+$headings_line_height ?=   1.1
+$headings_color ?=         inherit
+
+
+
+
+
+
+//==  定义屏幕宽度
+//-----------------------
+//##
+
+//** 超小屏幕（手机，小于 768px）
+$screen_xs ?=                480px
+$screen_xs_min ?=            $screen_xs
+$screen_phone ?=             $screen_xs_min
+
+//** 小屏幕（平板，大于等于 768px）
+$screen_sm ?=                768px
+$screen_sm_min ?=            $screen_sm
+$screen_tablet ?=            $screen_sm_min
+
+//** 中等屏幕（桌面显示器，大于等于 992px）
+$screen_md ?=                992px
+$screen_md_min ?=            $screen_md
+$screen_desktop ?=           $screen_md_min
+
+
+//** 大屏幕（大桌面显示器，大于等于 1200px）
+$screen_lg ?=                1200px
+$screen_lg_min ?=            $screen_lg
+$screen_lg_desktop ?=        $screen_lg_min
+
+//移动端 不重叠时最高值
+$screen_xs_max ?=            ($screen_sm_min - 1)
+$screen_sm_max ?=            ($screen_md_min - 1)
+$screen_md_max ?=            ($screen_lg_min - 1)
+
+
+
+//==  栅格系统 Grid system
+//-----------------------
+//##
+//** 定义网格中的的列数。
+$grid_columns ?=              12
+
+//** 列之间的边距
+$grid_gutter_width ?=         30px
+
+
+$grid_float_breakpoint ?=     $screen_sm_min
+$grid_float_breakpoint_max ?= ($grid_float_breakpoint - 1)
+
+
+//** 小屏幕
+$container_tablet ?=           (720px + $grid_gutter_width)
+$container_sm ?=               $container_tablet
+
+
+//** 中等屏幕
+$container_desktop ?=          (940px + $grid_gutter_width)
+$container_md ?=               $container_desktop
+
+
+//** 大屏幕
+$container_large_desktop ?=    (1140px + $grid_gutter_width)
+$container_lg ?=               $container_large_desktop
+
+
+
+//== 缩略图 Thumbnails
+//-----------------------
+//##
+
+//** 图片周围的填充补白
+$thumbnail_padding ?=         4px
+//** 图片背景颜色
+$thumbnail_bg ?=              $body_bg
+//** 图片边框颜色
+$thumbnail_border ?=          #ddd
+//** 图片边框圆角大小
+$thumbnail_border_radius ?=   $border_radius_base
+
+//** 图片标题的自定义文本颜色
+$thumbnail_caption_color ?=   $text_color
+//** 图片标题周围的边距
+$thumbnail_caption_padding ?= 9px
+
+
+//== Type 排版
+//
+//##
+
+//** 最小标题的颜色
+$heading_small_color ?=        $gray_light
+
+//== 表格  table
+
+
+//** th td 填充
+$table_cell_padding ?=           8px
+
+//** .table_condensed 的填充
+$table_condensed_cell_padding ?= 5px
+
+//用于所有表的默认背景色。
+$table_bg ?=                     transparent
+//== 表格  table
+
+//** 用于 '.table_striped 条纹的背景颜色
+$table_bg_accent ?=              #f9f9f9
+
+//** 用于 '.table_hover 鼠标悬停的背景颜色
+$table_bg_hover ?=               #f5f5f5
+$table_bg_active ?=              $table_bg_hover
+
+
+//** 表格边框背景
+$table_border_color ?=           #ddd
+
+
+
+
+
+
+//== 状态 states  定义颜色
+
+// **成功状态颜色
+$state_success_text ?=           #3c763d
+$state_success_bg ?=             #dff0d8
+$state_success_border ?=         darken(spin($state_success_bg, -10), 5%)
+
+// **消息状态颜色
+$state_info_text ?=              #31708f
+$state_info_bg ?=                #d9edf7
+$state_info_border ?=            darken(spin($state_info_bg, -10), 7%)
+
+// **警告状态颜色
+$state_warning_text ?=           #8a6d3b
+$state_warning_bg ?=             #fcf8e3
+$state_warning_border ?=         darken(spin($state_warning_bg, -10), 5%)
+
+// **危险状态颜色
+$state_danger_text ?=            #a94442
+$state_danger_bg ?=              #f2dede
+$state_danger_border ?=          darken(spin($state_danger_bg, -10), 5%)
+
+
+
+//** 水平偏移的列表
+$component_offset_horizontal ?=  180px
+//水平列表标题的宽度
+$dl_horizontal_offset ?=         $component_offset_horizontal 
+//缩写词和缩略词边框颜色      
+$abbr_border_color ?=            $gray_light 
+//引用字号
+$blockquote_font_size ?=         ($font_size_base * 1.25)
+//引用词边框颜色
+$blockquote_border_color ?=      $gray_lighter
+//引用字段内引用的小号文字
+$blockquote_small_color ?=       $gray_light
+
+
+
+
+
+//** 文本颜色
+$text_muted ?=                $gray_light
+
+$hr_border ?=                 $gray_lighter
+
+
+//== 表单 forms
+
+
+//input 背景颜色
+$input_bg ?=                     #fff
+
+//input 禁用状态背景颜色
+$input_bg_disabled ?=            $gray_lighter
+
+//input 文本颜色
+$input_color ?=                  $gray
+
+//input 边框颜色
+$input_border ?=                 #ccc
+
+//input 圆角大小
+$input_border_radius ?=          $border_radius_base
+
+//input 最大圆角值
+$input_border_radius_large ?=     $border_radius_large
+
+//input 最小圆角值
+$input_border_radius_small ?=    $border_radius_small
+
+//input focus输入框边框的颜色
+$input_border_focus ?=           #66afe9
+ 
+//placeholder 文本的搜索字段的颜色
+$input_color_placeholder ?=      #999
+
+// .form_control 默认高度
+$input_height_base ?=              ($line_height_computed + ($padding_base_vertical * 2) + 2)
+
+// .form_control 最大高度
+$input_height_large ?=             (ceil($font_size_large * $line_height_large) + ($padding_large_vertical * 2) + 2)
+
+// .form_control 最小高度
+$input_height_small ?=             (floor($font_size_small * $line_height_small) + ($padding_small_vertical * 2) + 2)
+
+
+// .form_group 间距
+$form_group_margin_bottom ?=       15px
+
+//视图颜色、边框颜色
+$legend_color ?=                   $gray_dark
+$legend_border_color ?=            #e5e5e5
+ 
+//文本输入框插件的背景颜色
+$input_group_addon_bg ?=           $gray_lighter
+
+//文本输入框插件的边框颜色
+$input_group_addon_border_color ?= $input_border
+
+// 鼠标禁止样式
+$cursor_disabled ?=                not-allowed
+
+
+
+// ==== nav 导航
+
+// 公共导航样式
+$nav_link_padding ?=                        10px 15px
+$nav_link_hover_bg ?=                       $gray_lighter
+
+$nav_disabled_link_color ?=                $gray_light
+$nav_disabled_link_hover_color ?=           $gray_light
+
+// nav_tabs
+$nav_tabs_border_color ?=                   #ddd
+
+$nav_tabs_link_hover_border_color ?=        $gray_lighter
+
+$nav_tabs_active_link_hover_bg ?=           $body_bg
+$nav_tabs_active_link_hover_color ?=        gray
+$nav_tabs_active_link_hover_border_color ?= #ddd
+
+$nav_tabs_justified_link_border_color ?=          #ddd
+$nav_tabs_justified_active_link_border_color ?=   $body_bg
+
+
+// nav_pills
+$nav_pills_border_radius ?=                 $border_radius_base
+$nav_pills_active_link_hover_bg ?=          $component_active_bg
+$nav_pills_active_link_hover_color ?=       $component_active_color
+
+
+
+// ==== 导航条
+
+//默认导航条样式
+$navbar_height ?=                  50px
+$navbar_margin_bottom ?=           $line_height_computed
+$navbar_border_radius ?=           $border_radius_base
+$navbar_padding_horizontal ?=      floor($grid_gutter_width / 2)
+$navbar_padding_vertical ?=        (($navbar_height - $line_height_computed) / 2)
+$navbar_collapse_max_height ?=     340px
+
+$navbar_default_color ?=           #777
+$navbar_default_bg ?=              #f8f8f8
+$navbar_default_border ?=          darken($navbar_default_bg, 6.5%)
+
+// 导航条 link
+$navbar_default_link_color ?=              #777
+$navbar_default_link_hover_color ?=        #333
+$navbar_default_link_hover_bg ?=           transparent
+$navbar_default_link_active_color ?=       #555
+$navbar_default_link_active_bg ?=          darken($navbar_default_bg, 6.5%)
+$navbar_default_link_disabled_color ?=     #ccc
+$navbar_default_link_disabled_bg ?=        transparent
+
+
+// 导航条 brand
+$navbar_default_brand_color ?=             $navbar_default_link_color
+$navbar_default_brand_hover_color ?=       darken($navbar_default_brand_color, 10%)
+$navbar_default_brand_hover_bg ?=          transparent
+
+
+// 导航条 toggle
+$navbar_default_toggle_hover_bg ?=         #ddd
+$navbar_default_toggle_icon_bar_bg ?=      #888
+$navbar_default_toggle_border_color ?=     #ddd
+
+// 改变导航条的外观 inverted 
+$navbar_inverse_color ?=                    lighten($gray_light, 15%)
+$navbar_inverse_bg ?=                       #222
+$navbar_inverse_border ?=                   darken($navbar_inverse_bg, 10%)
+
+// 导航条 inverted link
+$navbar_inverse_link_color ?=               lighten($gray_light, 15%)
+$navbar_inverse_link_hover_color ?=         #fff
+$navbar_inverse_link_hover_bg ?=            transparent
+$navbar_inverse_link_active_color ?=        $navbar_inverse_link_hover_color
+$navbar_inverse_link_active_bg ?=           darken($navbar_inverse_bg, 10%)
+$navbar_inverse_link_disabled_color ?=      #444
+$navbar_inverse_link_disabled_bg ?=         transparent
+
+// 导航条 inverted brand 
+$navbar_inverse_brand_color ?=              $navbar_inverse_link_color
+$navbar_inverse_brand_hover_color ?=        #fff
+$navbar_inverse_brand_hover_bg ?=           transparent
+
+// 导航条 inverted toggle 
+$navbar_inverse_toggle_hover_bg ?=          #333
+$navbar_inverse_toggle_icon_bar_bg ?=       #fff
+$navbar_inverse_toggle_border_color ?=      #333
+
+// 面包屑
+$breadcrumb_padding_vertical ?= 8px
+$breadcrumb_padding_horizontal ?= 15px
+$breadcrumb_bg ?=               #f5f5f5
+$breadcrumb_color ?=            #ccc
+$breadcrumb_active_color ?=     $gray_light
+$breadcrumb_separator ?=        "/"
+
+
+
+// z-index 层级
+$zindex_navbar ?=           1000
+$zindex_dropdown ?=         1000
+$zindex_popover ?=          1060
+$zindex_tooltip ?=          1070
+$zindex_navbar_fixed ?=     1030
+$zindex_modal_background ?= 1040
+$zindex_modal ?=            1050
+
+// === Alert 警告框  
+$alert_padding ?=             15px
+$alert_border_radius ?=       $border_radius_base
+$alert_link_font_weight ?=    bold
+
+$alert_success_bg ?=          $state_success_bg
+$alert_success_text ?=        $state_success_text
+$alert_success_border ?=      $state_success_border
+
+$alert_info_bg ?=             $state_info_bg
+$alert_info_text ?=           $state_info_text
+$alert_info_border ?=         $state_info_border
+
+$alert_warning_bg ?=          $state_warning_bg
+$alert_warning_text ?=        $state_warning_text
+$alert_warning_border ?=      $state_warning_border
+
+$alert_danger_bg ?=           $state_danger_bg
+$alert_danger_text ?=         $state_danger_text
+$alert_danger_border ?=       $state_danger_border
+
+
+//===  列表组 List group
+$list_group_bg ?=              #fff               
+$list_group_border ?=          #ddd
+$list_group_border_radius ?=   $border_radius_base  
+$list_group_link_color ?=      #555    
+$list_group_hover_bg ?=        #f5f5f5    
+
+$list_group_active_color ?=    $component_active_color
+$list_group_active_bg ?=       $component_active_bg
+$list_group_active_border ?=   $list_group_active_bg
+$list_group_link_heading_color ?=   #333
+
+
+//禁用条目的列表组
+$list_group_link_hover_color ?=   $list_group_link_color
+$list_group_disabled_bg ?=        $gray_lighter
+$list_group_disabled_color ?=     $gray_light
+$list_group_disabled_text_color ?= $list_group_disabled_color
+
+$list_group_active_text_color ?= lighten($list_group_active_bg, 40%)
+
+
+// ===标签 Label
+//默认标签文本颜色
+$label_color ?=                    #fff
+//默认标签背景色
+$label_default_bg ?=               $gray_light
+//Primary标签背景色
+$label_primary_bg ?=               $brand_primary
+//success标签背景色
+$label_success_bg ?=               $brand_success
+//info标签背景色
+$label_info_bg ?=                  $brand_info
+//warning标签背景色
+$label_warning_bg ?=               $brand_warning
+//danger标签背景色
+$label_danger_bg ?=                $brand_danger
+
+//== 徽章  badge
+$badge_color ?=                    #fff
+$badge_link_hover_color ?=         #fff
+$badge_bg ?=                       $gray_light
+$badge_font_weight ?=              bold
+$badge_line_height ?=              1
+$badge_border_radius ?=            10px
+$badge_active_color ?=             $link_color
+$badge_active_bg ?=                #fff
+
+
+
+$jumbotron_padding ?=            30px
+$jumbotron_color ?=              inherit
+$jumbotron_bg ?=                 $gray_lighter
+$jumbotron_heading_color ?=      inherit
+$jumbotron_font_size ?=          ceil($font_size_base * 1.5)
+$jumbotron_heading_font_size ?=  ceil($font_size_base * 4.5)
+
+//== tooltips 工具提示
+
+$tooltip_max_width ?=         200px
+$tooltip_color ?=             #fff
+$tooltip_bg ?=                #000
+$tooltip_opacity ?=           .9
+
+$tooltip_arrow_width ?=       5px
+$tooltip_arrow_color ?=       $tooltip_bg
+
+
+// == popover  弹出框
+
+$popover_bg ?=                        #fff
+$popover_max_width ?=                 276px
+$popover_border_color ?=              rgba(0, 0, 0, .2)
+$popover_fallback_border_color ?=     #ccc
+
+$popover_title_bg ?=                  darken($popover_bg, 3%)
+$popover_arrow_width ?=               10px
+$popover_arrow_color ?=               $popover_bg
+$popover_arrow_outer_width ?=         ($popover_arrow_width + 1)
+$popover_arrow_outer_color ?=         fade_in($popover_border_color, 5%)
+$popover_arrow_outer_fallback_color ?= darken($popover_fallback_border_color, 20%)
+
+
+ //== 弹出层 模态框 modal
+
+
+$modal_inner_padding ?=       15px
+
+$modal_title_padding ?=       15px
+$modal_title_line_height ?=   $line_height_base
+
+$modal_content_bg ?=                           #fff
+$modal_content_border_color ?=                 rgba(0, 0, 0, .2)
+$modal_content_fallback_border_color ?=        #999
+
+$modal_backdrop_bg ?=         #000
+$modal_backdrop_opacity ?=    .5
+$modal_header_border_color ?= #e5e5e5
+$modal_footer_border_color ?= $modal_header_border_color
+
+$modal_l ?=                  900px
+$modal_m ?=                  600px
+$modal_s ?=                  300px
+
+
+//== Close 关闭按钮
+
+
+$close_font_weight ?=         bold
+$close_color ?=               #000
+$close_text_shadow ?=         0 1px 0 #fff
+
+

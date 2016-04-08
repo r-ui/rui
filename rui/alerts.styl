@@ -1,0 +1,52 @@
+/**   
+* @Title: 警告框
+* @Description: ${todo}(用一句话描述该文件做什么) 
+* @author name
+* @date 2015-10-19
+* @version V1.0   
+*/
+
+.alert
+    padding $alert_padding
+    margin-bottom $line_height_computed
+    border 1px solid transparent
+    border-radius $alert_border_raduis
+    
+    h4  //报警框内的标题
+        margin-top 0
+        color inherit
+    
+    .alert_link       // 警告框内的a链接文本字体样式
+        font-weight $alert_link_font_weight
+    
+    > p, ul
+        margin-bottom 0
+    
+    > p + p   //相邻同胞
+        margin-top 5px 
+
+
+
+
+
+.alert_success
+    alert-variant($alert_success_bg, $alert_success_border, $alert_success_text)
+    
+.alert_warning
+    alert-variant($alert_warning_bg, $alert_warning_border, $alert_warning_text)
+ 
+.alert_info
+    alert-variant($alert_info_bg, $alert_info_border, $alert_info_text)   
+    
+.alert_danger
+    alert-variant($alert_danger_bg, $alert_danger_border, $alert_danger_text)
+
+//可关闭的报警弹框    
+.alert_dismissible
+    padding-right ($alert_padding + 20)
+    .close
+        position relative
+        top -2px
+        right -21px
+        color inherit
+        

@@ -1,0 +1,159 @@
+/**   
+* @Title: 导航位置 - 用一个带方向的层次表明当前页面的位置。
+* @Description: ${todo}(用一句话描述该文件做什么) 
+* @author 徐锐
+* @date 2015-10-19
+* @version V1.0   
+*/
+
+.modal_open
+    overflow hidden
+
+.modal
+    display none
+    overflow hidden
+    position fixed
+    top 0
+    right 0
+    left 0
+    z-index $zindex_modal
+    -webkit-overflow-scrolling touch
+    outline 0
+    bottom 0
+    
+    &.fade .modal_dialog
+        transform translate(0, -25%)
+        transition transform 0.3s ease-out
+    &.in .modal_dialog
+        transform translate(0, 0)
+
+.modal_open .modal
+    overflow-x hidden
+    overflow-y auto
+    
+
+.modal_dialog
+    position relative
+    width auto
+    margin 10px
+
+.modal_content
+    position relative
+    background-color $modal_content_bg
+    border 1px solid $modal_content_fallback_border_color
+    border 1px solid $modal_content_border_color
+    border-radius $border_radius_large
+    box-shadow 0 3px 9px rgba(0, 0, 0, .5)
+    background-clip padding-box
+    outline 0
+
+.modal_backdrop
+    position fixed
+    top 0
+    right 0
+    bottom 0
+    left 0
+    z-index $zindex_modal_background
+    background-color $modal_backdrop_bg
+    
+    &.fade
+        opacity(0)
+
+    &.in
+        opacity($modal_backdrop_opacity)
+        // opacity 0.5
+
+.modal_header
+    padding $modal_title_padding
+    border-bottom 1px solid $modal_header_border_color
+    min-height ($modal_title_padding + $modal_title_line_height)
+    
+.modal_header .close
+    margin-top -2px
+    
+
+.modal_title
+    margin 0
+    line-height $modal_title_line_height
+
+.modal_body
+    position relative
+    padding $modal_inner_padding
+
+.modal_footer
+    padding $modal_inner_padding
+    text-align right 
+    border-top 1px solid $modal_footer_border_color
+    clearfix()
+
+    .btn + .btn
+        margin-left 5px
+        margin-bottom 0
+
+    .btn_group .btn + .btn
+        margin-left -1px
+
+    .btn_block + .btn_block
+        margin-left 0
+
+.modal_scrollbar_measure
+    position absolute
+    top -9999px
+    width 50px
+    height 50px
+    overflow scroll
+
+@media (min-width $screen_sm_min)
+    .modal_dialog
+        width $modal_m
+        margin 30px auto  
+    .modal_content
+        box-shadow 0 5px 15px rgba(0, 0, 0, .5)
+        
+    .modal_s
+        width $modal_s
+
+
+// close 关闭按钮 X
+
+.close
+    float right
+    font-size ($font_size_base * 1.5)
+    font-weight $close_font_weight
+    line-height 1
+    color $close_color
+    text-shadow $close_text_shadow
+    opacity(.2)
+
+    &:hover,
+    &:focus
+        color $close_color
+        text-decoration none
+        cursor pointer
+        opacity(.5)
+
+
+    button&
+        padding 0
+        cursor pointer
+        background transparent
+        border 0
+        webkit-appearance none
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

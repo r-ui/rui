@@ -1,0 +1,461 @@
+/**   
+* @Title: 表单样式 
+* @Description: ${todo}(表单样式) 
+* @author 徐锐
+* @date 2015-10-19
+* @version V1.0   
+*/
+
+
+// 重置排序表单和基线的非控制表单元素
+
+fieldset
+    padding 0
+    margin 0
+    border 0
+    //Chrome 和 Firefox 上，设置最小宽度 ，以确保它的行为更像是一个标准的块元素。
+    min-width 0
+
+legend
+    display block
+    width 100%
+    padding 0
+    margin-bottom  $line_height_computed
+    font-size ($font_size_base * 1.5)
+    line-height inherit
+    color $legend_color
+    border 0
+    border-bottom 1px solid $legend_border_color
+    
+label
+    display inline-block
+    max-width 100% //包裹IE8 label内容的长度
+    margin-bottom 5px
+    font-weight bold
+
+
+//====规范化表单控件
+
+//input 边框显示问题
+input[type="search"]
+    box-sizing border-box
+
+//单选框，复选框
+input[type="radio"],input[type="checkbox"]
+    margin 4px 0 0
+    margin-top unquote('1px \9')  
+    // unquote(str | ident)给定str引号去除，返回文字节点。http://www.zhangxinxu.com/jq/stylus/bifs.php
+    line-height normal
+
+input[type="file"]
+    display block
+
+//定义带有控件的数字字段。
+input[type="range"]
+    display block
+    width 100%
+    
+//使多个 select 下拉列表元素高度不固定
+select[multiple],select[size]
+    height auto
+
+//file、radio、checkbox元素获得焦点时改变其样式
+input[type="file"]:focus,input[type="radio"]:focus,input[type="checkbox"]:focus
+    tab-focus()
+
+
+//调整输出元素样式
+output
+    display block
+    padding-top ($padding_base_vertical + 1)
+    font-size $font_size_base
+    line-height $line_height_base
+    color $input_color
+
+
+
+
+//常见的控件：
+
+// select
+// textarea
+// input[type="text"]
+// input[type="password"]
+// input[type="datetime"]
+// input[type="datetime-local"]
+// input[type="date"]
+// input[type="month"]
+// input[type="time"]
+// input[type="week"]
+// input[type="number"]
+// input[type="email"]
+// input[type="url"]
+// input[type="search"]
+// input[type="tel"]
+// input[type="color"]
+
+.form_control
+    display block
+    width 100%
+    height $input_height_base
+    padding $padding_base_vertical $padding_base_horizontal
+    font-size $font_size_base
+    line-height $line_height_base
+    color $input_color
+    background-color $input_bg
+    background-image none //重置火狐上默认样式
+    border 1px solid $input_border
+    border-radius $input_border_radius
+    box-shadow inset 0 1px 1px rgba(0, 0, 0, .075)
+    transition border-color ease-in-out .15s, box-shadow ease-in-out .15s
+    // 焦点状态
+    form_control_focus()
+
+    // Placeholder
+    placeholder()
+    &[disabled],
+    &[readonly],
+      fieldset[disabled] &
+        background-color $input_bg_disabled
+        opacity 1 
+    
+    &[disabled],
+        fieldset[disabled] &
+            cursor $cursor_disabled
+    
+    textarea&
+        height auto
+
+// iOS 中使用appearance修改输入框样式
+input[type="search"]
+    -webkit-appearance none
+
+
+// iOS 不支持日期时间或一周。ios 8.3以上
+@media screen and (-webkit-min-device-pixel-ratio 0)
+    input[type="date"],
+    input[type="time"],
+    input[type="datetime-local"],
+    input[type="month"]
+        &.form_control
+            line-height $input_height_base
+
+        &.input_sm,.input_group_sm &
+            line-height $input_height_small
+
+        &.input_lg,.input-group_lg &
+            line-height $input_height_large
+
+.form_group
+    margin-bottom $form_group_margin_bottom
+
+.radio,.checkbox
+    position relative
+    display block
+    margin-top 10px
+    margin-bottom 10px
+    label
+        min-height $line_height_computed //确保输入不跳时没有文本
+        padding-left 20px
+        margin-bottom 0
+        font-weight normal
+        cursor pointer
+
+.radio input[type="radio"], 
+.inline input[type="radio"], 
+.checkbox input[type="checkbox"], 
+.checkbox_inline input[type="checkbox"]
+    position absolute
+    margin-left -20px
+    margin-top unquote('4px \9')
+    
+.radio + .radio,
+.checkbox + .checkbox
+    margin-top -5px
+
+.inline, .checkbox_inline
+    position relative
+    display inline-block
+    padding-left 20px
+    margin-bottom 0
+    vertical-align middle
+    font-weight normal
+    cursor pointer
+
+.radio_inline + .radio_inline, .checkbox_inline + .checkbox_inline
+    margin-top 0
+    margin-left 10px
+
+// 没有radio也不能只读checkbox
+input[type="radio"],
+input[type="checkbox"]
+    &[disabled],
+    &.disabled,
+        fieldset[disabled] &
+            cursor $cursor_disabled
+
+//在<label>s</label>上直接使用这些类
+.inline, .checkbox_inline
+    &.disabled,
+        fieldset[disabled] &
+            cursor $cursor_disabled
+
+//这些类用于与<label></label>元素
+.radio, .checkbox
+    &.disabled
+        fieldset[disabled] &
+            label
+                cursor $cursor_disabled
+
+//静态的窗体控件文本 水平的窗体布局 文本对齐标签
+.form_control_static
+    padding-top ($padding_base_vertical + 1)
+    padding-bottom ($padding_base_vertical + 1)
+    margin-bottom 0
+    min-height ($line_height_computed + $font_size_base)
+    
+    &.input_lg,
+    &.input_sm
+        padding-left 0
+        padding-right 0
+        
+
+//控件大小
+
+.input_sm
+    input_size($input_height_small, $padding_small_vertical, $padding_small_horizontal, $font_size_small, $line_height_small, $input_border_radius_small)
+
+.form_group_sm
+    .form_control
+        height $input_height_small
+        padding $padding_small_vertical $padding_small_horizontal
+        
+    select.form_control
+        height $input_height_small
+        line-height $input_height_small
+    
+    textarea.form_control, select[multiple].form_control
+        height auto
+    
+    .form_control_static
+        height $input_height_small
+        min-height ($line_height_computed + $font_size_small)
+        padding ($padding_small_vertical + 1) $padding_small_horizontal
+        font-size $font_size_small
+        line-height $line_height_small
+
+    
+.input_lg
+    input_size($input_height_large, $padding_large_vertical, $padding_large_horizontal, $font_size_large, $line_height_large, $input_border_radius_large)
+
+.form_group_lg
+    .form_control
+        height $input_height_large
+        padding $padding_large_vertical $padding_large_horizontal
+        font-size $font_size_large
+        line-height $line_height_large
+        border-radius $input_border_radius_large
+        
+    select.form_control
+        height $input_height_large
+        line-height $input_height_large
+    
+    textarea.form_control, select[multiple].form_control
+        height auto
+    
+
+    .form_control_static
+        height $input_height_large
+        min-height ($line_height_computed + $font_size_large)
+        padding ($padding_large_vertical + 1) $padding_large_horizontal
+        font-size $font_size_large
+        line-height $line_height_large
+        
+
+//窗体控件状态 应用于单个窗体控件的状态。
+
+.has_feedback
+    position relative
+    
+    //确保图标不重叠文本
+    .form_control
+        padding-right ($input_height_base * 1)
+        
+.form_control_feedback
+    position absolute
+    top 0
+    right 0
+    z-index 2 //确保图标在输入组上面
+    display block
+    width $input_height_large
+    height $input_height_base + 12
+    line-height $input_height_base 
+    text-align center
+    pointer-events none
+        
+.input_lg + .form_control_feedback,
+.input_group_lg + .form_control_feedback,
+.form_group_lg .form_control + .form_control_feedback
+    width $input_height_large
+    height $input_height_large
+    line-height $input_height_large
+
+.input_sm + .form_control_feedback,
+.input_group_sm + .form_control_feedback,
+.form_group_sm .form_control + .form_control_feedback
+    width $input_height_small
+    height $input_height_small
+    line-height $input_height_small
+
+
+.sr_only
+    position absolute
+    width 1px
+    height 1px
+    margin -1px
+    padding 0
+    overflow hidden
+    clip rect(0, 0, 0, 0)
+    border 0
+    
+
+//Feedback 状态
+
+.has_success
+    form_control_validation($state_success_text, $state_success_text, $state_success_bg)
+.has_warning
+    form_control_validation($state_warning_text, $state_warning_text, $state_warning_bg)
+.has_error
+    form_control_validation($state_danger_text, $state_danger_text, $state_danger_bg)
+
+.has_feedback label
+    &  ~ .form_control_feedback
+        top ($line_height_computed ) // Height of the `label` and its margin
+
+    &.sr_only ~ .form_control_feedback
+        top 0
+
+
+.help_block
+    display block 
+    margin-top 5px
+    margin-bottom 10px
+    color lighten($text_color, 25%)
+
+
+//内嵌 inline form
+//设置控件样式inline-block 通过添加.form_*类 内嵌
+//在小于768像素的设备上 开始堆叠
+.form_inline
+    @media (min-width $screen_sm_min)
+        //设置内嵌块所有的样式为inline-block
+        .form_group
+            display inline-block
+            margin-bottom 0
+            vertical-align middle
+        
+        //在导航栏的形式，不要使用 .form_group
+        .form_control
+            display inline-block
+            //防止堆叠标签
+            width auto
+            vertical-align middle
+        
+        //普通的静态控件
+        .form_control_static
+            display inline-block
+        
+        .input_group
+            display inline-table
+            vertical-align middle
+            
+            .input_group_addon, 
+            .input_group_btn, 
+            .form_control
+                width auto
+        
+        //设置输入组的宽度为100%
+        .input_group > .form_control
+            width 100%
+        .control_label
+            margin-bottom 0
+            vertical-align middle
+            
+        //删除radio、checkbox默认的边距
+        .radio,
+        .checkbox
+            display inline-block
+            margin-top 0
+            margin-bottom 0
+            vertical-align middle
+            
+            label
+                padding-left 0
+        .radio input [type="radio"], 
+        .checkbox input[type="checkbox"]
+            position relative
+            margin-left 0
+        //重新设置图标
+        .has_feedback .form_control_feedback
+            top 0
+        
+
+
+//水平排列的表单
+.form_horizontal
+    
+    //单选框，复选框 垂直对其方式
+    .radio, .checkbox, .radio_inline, .checkbox_inline
+        margin-top 0
+        margin-bottom 0
+        padding-top ($padding_base_vertical + 1) //默认填充加边框 以确保对齐文本
+    .radio, .checkbox
+        min-height ($line_height_computed + ($padding_base_vertical + 1))
+
+    //使表单组行为象行
+    .form_group
+        make_row()
+    
+    //重置间距和右对齐标签   在狭窄的视口标签栈作为默认表单的例子一样
+    @media (min-width $screen_sm_min)
+        .control_label
+            text-align right 
+            margin-bottom 0
+            padding-top ($padding_base_vertical + 1)  //默认填充加边框
+    
+    .has_feedback .form_control_feedback
+        right floor($grid_gutter_width / 2)
+        
+    //form 表单组大小
+    //为 '.input_lg' 和 '.input_sm' 将样式应用于快速实用程序类
+    .form_group_lg
+        @media (min-width $screen_sm_min)
+            .control_label
+                padding-top (($padding_large_vertical * $line_height_large) + 1)
+                font-size $font_size_large
+    .form_group_sm
+        @media (min-width $screen_sm_min)
+            .control_label
+                padding-top ($padding_small_vertical + 1)
+                font-size $font_size_small
+            .form_control
+                @extend .input_sm  //继承 .input_sm 的样式
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

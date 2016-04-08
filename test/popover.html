@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>popover 弹出框</title>
+    <link rel="stylesheet" type="text/css" href="css/rui.all.min.css">
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/tooltip.js"></script>
+    <script type="text/javascript" src="../js/popover.js"></script>
+</head>
+<style type="text/css">
+.bg_success{padding:10px;color:red;background: #eee}
+table{font-size: 14px;}
+table thead th{ text-align: center;font-weight: bold;font-size: 16px;}
+</style>
+<body>
+<br/>
+<div class="container">
+    <h3>popover 弹出框</h3>
+    <p>弹出框（Popover）与工具提示（Tooltip）类似，提供了一个扩展的视图。该方法依赖于工具提示（tooltip）。</p>
+    <br/>
+    <br/>
+    <h3>用法</h3>
+    <br/>
+    <p>1,通过 data 属性：如需添加一个弹出框（popover），只需向一个锚/按钮标签添加 data-toggle="popover" 即可。锚的 title 即为弹出框（popover）的文本。默认情况下，插件把弹出框（popover）设置在顶部。</p>
+
+<a href="#" id="examplehover" class="btn btn_success" rel="popover" data-content="我是内容我是内容我是内容我是内容我是内容我是内容" title="标题"> 请悬停在我的上面</a>
+    <br/>    <br/>
+
+<pre class="bg_success"><code>&lt;a href="#" data-toggle="popover" data-content="内容"  title="标题"&gt;请悬停在我的上面</a></code></pre>
+    <br/>
+    <br/>
+    <br/>
+
+<p>2,通过 JavaScript：通过 JavaScript 启用弹出框（popover）：</p>
+
+<div class="bg_success">$('#id').popover(options)</div>
+    <br/>
+    <br/>
+    <br/>
+<p>3,启用页面所有的弹出框</p>   
+<div class="bg_success">$(function () { $("[data-toggle='popover']").popover(); });</div> 
+<br/>
+
+<button type="button" id="sss" class="btn btn_lg btn_danger bs-docs-popover" data-toggle="popover" title="" data-content="我是内容我是内容我是内容我是内容我是内容我是内容" data-original-title="标题">点我弹出/隐藏弹出框</button>
+    <br/>
+    <br/>
+    <br/>
+
+
+<h3>各种实例</h3>
+<br/>
+<button tabindex="0" class="btn btn_lg btn_danger bs-docs-popover" role="button" data-toggle="popover" data-trigger="focus" title="" data-content="我是内容我是内容我是内容我是内容我是内容我是内容" data-original-title="标题">可消失的弹出框</button>
+
+
+    <br/>
+    <br/>
+    <br/>
+
+
+<a href="#" id="examplehover" class="btn btn_success" rel="popover" data-content="我是内容我是内容我是内容我是内容我是内容我是内容" data-original-title="标题">鼠标经过显示</a>
+    <br/>
+    <br/>
+    <br/>
+
+<button type="button" class="btn btn btn_primary" data-container="body" data-toggle="popover" data-placement="left" data-content="我是内容我是内容我是内容" data-original-title="标题">
+  左侧打开
+</button>
+
+<button type="button" class="btn btn btn_primary" data-container="body" data-toggle="popover" data-placement="top" data-content="我是内容我是内容我是内容我是内容我是内容我是内容">
+  顶部打开
+</button>
+
+<button type="button" class="btn btn btn_primary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="我是内容我是内容我是内容我是内容我是内容我是内容">
+  底部打开
+</button>
+
+<button type="button" class="btn btn btn_primary" data-container="body" data-toggle="popover" data-placement="right" data-content="我是内容我是内容我是内容我是内容我是内容我是内容" data-original-title="标题">
+  右侧打开
+</button>
+
+<br/>
+<br/>
+<br/>
+<h3>选项</h3>
+<br/>
+<table class="table table_bordered table_striped table_hover">
+    <thead>
+        <tr>
+            <th>选项名称</th>
+            <th>类型/默认值</th>
+            <th>Data 属性名称   </th>
+            <th>描述  </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>animation</th>
+            <th>boolean默认值：true</th>
+            <th>data-animation  </th>
+            <th>向弹出框应用 CSS 褪色过渡效果。</th>
+        </tr>
+        <tr>
+            <th>html</th>
+            <th>boolean
+默认值：false</th>
+            <th>data-html</th>
+            <th>向弹出框插入 HTML。如果为 false，jQuery 的 text 方法将被用于向 dom 插入内容。如果您担心 XSS 攻击，请使用 text。</th>
+        </tr>
+        <tr>
+            <th>placement</th>
+            <th>string|function
+默认值：top</th>
+            <th>data-placement</th>
+            <th>规定如何定位弹出框（即 top|bottom|left|right|auto）。
+当指定为 auto 时，会动态调整弹出框。例如，如果 placement 是 "auto left"，弹出框将会尽可能显示在左边，在情况不允许的情况下它才会显示在右边。</th>
+        </tr>
+        <tr>
+            <th>selector</th>
+            <th>string
+默认值：false   </th>
+            <th>data-selector</th>
+            <th>如果提供了一个选择器，弹出框对象将被委派到指定的目标。</th>
+        </tr>
+        <tr>
+            <th>title   </th>
+            <th>string | function
+默认值：''  </th>
+            <th>data-title  </th>
+            <th>如果未指定 title 属性，则 title 选项是默认的 title 值。</th>
+        </tr>
+        <tr>
+            <th>trigger</th>
+            <th>string
+默认值：'hover focus'</th>
+            <th>data-trigger</th>
+            <th>定义如何触发弹出框： click| hover | focus | manual。您可以传递多个触发器，每个触发器之间用空格分隔。</th>
+        </tr>
+        <tr>
+            <th>delay</th>
+            <th>number | object
+默认值：0   </th>
+            <th>data-delay</th>
+            <th>延迟显示和隐藏弹出框的毫秒数 - 对 manual 手动触发类型不适用。如果提供的是一个数字，那么延迟将会应用于显示和隐藏。如果提供的是对象，结构如下所示：delay:
+{ show: 500, hide: 100 }</th>
+        </tr>
+        <tr>
+            <th>container</th>
+            <th>string | false
+默认值：false</th>
+            <th>data-container  </th>
+            <th>向指定元素追加弹出框。
+实例： container: 'body'</th>
+        </tr>
+    </tbody>
+</table>
+
+<h3>方法</h3>
+弹出框（Popover）插件中有用的方法：
+<br/>
+<br/>
+<table class="table table_bordered table_striped table_hover">
+    <thead>
+        <tr>
+            <th>方法</th>
+            <th>描述</th>
+            <th>实例</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Options: .popover(options)</th>
+            <td>向元素集合附加弹出框句柄。</td>
+            <td>$().popover(options)</td>
+        </tr>
+        <tr>
+            <th>Toggle: .popover('toggle')</th>
+            <td>切换显示/隐藏元素的弹出框。</td>
+            <td>$('#id').popover('toggle')</td>
+        </tr>
+        <tr>
+            <th>Show: .popover('show')</th>
+            <td>显示元素的提弹出框。</td>
+            <td>$('#id').popover('show')</td>
+        </tr>
+        <tr>
+            <th>Hide: .popover('hide')</th>
+            <td>隐藏元素的弹出框。</td>
+            <td>$('#id').popover('hide')</td>
+        </tr>
+        <tr>
+            <th>Destroy: .popover('destroy')</th>
+            <td>隐藏并销毁元素的弹出框。</td>
+            <td>$('#id').popover('destroy')</td>
+        </tr>
+    </tbody>
+</table>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>
+<script>
+$(function (){ 
+
+    $('a').popover({
+        trigger : 'hover'
+    });
+    // $(".btn").popover();
+    // $("#examplesss").popover();
+    $("[data-toggle='popover']").popover();
+
+});
+</script>
+
+</body>
+</html>

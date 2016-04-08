@@ -1,0 +1,172 @@
+/**   
+* @Title: 下拉菜单 
+* @Description: ${todo}(用一句话描述该文件做什么) 
+* @author name
+* @date 2015-10-19
+* @version V1.0   
+*/
+
+//下拉箭头／插入符号
+.caret
+    display inline-block
+    width 0
+    height 0
+    margin-left 2px 
+    vertical-align middle
+    border-top $caret_width_base dashed
+    border-top s("%s solid dashed", $caret_width_base) //IE8
+    border-right $caret_width_base solid transparent
+    border-left $caret_width_base solid transparent
+ 
+//下拉容器
+.dropdown, .dropup
+    position relative
+.dropdown_menu //下拉菜单 （ul）         
+    position absolute
+    top 100%
+    left 0
+    z-index $zindex_dropdown
+    display none     //覆盖默认的ul
+    float left
+    min-width 160px
+    padding 5px 0
+    margin 2px 0 0
+    list-style none
+    font-size $font_size_base
+    text-align left
+    background-color $dropdown_bg
+    border 1px solid $dropdown_fallback_border //IE8
+    border 1px solid $dropdown_border
+    border-radius $border_radius_base
+    box-shadow 0 6px 12px rgba(0, 0, 0, .175)
+    background-clip padding-box    //背景被裁剪到内边距框
+    
+    > li.divider // 水平分割线样式
+        nav_divider($dropdown_divider_bg) 
+    
+    //下拉菜单中的链接
+    > li > a
+        display block
+        padding 3px 20px
+        clear both
+        font-weight normal
+        line-height $line_height_base
+        color $dropdown_link_color  
+        white-space normal  //文本超出不换行
+        
+    > li.active > a 
+        &,
+        &:hover,
+        &:focus
+            color $dropdown_link_active_color
+            text-decoration none
+            outline 0
+            background-color $dropdown_link_active_bg
+            
+    > li.disabled > a    //禁用状态
+        &,
+        &:hover,
+        &:focus
+            color $dropdown_link_disabled_color
+        &:hover,//鼠标悬浮
+        &:focus
+            text-decoration none
+            background-color transparent
+            background-image none
+            reset-filter()
+            cursor $cursor_disabled
+    
+    > li > a   //悬停／焦点状态
+        &:hover,
+        &:focus,
+    > li.dropdown_submenu > a   //下拉菜单的子菜单
+        &:hover,
+        &:focus
+            text-decoration none
+            color $dropdown_link_color
+            background-color $dropdown_link_hover_bg
+            
+    .dropdown_header  //下拉菜单内的标题
+        display block
+        padding 3px 20px
+        font-size $font_size_small
+        line-height $line_height_base
+        color $dropdown_header_color
+        white-space nowrap
+        
+//下拉菜单左对齐            
+.dropdown_menu_left    
+    left 0
+    right auto
+//右对齐    
+.dropdown_menu_right
+    right 0
+    left auto
+        
+//关闭下拉菜单时，防止集中在下拉列表切换
+.dropdown_toggle:focus
+    outline 0
+
+       
+//下拉打开状态    
+.open > .dropdown_menu
+    display block
+//删除时，被触发    
+    > a
+        outline 0
+             
+//向上弹出
+.dropup
+    position absolute
+    .caret
+        border-top 0
+        border-bottom $caret_width_base dashed
+        border-bottom s("%s solid \9", $caret_width_base) // IE8
+        content ""    
+    .dropdown_menu
+        top auto
+        bottom 100%
+        margin-bottom 2px
+
+
+
+// //子菜单   默认样式
+// .dropdown_submenu
+//     position relative 
+//     a:after
+//         display block
+//         float right
+//         width 0
+//         height 0
+//         margin 5px 
+//         margin-right -10px 
+//         border-color transparent
+//         border-left-color #ccc
+//         border-style solid
+//         border-width 5px 0 5px 5px
+//         content ""            
+//     > .dropdown_menu
+//         top 0
+//         left 100%
+//         margin-top -6px
+//         margin-left -1px
+//         border-radius 0 6px 6px 6px 
+// .dropdown_menu_left > .dropdown_menu
+//     left -100%
+//     margin-left 10px
+//     border-radius 6px 0 6px 6px  
+    
+// .dropdown_submenu:hover > .dropdown_menu 
+//     display block   
+
+
+// //子菜单  向上弹出的子菜单
+// .dropup .dropdown_submenu > .dropdown_menu
+//     top auto
+//     bottom 0
+//     margin-top 0
+//     margin-bottom -2px
+//     border-radius 5px 5px 5px 0    
+
+              
+

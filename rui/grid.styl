@@ -1,0 +1,38 @@
+/**   
+* @Title: 栅格系统 
+* @Description: ${todo}(用一句话描述该文件做什么) 
+* @author 徐锐
+* @date 2015-10-19
+* @version V1.0   
+*/
+
+
+.container
+    container_fixed()
+    
+    @media (min-width $screen_sm_min)
+        width $container_sm
+    @media (min-width $screen_md_min)
+        width $container_md
+    @media (min-width $screen_lg_min)
+        width $container_lg 
+        
+.container_fluid
+    container_fixed()
+
+.row
+    make_row()
+
+
+make_grid_columns()
+
+make_grid(xs)
+
+@media (min-width $screen_sm_min)
+    make_grid(sm)
+
+@media (min-width $screen_md_min)
+    make_grid(md)
+      
+@media (min-width $screen_lg_min)
+    make_grid(lg)

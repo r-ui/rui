@@ -1,0 +1,50 @@
+//运算符 percentage转换为百分比显示
+percentage($n)
+    //$n 传入浮点数字
+    if $n == 0
+        0
+    else
+        unit($n * 100, "%")
+		//换算成％
+
+// 组件
+//==============================
+@import "mixins/reset.styl"
+global-reset()
+@import "mixins/opacity"
+@import "mixins/buttons"
+@import "mixins/images"
+@import "mixins/nav_divider"
+@import "mixins/reset-filter"
+@import "mixins/alerts"
+@import "mixins/list-group"
+@import "mixins/labels"
+// 设置一个方位的圆角方法
+@import "mixins/border-radius"   
+
+// 排版
+//==============================
+@import "mixins/text-emphasis"
+@import "mixins/background-variant"
+@import "mixins/clearfix"
+// 栅格
+//==============================
+@import "mixins/grid"
+@import "mixins/grid-framework" 
+@import "mixins/text-overflow"
+
+// 表格
+//==============================
+@import "mixins/table"
+
+
+// 表单
+//==============================
+@import "mixins/forms"
+
+
+// 导航
+@import "mixins/nav_divider"
+
+// 导航
+@import "mixins/reset-text"

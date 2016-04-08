@@ -1,0 +1,113 @@
+// 横排分割按钮组
+// =======================
+.btn_group,.btn_group_vertical
+    position relative
+    display inline-block
+    vertical-align middle 
+    > .btn
+        position relative
+        float left
+        &:hover,
+        &:focus,
+        &:active,
+        &.active
+            z-index 2
+
+.btn_group
+    .btn + .btn,
+    .btn + .btn_group,
+    .btn_group + .btn,
+    .btn_group + .btn_group
+        margin-left -1px
+    > .btn:not(:first-child):not(:last-child):not(.dropdown_toggle)
+        border-radius 0
+
+    > .btn:first-child:not(:last-child):not(.dropdown_toggle)
+        border-right-radius(0)
+    > .btn:last-child:not(:first-child)
+        border-left-radius(0)
+    > .btn_group
+        float left
+
+    //左边的dropdown_toggle圆角
+    > .btn_group:first-child:not(:last-child)
+        > .btn:last-child,
+        > .dropdown_toggle
+            border-right-radius(0)
+    // 中间的 dropdown_toggle
+    > .btn_group:not(:first-child):not(:last-child) > .btn
+        border-radius 0
+    > .btn_group:last-child:not(:first-child) > .btn:first-child
+        border-left-radius(0)
+    > .dropdown_toggle:not(:first-child)
+        border-left-radius(0)
+
+.btn_group_x > .btn
+    @extend .btn_l
+
+.btn_group_s > .btn
+    @extend .btn_s
+
+.btn_group_l > .btn
+    @extend .btn_x
+
+
+// 竖排分割按钮组
+// =======================
+
+.btn_group_vertical
+    > .btn,
+    > .btn_group,
+    > .btn_group > .btn
+        display block
+        float none
+        width 100%
+        max-width 100%
+
+    > .btn + .btn,
+    > .btn + .btn_group,
+    > .btn_group + .btn,
+    > .btn_group + .btn_group
+        margin-top -1px
+        margin-left 0
+        
+    > .btn
+        &:not(:first-child):not(:last-child)
+            border-radius 0
+
+        &:first-child:not(:last-child)
+            border-bottom-radius(0)
+            border-top-right-radius $btn_border_radius_base
+
+        &:last-child:not(:first-child)
+            border-bottom-left-radius $btn_border_radius_base
+            border-top-radius(0)
+
+    > .btn_group:not(:first-child):not(:last-child) > .btn
+        border-radius 0
+    > .btn_group:first-child:not(:last-child)
+        > .btn:last-child,
+        > .dropdown_toggle
+            border-bottom-radius(0)
+
+    > .btn_group:last-child:not(:first-child) > .btn:first-child
+        border-top-radius(0)
+
+
+.btn_group_justified
+    display table
+    width 100%
+    table-layout fixed
+    border-collapse separate
+
+    > .btn,
+    > .btn_group
+        float none
+        display table-cell
+        width 1%
+
+    > .btn_group .btn
+        width 100%
+
+    > .btn_group .dropdown_menu
+        left auto

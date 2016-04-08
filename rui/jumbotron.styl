@@ -1,0 +1,46 @@
+
+// 巨幕 jumbotron
+// ================================
+
+body 
+    margin-top 0
+
+
+.jumbotron
+    padding-top $jumbotron_padding
+    padding-bottom $jumbotron_padding
+    margin-bottom $jumbotron_padding
+    color $jumbotron_color
+    background-color $jumbotron_bg
+
+    h1,
+    .h1
+        color $jumbotron_heading_color
+
+    p
+        margin-bottom ($jumbotron_padding / 2)
+        font-size $jumbotron_font_size
+        font-weight 200
+
+    > hr
+        border-top-color darken($jumbotron_bg, 10%)
+
+    .container &,
+    .container_fluid &
+        border-radius $border_radius_large // Only round corners at higher resolutions if contained in a container
+
+    .container
+        max-width 100%
+
+    @media screen and (min-width $screen_sm_min)
+        padding-top ($jumbotron_padding * 1.6)
+        padding-bottom ($jumbotron_padding * 1.6)
+
+      .container &,
+      .container_fluid &
+          padding-left ($jumbotron_padding * 2)
+          padding-right ($jumbotron_padding * 2)
+
+      h1,
+      .h1
+          font-size $jumbotron_heading_font_size

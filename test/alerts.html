@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>警告框</title>
+    <link rel="stylesheet" type="text/css" href="../dist/css/rui.all.min.css">
+    <style type="text/css">
+    /*.close{ float: right; padding:0;cursor: pointer; font-size: 21px; font-weight: 700; line-height: 1; text-shadow:0 1px 0 #fff; opacity: 0.2; border:0; background: none;}*/
+    strong{font-weight: bold;}
+    .alert_link{ text-decoration: none;}
+    .alert_link:hover{ text-decoration: underline;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h2>普通信息</h2>
+            <div class="alert alert_info" role="alert">
+                <strong>小心！</strong>此警报需要您的关注，但它不是超级重要。
+            </div>
+        </div>
+        <br/>
+
+        <div class="row">
+            <h2>成功</h2>
+            <div class="alert alert_success" role="alert">
+                <strong>成功！</strong>报表保存成功
+            </div>
+        </div>
+        <br/>
+
+        <div class="row">
+            <h2>警告</h2>
+            <div class="alert alert_warning" role="alert">
+                <strong>警告！</strong>你需要检查这个文件这样才完美
+            </div>
+        </div>
+        <br/>
+
+        <div class="row">
+            <h2>错误</h2>
+            <div class="alert alert_danger" role="alert">
+                <strong>错误</strong>数据加载错误找不到你筛选的数据
+            </div>
+        </div>
+        <br/>
+
+        <div class="row">
+            <h2>关闭式报警框</h2>
+            <div class="alert alert_info alert_dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>小心！</strong>此警报需要您的关注，但它不是超级重要。
+            </div>
+
+            <div class="alert alert_success alert_dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>成功！</strong>此警报需要您的关注，但它不是超级重要。
+            </div>
+
+            <div class="alert alert_warning alert_dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>警告！</strong>此警报需要您的关注，但它不是超级重要。
+            </div>
+
+            <div class="alert alert_danger alert_dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>错误！</strong>此警报需要您的关注，但它不是超级重要。
+            </div>
+        </div>
+        <br/>
+        
+        <div class="row">
+            <h2>关闭式带标题报警框</h2>
+            <div class="alert alert_info alert_dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>小心！</h4>此警报需要您的关注，但它不是超级重要。
+            </div>
+
+            <div class="alert alert_success alert_dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>成功！</h4>此警报需要您的关注，但它不是超级重要。
+            </div>
+
+            <div class="alert alert_warning alert_dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>警告！</h4>此警报需要您的关注，但它不是超级重要。
+            </div>
+
+            <div class="alert alert_danger alert_dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>错误！</h4>此警报需要您的关注，但它不是超级重要。
+            </div>
+        </div>
+        <br/>
+        <h2>链接式</h2>
+        <div class="row">
+            <h2>普通信息</h2>
+            <div class="alert alert_info" role="alert">
+                <strong>小心！</strong>
+                <a href="#" class="alert_link">此警报需要您的关注</a>，但它不是超级重要。
+            </div>
+        </div>
+        <br/>
+        
+        <div class="row">
+            <h2>成功</h2>
+            <div class="alert alert_success" role="alert">
+                <strong>成功！</strong>
+                <a href="#" class="alert_link">保存成功</a>
+            </div>
+        </div>
+        <br/>
+
+        <div class="row">
+            <h2>警告</h2>
+            <div class="alert alert_warning" role="alert">
+                <strong>警告！</strong>
+                <a href="#" class="alert_link">你需要检查这个文件</a>这样才完美
+            </div>
+        </div>
+        <br/>
+
+
+        <div class="row">
+            <h2>错误</h2>
+            <div class="alert alert_danger" role="alert">
+                <strong>错误！</strong>
+                <a href="#" class="alert_link">数据加载错误</a>找不到你筛选的数据
+            </div>
+        </div>
+        <br/>
+        
+        <div class="row show_grid">
+            <div class="col_sm_3">
+                <div class="alert alert_info" role="alert">
+                    <p>数据加载找不到你筛选的数据</p>
+                    <p>数据加载成功找不到你筛选的数据</p>
+                    <p>数据加载错误找不到你筛选的数据</p>
+                </div>
+            </div>
+            <div class="col_sm_3">
+                <div class="alert alert_success" role="alert">
+                    <p>数据加载错误找不到你筛选的数据</p>
+                    <p>数据加载错误找不到你筛选的数据</p>
+                    <p>数据加载错误找不到你筛选的数据</p>
+                </div>
+            </div>
+            <div class="col_sm_3">
+                <div class="alert alert_warning" role="alert">
+                    <p>数据加载错误找不</p>
+                    <p>数据加载错误找不到你筛选的数据</p>
+                    <p>数据加载错误找不到你筛选的数据</p>
+                </div>
+            </div>
+            <div class="col_sm_3">
+                <div class="alert alert_danger" role="alert">
+                    <p>数据加载错误找不到你</p>
+                    <p>数据加载错误找不到你</p>
+                    <p>数据加载错误找不到你</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

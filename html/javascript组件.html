@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RUI</title>
+        
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <script type="text/javascript" src="../static/js/jquery.js"></script>
+    <script type="text/javascript" src="../static/js/transition.js"></script>
+    <script type="text/javascript" src="../static/js/tab.js"></script>
+    <script type="text/javascript" src="../static/js/dropdown.js"></script>
+    <script type="text/javascript" src="../static/js/tooltip.js"></script>
+    <script type="text/javascript" src="../static/js/popover.js"></script>
+    <script type="text/javascript" src="../static/js/modal.js"></script>
+</head>
+<body>
+<div class="navbar navbar-line">
+    <div class="container">
+        <div class="logo">
+            
+                RUI
+            
+        </div>
+        <ul><li><a href="../index.html">首页</a></li><li><a href="../html/快速入门.html">快速入门</a></li><li><a href="../html/基础框架.html">基础框架</a></li><li><a href="../html/组件.html">组件</a></li><li class="active"><a href="../html/javascript组件.html">javascript组件</a></li></ul>
+        
+        
+        <div class="forkgithub"><a target="_blank" href="http://gitlab.hotpu.cn:8010/FED/RUI">fork on github</a></div>
+        
+    </div>
+    
+</div>
+
+
+
+
+<div class="container">
+
+    <div class="page-toc">
+        <ul><li><a href="#t0tab切换">tab切换</a><ul><li><a href="#t1用法">用法</a></li><li><a href="#t2事件">事件</a></li></ul></li><li><a href="#t3下拉菜单 dropdown">下拉菜单 dropdown</a><ul><li><a href="#t4基本用法">基本用法</a></li><li><a href="#t5导航下拉菜单">导航下拉菜单</a></li><li><a href="#t6带下拉菜单的胶囊式标签页">带下拉菜单的胶囊式标签页</a></li></ul></li><li><a href="#t7过渡动画">过渡动画</a><ul><li><a href="#t8关于过渡效果">关于过渡效果</a></li><li><a href="#t9包含的内容">包含的内容</a></li><li><a href="#t10禁用过度效果">禁用过度效果</a></li><li><a href="#t11具体案例">具体案例</a></li></ul></li><li><a href="#t12模态框(弹出层) modal">模态框(弹出层) modal</a><ul><li><a href="#t13不支持同时打开多个模态框">不支持同时打开多个模态框</a></li><li><a href="#t14模态框的 HTML 代码放置的位置">模态框的 HTML 代码放置的位置</a></li><li><a href="#t15动态实例">动态实例</a><ul><li><a href="#t16增强模态框的可访问性">增强模态框的可访问性</a></li></ul></li><li><a href="#t17可选尺寸">可选尺寸</a></li><li><a href="#t18禁止动画效果">禁止动画效果</a></li><li><a href="#t19基于触发按钮改变弹出层内容">基于触发按钮改变弹出层内容</a></li><li><a href="#t20各种css3动画弹出层">各种css3动画弹出层</a></li><li><a href="#t21用法">用法</a><ul><li><a href="#t22通过 data 属性">通过 data 属性</a></li><li><a href="#t23通过 JavaScript 调用">通过 JavaScript 调用</a></li></ul></li><li><a href="#t24参数">参数</a></li><li><a href="#t25方法">方法</a><ul><li><a href="#t26.modal(options)">.modal(options)</a></li><li><a href="#t27.modal('toggle')">.modal('toggle')</a></li><li><a href="#t28.modal('show')">.modal('show')</a></li><li><a href="#t29.modal('hide')">.modal('hide')</a></li></ul></li><li><a href="#t30事件">事件</a></li></ul></li><li><a href="#t31警告框 scrollspy">警告框 scrollspy</a></li><li><a href="#t32工具提示 tooltips">工具提示 tooltips</a><ul><li><a href="#t33提供四个选项：顶部，右边，底部和左对齐">提供四个选项：顶部，右边，底部和左对齐</a></li><li><a href="#t34四方向示例">四方向示例</a></li><li><a href="#t35用法">用法</a></li><li><a href="#t36选项">选项</a></li><li><a href="#t37方法">方法</a></li></ul></li><li><a href="#t38按钮">按钮</a></li><li><a href="#t39滚动条监听">滚动条监听</a></li><li><a href="#t40表单验证">表单验证</a></li><li><a href="#t41简单AJAX加载路由">简单AJAX加载路由</a></li><li><a href="#t42基于iframe单页面加载">基于iframe单页面加载</a></li><li><a href="#t43表格排序">表格排序</a><ul><li><a href="#t44全选">全选</a></li><li><a href="#t45排序">排序</a></li></ul></li></ul>
+    </div>
+    
+    <div class="content markdown-body">
+        <h1 id="t0tab&#x5207;&#x6362;">tab&#x5207;&#x6362; <a href="#t0tab&#x5207;&#x6362;"> # </a></h1>
+<div class="alert alert_success" role="alert">
+                <strong>&#x6CE8;&#x610F;&#xFF01;</strong>&#x9700;&#x5F15;&#x7528;  tab.js<br></div>
+
+
+<p>&#x901A;&#x8FC7;&#x7ED3;&#x5408; <code>data</code> &#x5C5E;&#x6027;&#xFF0C;&#x53EF;&#x4EE5;&#x8F7B;&#x677E;&#x5730;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6807;&#x7B7E;&#x9875;&#x754C;&#x9762;&#x3002;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x63D2;&#x4EF6;&#x60A8;&#x53EF;&#x4EE5;&#x628A;&#x5185;&#x5BB9;&#x653E;&#x7F6E;&#x5728;&#x6807;&#x7B7E;&#x9875;&#x6216;&#x8005;&#x662F;&#x80F6;&#x56CA;&#x5F0F;&#x6807;&#x7B7E;&#x9875;&#x751A;&#x81F3;&#x662F;&#x4E0B;&#x62C9;&#x83DC;&#x5355;&#x6807;&#x7B7E;&#x9875;&#x4E2D;&#x3002;</p>
+<h2 id="t1&#x7528;&#x6CD5;">&#x7528;&#x6CD5; <a href="#t1&#x7528;&#x6CD5;"> # </a></h2>
+<ul>
+<li>&#x901A;&#x8FC7; <code>data</code> &#x5C5E;&#x6027;&#xFF1A;&#x60A8;&#x9700;&#x8981;&#x6DFB;&#x52A0; <code>data-toggle=&quot;tab&quot;</code> &#x6216; <code>data-toggle=&quot;pill&quot;</code>&#x5230;&#x951A;&#x6587;&#x672C;&#x94FE;&#x63A5;&#x4E2D;&#x3002;
+&#x6DFB;&#x52A0; <code>nav</code> &#x548C; <code>nav_tabs</code> &#x7C7B;&#x5230; <code>ul</code> &#x4E2D;&#xFF0C;&#x5C06;&#x4F1A;&#x5E94;&#x7528;&#x6807;&#x7B7E;&#x6837;&#x5F0F;&#xFF0C;&#x6DFB;&#x52A0; <code>nav</code> &#x548C; <code>nav_pills</code>&#x7C7B;&#x5230; ul &#x4E2D;&#xFF0C;&#x5C06;&#x4F1A;&#x5E94;&#x7528;&#x80F6;&#x56CA;&#x5F0F;&#x6837;&#x5F0F;&#x3002;&#x65E0;&#x9700;&#x7F16;&#x5199;&#x989D;&#x5916;&#x7684;javascript&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x6FC0;&#x6D3B;&#x9009;&#x9879;&#x5361;&#x5207;&#x6362;&#x6548;&#x679C;&#x3002;</li>
+</ul>
+<div class="bs-example">
+    <ul class="nav nav_tabs">
+        <li class="active"><a href="#home11" data-toggle="tab">&#x83DC;&#x5355;&#x4E00;</a></li>
+        <li><a href="#ios" data-toggle="tab">&#x83DC;&#x5355;&#x4E8C;</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown_toggle" data-toggle="dropdown">&#x83DC;&#x5355;&#x4E09; 
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown_menu">
+                <li><a href="#jmeter" tabindex="-1" data-toggle="tab">a</a></li>
+                <li><a href="#ejb" tabindex="-1" data-toggle="tab">b</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="tab_content">
+         <div class="tab_pane fade in active" id="home11">
+             <p>1</p>
+         </div>
+         <div class="tab_pane fade" id="ios">
+             <p>2</p>
+         </div>
+         <div class="tab_pane fade" id="jmeter">
+             <p>3</p>
+         </div>
+         <div class="tab_pane fade" id="ejb">
+             <p>4</p>
+         </div>
+    </div>
+</div>
+
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;nav nav_tabs&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;active&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#home11&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;tab&quot;</span>&gt;</span>&#x83DC;&#x5355;&#x4E00;<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#ios&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;tab&quot;</span>&gt;</span>&#x83DC;&#x5355;&#x4E8C;<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;dropdown&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>  <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;dropdown_toggle&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;dropdown&quot;</span>&gt;</span>&#x83DC;&#x5355;&#x4E09; 
+            <span class="hljs-tag">&lt;<span class="hljs-title">b</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;caret&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">b</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;dropdown_menu&quot;</span>  &gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#jmeter&quot;</span> <span class="hljs-attribute">tabindex</span>=<span class="hljs-value">&quot;-1&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;tab&quot;</span>&gt;</span>a<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#ejb&quot;</span> <span class="hljs-attribute">tabindex</span>=<span class="hljs-value">&quot;-1&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;tab&quot;</span>&gt;</span>b<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span>  <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;tab_content&quot;</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;tab_pane fade in active&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;home11&quot;</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+     <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;tab_pane fade&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;ios&quot;</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+     <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;tab_pane fade&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;jmeter&quot;</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+     <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;tab_pane fade&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;ejb&quot;</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+     <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<ul>
+<li>&#x901A;&#x8FC7; <code>JavaScript&#xFF1A;</code>&#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>Javscript</code> &#x6765;&#x542F;&#x7528;&#x6807;&#x7B7E;&#x9875;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</li>
+</ul>
+<div class="bs-example">
+    <ul class="nav nav_tabs" id="myTab"> 
+        <li class="active"><a href="#home1">Home</a></li> 
+        <li><a href="#profile1">Profile</a></li> 
+        <li><a href="#messages1">Messages</a></li> 
+        <li><a href="#settings1">Settings</a></li> 
+    </ul> 
+
+    <div class="tab_content"> 
+        <div class="tab_pane fade in active" id="home1">...1</div> 
+        <div class="tab_pane fade" id="profile1">...2</div> 
+        <div class="tab_pane fade" id="messages1">...3</div> 
+        <div class="tab_pane fade " id="settings1">...4</div> 
+    </div> 
+</div>
+
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;nav nav_tabs&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;myTab&quot;</span>&gt;</span> 
+    <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;active&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#home1&quot;</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span> 
+    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#profile1&quot;</span>&gt;</span>Profile<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span> 
+    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#messages1&quot;</span>&gt;</span>Messages<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span> 
+    <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#settings1&quot;</span>&gt;</span>Settings<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span> 
+<span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span> 
+
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;tab_content&quot;</span>&gt;</span> 
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;tab_pane fade in active&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;home1&quot;</span>&gt;</span>...1<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span> 
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;tab_pane fade&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;profile1&quot;</span>&gt;</span>...2<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span> 
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;tab_pane fade&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;messages1&quot;</span>&gt;</span>...3<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span> 
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;tab_pane fade &quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;settings1&quot;</span>&gt;</span>...4<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span> 
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<script type="text/javascript">
+
+$(function () { 
+    $("#myTab a").click(function (e) { 
+        e.preventDefault();//阻止a链接的跳转行为 
+        $(this).tab('show');//显示当前选中的链接及关联的content 
+    }) 
+}) 
+
+</script>
+
+<pre><code class="lang-javascript">    $(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ 
+        $(<span class="hljs-string">&apos;#myTab a:last&apos;</span>).tab(<span class="hljs-string">&apos;show&apos;</span>);<span class="hljs-comment">//&#x521D;&#x59CB;&#x5316;&#x663E;&#x793A;&#x54EA;&#x4E2A;tab </span>
+        <span class="hljs-comment">// $(&apos;#myTabs a[href=&quot;#profile&quot;]&apos;).tab(&apos;show&apos;) // &#x6309;&#x540D;&#x79F0;&#x9009;&#x62E9;&#x9009;&#x9879;&#x5361;</span>
+        <span class="hljs-comment">// $(&apos;#myTabs a:first&apos;).tab(&apos;show&apos;) // &#x9009;&#x62E9;&#x7B2C;&#x4E00;&#x4E2A;&#x9009;&#x9879;&#x5361;</span>
+        <span class="hljs-comment">// $(&apos;#myTabs a:last&apos;).tab(&apos;show&apos;) // &#x9009;&#x62E9;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x9009;&#x9879;&#x5361;</span>
+        <span class="hljs-comment">// $(&apos;#myTabs li:eq(2) a&apos;).tab(&apos;show&apos;) // &#x9009;&#x62E9;&#x7B2C;&#x4E09;&#x4E2A;&#x9009;&#x9879;&#x5361; (&#x4ECE; 0 &#x5F00;&#x59CB;&#x7F16;&#x5236;&#x7D22;&#x5F15;)</span>
+
+        $(<span class="hljs-string">&apos;#myTab a&apos;</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{ 
+            e.preventDefault();<span class="hljs-comment">//&#x963B;&#x6B62;a&#x94FE;&#x63A5;&#x7684;&#x8DF3;&#x8F6C;&#x884C;&#x4E3A; </span>
+            $(<span class="hljs-keyword">this</span>).tab(<span class="hljs-string">&apos;show&apos;</span>);<span class="hljs-comment">//&#x663E;&#x793A;&#x5F53;&#x524D;&#x9009;&#x4E2D;&#x7684;&#x94FE;&#x63A5;&#x53CA;&#x5173;&#x8054;&#x7684;content </span>
+        }) 
+    })
+</code></pre>
+<ul>
+<li>&#x5982;&#x679C;&#x9700;&#x8981;&#x4E3A;&#x6807;&#x7B7E;&#x9875;&#x8BBE;&#x7F6E;&#x6DE1;&#x5165;&#x6DE1;&#x51FA;&#x6548;&#x679C;&#xFF0C;&#x8BF7;&#x6DFB;&#x52A0; <code>.fade</code> &#x5230;&#x6BCF;&#x4E2A; <code>.tab-pane</code> &#x540E;&#x9762;&#x3002;&#x7B2C;&#x4E00;&#x4E2A;&#x6807;&#x7B7E;&#x9875;&#x5FC5;&#x987B;&#x6DFB;&#x52A0; <code>.in</code> &#x7C7B;&#xFF0C;&#x4EE5;&#x4FBF;&#x6DE1;&#x5165;&#x663E;&#x793A;&#x521D;&#x59CB;&#x5185;&#x5BB9;&#xFF0C;&#x5982;&#x4E0B;&#x9762;&#x5B9E;&#x4F8B;&#x6240;&#x793A;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;tab_content&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;tab_pane  fade in active&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;home&quot;</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;tab_pane fade&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;profile&quot;</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;tab_pane fade&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;messages&quot;</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;tab_pane fade&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;settings&quot;</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<h2 id="t2&#x4E8B;&#x4EF6;">&#x4E8B;&#x4EF6; <a href="#t2&#x4E8B;&#x4EF6;"> # </a></h2>
+<p>&#x4E0B;&#x8868;&#x5217;&#x51FA;&#x4E86;&#x6807;&#x7B7E;&#x9875;&#xFF08;Tab&#xFF09;&#x63D2;&#x4EF6;&#x4E2D;&#x8981;&#x7528;&#x5230;&#x7684;&#x4E8B;&#x4EF6;&#x3002;&#x8FD9;&#x4E9B;&#x4E8B;&#x4EF6;&#x53EF;&#x5728;&#x51FD;&#x6570;&#x4E2D;&#x5F53;&#x94A9;&#x5B50;&#x4F7F;&#x7528;&#x3002;</p>
+<table class="table table_hover table_bordered table_striped">
+        <thead>
+            <tr>
+                <th>&#x4E8B;&#x4EF6;</th>
+                <th>&#x63CF;&#x8FF0;</th>
+                <th>&#x5B9E;&#x4F8B;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>show.bs.tab</th>
+                <td>&#x8BE5;&#x4E8B;&#x4EF6;&#x5728;&#x6807;&#x7B7E;&#x9875;&#x663E;&#x793A;&#x65F6;&#x89E6;&#x53D1;&#xFF0C;&#x4F46;&#x662F;&#x5FC5;&#x987B;&#x5728;&#x65B0;&#x6807;&#x7B7E;&#x9875;&#x88AB;&#x663E;&#x793A;&#x4E4B;&#x524D;&#x3002;&#x5206;&#x522B;&#x4F7F;&#x7528; event.target &#x548C; event.relatedTarget &#x6765;&#x5B9A;&#x4F4D;&#x5230;&#x6FC0;&#x6D3B;&#x7684;&#x6807;&#x7B7E;&#x9875;&#x548C;&#x524D;&#x4E00;&#x4E2A;&#x6FC0;&#x6D3B;&#x7684;&#x6807;&#x7B7E;&#x9875;&#x3002;</td>
+                <td>
+$(&apos;a[data-toggle=&quot;tab&quot;]&apos;).on(&apos;show.bs.tab&apos;, function (e) { 
+  e.target // &#x6FC0;&#x6D3B;&#x7684;&#x6807;&#x7B7E;&#x9875;
+  e.relatedTarget // &#x524D;&#x4E00;&#x4E2A;&#x6FC0;&#x6D3B;&#x7684;&#x6807;&#x7B7E;&#x9875;
+})
+                </td>
+            </tr>
+            <tr>
+                <th>shown.bs.tab</th>
+                <td>&#x8BE5;&#x4E8B;&#x4EF6;&#x5728;&#x6807;&#x7B7E;&#x9875;&#x663E;&#x793A;&#x65F6;&#x89E6;&#x53D1;&#xFF0C;&#x4F46;&#x662F;&#x5FC5;&#x987B;&#x5728;&#x67D0;&#x4E2A;&#x6807;&#x7B7E;&#x9875;&#x5DF2;&#x7ECF;&#x663E;&#x793A;&#x4E4B;&#x540E;&#x3002;&#x5206;&#x522B;&#x4F7F;&#x7528; event.target &#x548C; event.relatedTarget &#x6765;&#x5B9A;&#x4F4D;&#x5230;&#x6FC0;&#x6D3B;&#x7684;&#x6807;&#x7B7E;&#x9875;&#x548C;&#x524D;&#x4E00;&#x4E2A;&#x6FC0;&#x6D3B;&#x7684;&#x6807;&#x7B7E;&#x9875;&#x3002;</td>
+                <td>
+$(&apos;a[data-toggle=&quot;tab&quot;]&apos;).on(&apos;shown.bs.tab&apos;, function (e) {
+  e.target // &#x6FC0;&#x6D3B;&#x7684;&#x6807;&#x7B7E;&#x9875;
+  e.relatedTarget // &#x524D;&#x4E00;&#x4E2A;&#x6FC0;&#x6D3B;&#x7684;&#x6807;&#x7B7E;&#x9875;
+})</td>
+            </tr>
+        </tbody>
+    </table>
+
+<div class="bs-example">
+     <hr>
+       <p class="active_tab"><strong>&#x6FC0;&#x6D3B;&#x7684;&#x6807;&#x7B7E;&#x9875;</strong>&#xFF1A;<span></span></p>
+       <p class="previous_tab"><strong>&#x524D;&#x4E00;&#x4E2A;&#x6FC0;&#x6D3B;&#x7684;&#x6807;&#x7B7E;&#x9875;</strong>&#xFF1A;<span></span></p>
+    <hr>
+    <ul id="myTaba" class="nav nav_tabs">
+        <li class="active"><a href="#home1" data-toggle="tab">1</a></li>
+        <li><a href="#ios2" data-toggle="tab">2</a></li>
+        <li class="dropdown">
+            <a href="#" id="myTabDrop1" class="dropdown_toggle" data-toggle="dropdown"> a <b class="caret"></b></a>
+            <ul class="dropdown_menu" role="menu" aria-labelledby="myTabDrop1">
+                <li><a href="#jmeter3" tabindex="-1" data-toggle="tab">3</a></li>
+                <li><a href="#ejb4" tabindex="-1" data-toggle="tab">4</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div id="myTabContent" class="tab_content">
+        <div class="tab_pane fade in active" id="home1">
+            <p>1</p>
+        </div>
+        <div class="tab_pane fade" id="ios2">
+            <p>2</p>
+        </div>
+        <div class="tab_pane fade" id="jmeter3">
+            <p>3</p>
+        </div>
+        <div class="tab_pane fade" id="ejb4">
+            <p>4</p>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () { 
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+        // 获取已激活的标签页的名称
+        var activeTab = $(e.target).text(); 
+        // 获取前一个激活的标签页的名称
+        var previousTab = $(e.relatedTarget).text(); 
+        $(".active_tab span").html(activeTab);
+        $(".previous_tab span").html(previousTab);
+    });
+
+}) 
+</script>
+
+
+<pre><code class="lang-javascript">$(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ 
+    $(<span class="hljs-string">&apos;a[data-toggle=&quot;tab&quot;]&apos;</span>).on(<span class="hljs-string">&apos;show.bs.tab&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+        <span class="hljs-comment">// &#x83B7;&#x53D6;&#x5DF2;&#x6FC0;&#x6D3B;&#x7684;&#x6807;&#x7B7E;&#x9875;&#x7684;&#x540D;&#x79F0;</span>
+        <span class="hljs-keyword">var</span> activeTab = $(e.target).text(); 
+        <span class="hljs-comment">// &#x83B7;&#x53D6;&#x524D;&#x4E00;&#x4E2A;&#x6FC0;&#x6D3B;&#x7684;&#x6807;&#x7B7E;&#x9875;&#x7684;&#x540D;&#x79F0;</span>
+        <span class="hljs-keyword">var</span> previousTab = $(e.relatedTarget).text(); 
+        $(<span class="hljs-string">&quot;.active_tab span&quot;</span>).html(activeTab);
+        $(<span class="hljs-string">&quot;.previous_tab span&quot;</span>).html(previousTab);
+    });
+
+})
+</code></pre>
+<h1 id="t3&#x4E0B;&#x62C9;&#x83DC;&#x5355; dropdown">&#x4E0B;&#x62C9;&#x83DC;&#x5355; dropdown <a href="#t3&#x4E0B;&#x62C9;&#x83DC;&#x5355; dropdown"> # </a></h1>
+<p>&#x4F7F;&#x7528;&#x4E0B;&#x62C9;&#x83DC;&#x5355;&#xFF08;Dropdown&#xFF09;&#x63D2;&#x4EF6;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x5411;&#x4EFB;&#x4F55;&#x7EC4;&#x4EF6;&#xFF08;&#x6BD4;&#x5982;&#x5BFC;&#x822A;&#x680F;&#x3001;&#x6807;&#x7B7E;&#x9875;&#x3001;&#x80F6;&#x56CA;&#x5F0F;&#x5BFC;&#x822A;&#x83DC;&#x5355;&#x3001;&#x6309;&#x94AE;&#x7B49;&#xFF09;&#x6DFB;&#x52A0;&#x4E0B;&#x62C9;&#x83DC;&#x5355;&#x3002;</p>
+<blockquote>
+<p>&#x6700;&#x5916;&#x5C42;&#x4E3A;.dropdown&#x6837;&#x5F0F;&#x7C7B;&#xFF1B;<br>
+&#x89E6;&#x53D1;&#x6309;&#x94AE;&#xFF0C;&#x9700;&#x8981;&#x6DFB;&#x52A0;.toggle_dropdown&#x6837;&#x5F0F;&#x7C7B;&#x548C;data-toggle=&quot;dropdown&quot;&#xFF1B;<br>
+&#x4E0B;&#x62C9;&#x83DC;&#x5355;&#x4E3A;.dropdown_menu&#x6837;&#x5F0F;&#x7C7B;&#x548C;role=&quot;menu&quot;&#x3002;</p>
+</blockquote>
+<div class="alert alert_success" role="alert">
+                <strong>&#x6CE8;&#x610F;&#xFF01;</strong>&#x9700;&#x5F15;&#x7528;  dropdown.js<br></div>
+
+<h2 id="t4&#x57FA;&#x672C;&#x7528;&#x6CD5;">&#x57FA;&#x672C;&#x7528;&#x6CD5; <a href="#t4&#x57FA;&#x672C;&#x7528;&#x6CD5;"> # </a></h2>
+<ul>
+<li>&#x901A;&#x8FC7; <code>data</code> &#x5C5E;&#x6027;&#xFF1A;&#x5411;&#x94FE;&#x63A5;&#x6216;&#x6309;&#x94AE;&#x6DFB;&#x52A0; <code>data-toggle=&quot;dropdown&quot;</code> &#x6765;&#x5207;&#x6362;&#x4E0B;&#x62C9;&#x83DC;&#x5355;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</li>
+</ul>
+<div class="bs-example">
+    <div class="dropdown clearfix">
+        <button class="btn btn_default dropdown_toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        &#x4E0B;&#x62C9;&#x83DC;&#x5355;
+        <span class="caret"></span><br>        </button>
+        <ul class="dropdown_menu " aria-labelledby="dropdownMenu1">
+            <li><a href="#">&#x9879;&#x76EE;&#x4E00;</a></li>
+            <li class="active"><a href="#">&#x9879;&#x76EE;&#x4E8C;</a></li>
+            <li><a href="#">&#x9879;&#x76EE;&#x4E09;</a></li>
+            <li><a href="#">&#x9879;&#x76EE;&#x56DB;</a></li>
+        </ul>
+    </div>
+</div>
+
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;dropdown clearfix&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_default dropdown_toggle&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;dropdownMenu1&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;dropdown&quot;</span> <span class="hljs-attribute">aria-haspopup</span>=<span class="hljs-value">&quot;true&quot;</span> <span class="hljs-attribute">aria-expanded</span>=<span class="hljs-value">&quot;true&quot;</span>&gt;</span>
+    &#x4E0B;&#x62C9;&#x83DC;&#x5355;
+    <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;caret&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>   
+    <span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;dropdown_menu &quot;</span> <span class="hljs-attribute">aria-labelledby</span>=<span class="hljs-value">&quot;dropdownMenu1&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>&#x9879;&#x76EE;&#x4E00;<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;active&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>&#x9879;&#x76EE;&#x4E8C;<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>&#x9879;&#x76EE;&#x4E09;<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>&#x9879;&#x76EE;&#x56DB;<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<ul>
+<li>&#x901A;&#x8FC7; <code>JavaScript</code> &#x8C03;&#x7528;&#x4E0B;&#x62C9;&#x83DC;&#x5355;&#x5207;&#x6362;</li>
+</ul>
+<div class="bs-example">
+    <div class="dropdown clearfix">
+        <button class="btn btn_default dropdown_toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        &#x4E0B;&#x62C9;&#x83DC;&#x5355;
+            <span class="caret"></span><br>        </button>
+        <ul class="dropdown_menu">
+            <li><a href="#">&#x9879;&#x76EE;&#x4E00;</a></li>
+            <li class="active"><a href="#">&#x9879;&#x76EE;&#x4E8C;</a></li>
+            <li><a href="#">&#x9879;&#x76EE;&#x4E09;</a></li>
+            <li><a href="#">&#x9879;&#x76EE;&#x56DB;</a></li>
+        </ul>
+    </div>
+</div>
+
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;dropdown clearfix&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_default dropdown_toggle&quot;</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;dropdown&quot;</span> <span class="hljs-attribute">aria-haspopup</span>=<span class="hljs-value">&quot;true&quot;</span> <span class="hljs-attribute">aria-expanded</span>=<span class="hljs-value">&quot;true&quot;</span>&gt;</span>
+    &#x4E0B;&#x62C9;&#x83DC;&#x5355;
+        <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;caret&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>   
+    <span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;dropdown_menu&quot;</span> &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>&#x9879;&#x76EE;&#x4E00;<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;active&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>&#x9879;&#x76EE;&#x4E8C;<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>&#x9879;&#x76EE;&#x4E09;<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>&#x9879;&#x76EE;&#x56DB;<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-javascript">$(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ 
+    $(<span class="hljs-string">&apos;.dropdown_toggle&apos;</span>).dropdown()
+})
+</code></pre>
+<script type="text/javascript">
+$(function () { 
+    $('.dropdown_toggle').dropdown()
+}) 
+</script>
+
+<h2 id="t5&#x5BFC;&#x822A;&#x4E0B;&#x62C9;&#x83DC;&#x5355;">&#x5BFC;&#x822A;&#x4E0B;&#x62C9;&#x83DC;&#x5355; <a href="#t5&#x5BFC;&#x822A;&#x4E0B;&#x62C9;&#x83DC;&#x5355;"> # </a></h2>
+<div class="bs-example">
+<nav class="navbar navbar_default">
+    <div class="container_fluid">
+        <div class="navbar_header">
+            <button type="button" class="navbar_toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr_only">Toggle navigation</span>
+                    <span class="icon_bar"></span>
+                    <span class="icon_bar"></span>
+                    <span class="icon_bar"></span>
+            </button>
+            <a class="navbar_brand" href="#">Brand</a>
+        </div>
+        <div class="collapse navbar_collapse" id="">
+            <ul class="nav navbar_nav">
+                <li class="active"><a href="#">Link <span class="sr_only">(current)</span></a></li>
+                <li><a href="#">Link</a></li>
+                <li class="dropdown clearfix">
+                    <a href="#" class="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown_menu" style="display:">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+
+                </li>
+
+            </ul>
+            <ul class="nav navbar_nav navbar_right">
+                <li class="dropdown clearfix">
+                    <a href="#" class="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown_menu dropdown_menu_right">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+</div>
+</nav>
+</div>
+
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">nav</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;navbar navbar_default&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;container_fluid&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;navbar_header&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;navbar_toggle collapsed&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;collapse&quot;</span> <span class="hljs-attribute">data-target</span>=<span class="hljs-value">&quot;#bs-example-navbar-collapse-1&quot;</span> <span class="hljs-attribute">aria-expanded</span>=<span class="hljs-value">&quot;false&quot;</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;sr_only&quot;</span>&gt;</span>Toggle navigation<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;icon_bar&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;icon_bar&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;icon_bar&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;navbar_brand&quot;</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>Brand<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;collapse navbar_collapse&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;nav navbar_nav&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;active&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>Link <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;sr_only&quot;</span>&gt;</span>(current)<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>Link<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;dropdown clearfix&quot;</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;dropdown&quot;</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">aria-haspopup</span>=<span class="hljs-value">&quot;true&quot;</span> <span class="hljs-attribute">aria-expanded</span>=<span class="hljs-value">&quot;false&quot;</span>&gt;</span>Dropdown <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;caret&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;dropdown_menu&quot;</span>  <span class="hljs-attribute">style</span>=<span class="hljs-value">&quot;display:&quot;</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>Action<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>Another action<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>Something else here<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">&quot;separator&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;divider&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>Separated link<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">&quot;separator&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;divider&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>One more separated link<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;nav navbar_nav navbar_right&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;dropdown clearfix&quot;</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;dropdown&quot;</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">aria-haspopup</span>=<span class="hljs-value">&quot;true&quot;</span> <span class="hljs-attribute">aria-expanded</span>=<span class="hljs-value">&quot;false&quot;</span>&gt;</span>Dropdown <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;caret&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;dropdown_menu dropdown_menu_right&quot;</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>Action<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>Another action<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>Something else here<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">&quot;separator&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;divider&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>Separated link<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">nav</span>&gt;</span>
+</code></pre>
+<h2 id="t6&#x5E26;&#x4E0B;&#x62C9;&#x83DC;&#x5355;&#x7684;&#x80F6;&#x56CA;&#x5F0F;&#x6807;&#x7B7E;&#x9875;">&#x5E26;&#x4E0B;&#x62C9;&#x83DC;&#x5355;&#x7684;&#x80F6;&#x56CA;&#x5F0F;&#x6807;&#x7B7E;&#x9875; <a href="#t6&#x5E26;&#x4E0B;&#x62C9;&#x83DC;&#x5355;&#x7684;&#x80F6;&#x56CA;&#x5F0F;&#x6807;&#x7B7E;&#x9875;"> # </a></h2>
+<div class="bs-example">
+    <ul class="nav nav_pills">
+        <li role="presentation" class="active"><a href="#">Home</a></li>
+        <li role="presentation"><a href="#">Help</a></li>
+        <li role="presentation" class="dropdown">
+            <a class="" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Dropdown <span class="caret"></span>
+            </a>
+            <ul class="dropdown_menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<pre><code class="lang-html"> <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;nav nav_pills&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">&quot;presentation&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;active&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">&quot;presentation&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>Help<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">&quot;presentation&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;dropdown&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;dropdown&quot;</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">aria-haspopup</span>=<span class="hljs-value">&quot;true&quot;</span> <span class="hljs-attribute">aria-expanded</span>=<span class="hljs-value">&quot;false&quot;</span>&gt;</span>
+            Dropdown <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;caret&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;dropdown_menu&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>Action<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>Another action<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>Something else here<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">&quot;separator&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;divider&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span>&gt;</span>Separated link<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+</code></pre>
+<h1 id="t7&#x8FC7;&#x6E21;&#x52A8;&#x753B;">&#x8FC7;&#x6E21;&#x52A8;&#x753B; <a href="#t7&#x8FC7;&#x6E21;&#x52A8;&#x753B;"> # </a></h1>
+<h2 id="t8&#x5173;&#x4E8E;&#x8FC7;&#x6E21;&#x6548;&#x679C;">&#x5173;&#x4E8E;&#x8FC7;&#x6E21;&#x6548;&#x679C; <a href="#t8&#x5173;&#x4E8E;&#x8FC7;&#x6E21;&#x6548;&#x679C;"> # </a></h2>
+<p>&#x5BF9;&#x4E8E;&#x7B80;&#x5355;&#x7684;&#x8FC7;&#x6E21;&#x6548;&#x679C;&#xFF0C;&#x53EA;&#x9700;&#x5C06; <code>transition.js</code> &#x548C;&#x5176;&#x5B83; JS &#x6587;&#x4EF6;&#x4E00;&#x8D77;&#x5F15;&#x5165;&#x5373;&#x53EF;&#x3002;</p>
+<h2 id="t9&#x5305;&#x542B;&#x7684;&#x5185;&#x5BB9;">&#x5305;&#x542B;&#x7684;&#x5185;&#x5BB9; <a href="#t9&#x5305;&#x542B;&#x7684;&#x5185;&#x5BB9;"> # </a></h2>
+<p><code>Transition.js</code> &#x662F;&#x9488;&#x5BF9; <code>transitionEnd</code> &#x4E8B;&#x4EF6;&#x7684;&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x8F85;&#x52A9;&#x5DE5;&#x5177;&#xFF0C;&#x4E5F;&#x662F;&#x5BF9; CSS &#x8FC7;&#x6E21;&#x6548;&#x679C;&#x7684;&#x6A21;&#x62DF;&#x3002;&#x5B83;&#x88AB;&#x5176;&#x5B83;&#x63D2;&#x4EF6;&#x7528;&#x6765;&#x68C0;&#x6D4B;&#x5F53;&#x524D;&#x6D4F;&#x89C8;&#x5668;&#x5BF9;&#x662F;&#x5426;&#x652F;&#x6301; CSS &#x7684;&#x8FC7;&#x6E21;&#x6548;&#x679C;&#x3002;</p>
+<h2 id="t10&#x7981;&#x7528;&#x8FC7;&#x5EA6;&#x6548;&#x679C;">&#x7981;&#x7528;&#x8FC7;&#x5EA6;&#x6548;&#x679C; <a href="#t10&#x7981;&#x7528;&#x8FC7;&#x5EA6;&#x6548;&#x679C;"> # </a></h2>
+<p>&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684; JavaScript &#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5728;&#x5168;&#x5C40;&#x8303;&#x56F4;&#x7981;&#x7528;&#x8FC7;&#x6E21;&#x6548;&#x679C;&#xFF0C;&#x5E76;&#x4E14;&#x5FC5;&#x987B;&#x5C06;&#x6B64;&#x4EE3;&#x7801;&#x653E;&#x5728; <code>transition.js</code>&#x540E;&#x9762;&#xFF0C;&#x786E;&#x4FDD;&#x5728; js &#x6587;&#x4EF6;&#x52A0;&#x8F7D;&#x5B8C;&#x6BD5;&#x540E;&#x518D;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-javascript">$.support.transition = <span class="hljs-literal">false</span>;
+</code></pre>
+<h2 id="t11&#x5177;&#x4F53;&#x6848;&#x4F8B;">&#x5177;&#x4F53;&#x6848;&#x4F8B; <a href="#t11&#x5177;&#x4F53;&#x6848;&#x4F8B;"> # </a></h2>
+<ul>
+<li>&#x5177;&#x6709;&#x5E7B;&#x706F;&#x7247;&#x6216;&#x6DE1;&#x5165;&#x6548;&#x679C;&#x7684;&#x5F39;&#x51FA;&#x5C42;&#x3002;&#xFF08;&#x5F39;&#x51FA;&#x5C42; <code>Modal</code> &#x63D2;&#x4EF6;&#xFF09;</li>
+<li>&#x5177;&#x6709;&#x6DE1;&#x51FA;&#x6548;&#x679C;&#x7684;&#x6807;&#x7B7E;&#x9875;&#x3002;&#xFF08;&#x6807;&#x7B7E; <code>tab</code> &#x63D2;&#x4EF6;&#xFF09;</li>
+<li>&#x5177;&#x6709;&#x6DE1;&#x51FA;&#x6548;&#x679C;&#x7684;&#x8B66;&#x544A;&#x6846;&#x3002; (&#x8B66;&#x544A;&#x6846; <code>Alert</code> &#x63D2;&#x4EF6;&#x3002;)</li>
+<li>&#x5177;&#x6709;&#x5E7B;&#x706F;&#x7247;&#x6548;&#x679C;&#x7684;&#x8F6E;&#x64AD;&#x677F;&#x3002;(&#x8F6E;&#x64AD; <code>Carousel</code> &#x63D2;&#x4EF6;&#x3002;)</li>
+</ul>
+<h1 id="t12&#x6A21;&#x6001;&#x6846;(&#x5F39;&#x51FA;&#x5C42;) modal">&#x6A21;&#x6001;&#x6846;(&#x5F39;&#x51FA;&#x5C42;) modal <a href="#t12&#x6A21;&#x6001;&#x6846;(&#x5F39;&#x51FA;&#x5C42;) modal"> # </a></h1>
+<p><code>Modals</code>&#xFF08;&#x6A21;&#x6001;&#x6846;&#xFF09;&#x662F;&#x4F7F;&#x7528;&#x5B9A;&#x5236;&#x7684; Jquery &#x63D2;&#x4EF6;&#x521B;&#x5EFA;&#x7684;&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x6A21;&#x6001;&#x7A97;&#x53E3;&#x4E30;&#x5BCC;&#x7528;&#x6237;&#x4F53;&#x9A8C;&#xFF0C;&#x6216;&#x8005;&#x4E3A;&#x7528;&#x6237;&#x6DFB;&#x52A0;&#x5B9E;&#x7528;&#x529F;&#x80FD;&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x5728; <code>Modals</code>&#xFF08;&#x6A21;&#x6001;&#x6846;&#xFF09;&#x4E2D;&#x4F7F;&#x7528; <code>Popover</code>&#xFF08;&#x5F39;&#x51FA;&#x6846;&#xFF09;&#x548C; <code>Tooltip</code>&#xFF08;&#x5DE5;&#x5177;&#x63D0;&#x793A;&#x63D2;&#x4EF6;&#xFF09;&#x3002;</p>
+<div class="bs-callout bs-callout-warning" id="callout-stacked-modals">
+    <h4 id="t13&#x4E0D;&#x652F;&#x6301;&#x540C;&#x65F6;&#x6253;&#x5F00;&#x591A;&#x4E2A;&#x6A21;&#x6001;&#x6846;">&#x4E0D;&#x652F;&#x6301;&#x540C;&#x65F6;&#x6253;&#x5F00;&#x591A;&#x4E2A;&#x6A21;&#x6001;&#x6846; <a href="#t13&#x4E0D;&#x652F;&#x6301;&#x540C;&#x65F6;&#x6253;&#x5F00;&#x591A;&#x4E2A;&#x6A21;&#x6001;&#x6846;"> # </a></h4>
+    <p>&#x5343;&#x4E07;&#x4E0D;&#x8981;&#x5728;&#x4E00;&#x4E2A;&#x6A21;&#x6001;&#x6846;&#x4E0A;&#x91CD;&#x53E0;&#x53E6;&#x4E00;&#x4E2A;&#x6A21;&#x6001;&#x6846;&#x3002;&#x8981;&#x60F3;&#x540C;&#x65F6;&#x652F;&#x6301;&#x591A;&#x4E2A;&#x6A21;&#x6001;&#x6846;&#xFF0C;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x5199;&#x989D;&#x5916;&#x7684;&#x4EE3;&#x7801;&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
+</div>
+<div class="bs-callout bs-callout-warning" id="callout-modal-markup-placement">
+    <h4 id="t14&#x6A21;&#x6001;&#x6846;&#x7684; HTML &#x4EE3;&#x7801;&#x653E;&#x7F6E;&#x7684;&#x4F4D;&#x7F6E;">&#x6A21;&#x6001;&#x6846;&#x7684; HTML &#x4EE3;&#x7801;&#x653E;&#x7F6E;&#x7684;&#x4F4D;&#x7F6E; <a href="#t14&#x6A21;&#x6001;&#x6846;&#x7684; HTML &#x4EE3;&#x7801;&#x653E;&#x7F6E;&#x7684;&#x4F4D;&#x7F6E;"> # </a></h4>
+    <p>&#x52A1;&#x5FC5;&#x5C06;&#x6A21;&#x6001;&#x6846;&#x7684; HTML &#x4EE3;&#x7801;&#x653E;&#x5728;&#x6587;&#x6863;&#x7684;&#x6700;&#x9AD8;&#x5C42;&#x7EA7;&#x5185;&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5C3D;&#x91CF;&#x4F5C;&#x4E3A; body &#x6807;&#x7B7E;&#x7684;&#x76F4;&#x63A5;&#x5B50;&#x5143;&#x7D20;&#xFF09;&#xFF0C;&#x4EE5;&#x907F;&#x514D;&#x5176;&#x4ED6;&#x7EC4;&#x4EF6;&#x5F71;&#x54CD;&#x6A21;&#x6001;&#x6846;&#x7684;&#x5C55;&#x73B0;&#x548C;/&#x6216;&#x529F;&#x80FD;&#x3002;</p>
+</div>
+
+<h2 id="t15&#x52A8;&#x6001;&#x5B9E;&#x4F8B;">&#x52A8;&#x6001;&#x5B9E;&#x4F8B; <a href="#t15&#x52A8;&#x6001;&#x5B9E;&#x4F8B;"> # </a></h2>
+<p>&#x70B9;&#x51FB;&#x4E0B;&#x9762;&#x7684;&#x6309;&#x94AE;&#x5373;&#x53EF;&#x901A;&#x8FC7; JavaScript &#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x6A21;&#x6001;&#x6846;&#x3002;&#x6B64;&#x6A21;&#x6001;&#x6846;&#x5C06;&#x4ECE;&#x4E0A;&#x5230;&#x4E0B;&#x3001;&#x9010;&#x6E10;&#x6D6E;&#x73B0;&#x5230;&#x9875;&#x9762;&#x524D;&#x3002;</p>
+<div class="bs-example">
+<button type="button" class="btn btn_primary btn_lg js_name" data-toggle="modal" data-target="#myModal">
+    &#x5F39;&#x51FA;&#x5C42;
+</button>
+
+
+<div class="modal fade " id="myModal" tabindex="-1" role="dialog">
+    <div class="modal_dialog">
+        <div class="modal_content">
+            <div class="modal_header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#xD7;</span></button>
+                <div class="modal_title">&#x6807;&#x9898;</div>
+            </div>
+            <div class="modal_body">
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+                &#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;&#x5185;&#x5BB9;<br>
+            </div>
+            <div class="modal_footer">
+                <button type="button" class="btn btn_default" data-dismiss="modal">&#x5173;&#x95ED;</button>
+                <button type="button" class="btn btn_primary">&#x4FDD;&#x5B58;</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal fade &quot;</span>  <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;myModal&quot;</span> <span class="hljs-attribute">tabindex</span>=<span class="hljs-value">&quot;-1&quot;</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">&quot;dialog&quot;</span> &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_dialog&quot;</span> &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_content&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_header&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;close&quot;</span> <span class="hljs-attribute">data-dismiss</span>=<span class="hljs-value">&quot;modal&quot;</span> <span class="hljs-attribute">aria-label</span>=<span class="hljs-value">&quot;Close&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">aria-hidden</span>=<span class="hljs-value">&quot;true&quot;</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_title&quot;</span>&gt;</span>&#x6807;&#x9898;<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_body&quot;</span>&gt;</span>
+                &#x5185;&#x5BB9;...
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_footer&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_default&quot;</span> <span class="hljs-attribute">data-dismiss</span>=<span class="hljs-value">&quot;modal&quot;</span>&gt;</span>&#x5173;&#x95ED;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_primary&quot;</span>&gt;</span>&#x4FDD;&#x5B58;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<div class="bs-callout bs-callout-warning" id="callout-modal-accessibility">
+    <h4 id="t16&#x589E;&#x5F3A;&#x6A21;&#x6001;&#x6846;&#x7684;&#x53EF;&#x8BBF;&#x95EE;&#x6027;">&#x589E;&#x5F3A;&#x6A21;&#x6001;&#x6846;&#x7684;&#x53EF;&#x8BBF;&#x95EE;&#x6027; <a href="#t16&#x589E;&#x5F3A;&#x6A21;&#x6001;&#x6846;&#x7684;&#x53EF;&#x8BBF;&#x95EE;&#x6027;"> # </a></h4>
+    <p>&#x52A1;&#x5FC5;&#x4E3A; <code>.modal</code> &#x6DFB;&#x52A0; <code>role=&quot;dialog&quot;</code> &#x548C; <code>aria-labelledby=&quot;...&quot;</code> &#x5C5E;&#x6027;&#xFF0C;&#x7528;&#x4E8E;&#x6307;&#x5411;&#x6A21;&#x6001;&#x6846;&#x7684;&#x6807;&#x9898;&#x680F;&#xFF1B;&#x4E3A; <code>.modal-dialog</code> &#x6DFB;&#x52A0; <code>aria-hidden=&quot;true&quot;</code> &#x5C5E;&#x6027;&#x3002;</p>
+    <p>&#x53E6;&#x5916;&#xFF0C;&#x4F60;&#x8FD8;&#x5E94;&#x8BE5;&#x901A;&#x8FC7; <code>aria-describedby</code> &#x5C5E;&#x6027;&#x4E3A;&#x6A21;&#x6001;&#x6846; <code>.modal</code> &#x6DFB;&#x52A0;&#x63CF;&#x8FF0;&#x6027;&#x4FE1;&#x606F;&#x3002;</p>
+</div>
+
+<h2 id="t17&#x53EF;&#x9009;&#x5C3A;&#x5BF8;">&#x53EF;&#x9009;&#x5C3A;&#x5BF8; <a href="#t17&#x53EF;&#x9009;&#x5C3A;&#x5BF8;"> # </a></h2>
+<p>&#x6A21;&#x6001;&#x6846;&#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x4E2A;&#x53EF;&#x9009;&#x5C3A;&#x5BF8;&#xFF0C;&#x901A;&#x8FC7;&#x4E3A; <code>.modal_dialog</code> &#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x6837;&#x5F0F;&#x8C03;&#x6574;&#x7C7B;&#x5B9E;&#x73B0;&#x3002;</p>
+<ul>
+<li><code>.modal_l</code></li>
+<li><code>.modal_s</code></li>
+</ul>
+<div class="bs-example">
+    <button type="button" class="btn btn_primary" data-toggle="modal" data-target="#size_l">&#x5927;&#x5C3A;&#x5BF8;</button>
+
+    <div class="modal fade " id="size_l" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal_dialog modal_l">
+            <div class="modal_content">
+
+                <div class="modal_header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#xD7;</span></button>
+                    <div class="modal_title" id="myLargeModalLabel">&#x6807;&#x9898;</div>
+                </div>
+                <div class="modal_body">
+                ...
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn_primary" data-toggle="modal" data-target="#size_s">&#x5C0F;&#x5C3A;&#x5BF8;</button>
+
+    <div class="modal fade" id="size_s" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal_dialog modal_s">
+            <div class="modal_content">
+
+                <div class="modal_header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#xD7;</span></button>
+                    <div class="modal_title" id="myLargeModalLabel">&#x6807;&#x9898;</div>
+                </div>
+                <div class="modal_body">
+                ...
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<pre><code class="lang-html">
+<span class="hljs-comment">&lt;!-- &#x5927;&#x5C3A;&#x5BF8; --&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_primary&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;modal&quot;</span> <span class="hljs-attribute">data-target</span>=<span class="hljs-value">&quot;#size_l&quot;</span>&gt;</span>&#x5927;&#x5C3A;&#x5BF8;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal fade &quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;size_l&quot;</span> <span class="hljs-attribute">tabindex</span>=<span class="hljs-value">&quot;-1&quot;</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">&quot;dialog&quot;</span> <span class="hljs-attribute">aria-labelledby</span>=<span class="hljs-value">&quot;myLargeModalLabel&quot;</span> &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_dialog modal_l&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_content&quot;</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_header&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;close&quot;</span> <span class="hljs-attribute">data-dismiss</span>=<span class="hljs-value">&quot;modal&quot;</span> <span class="hljs-attribute">aria-label</span>=<span class="hljs-value">&quot;Close&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">aria-hidden</span>=<span class="hljs-value">&quot;true&quot;</span>&gt;</span>&#xD7;<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">h4</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_title&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;myLargeModalLabel&quot;</span>&gt;</span>&#x6807;&#x9898;<span class="hljs-tag">&lt;/<span class="hljs-title">h4</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_body&quot;</span>&gt;</span>
+            ...
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- &#x5C0F;&#x5C3A;&#x5BF8; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_primary&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;modal&quot;</span>  <span class="hljs-attribute">data-target</span>=<span class="hljs-value">&quot;#size_s&quot;</span>&gt;</span>&#x5C0F;&#x5C3A;&#x5BF8;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal fade&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;size_s&quot;</span> <span class="hljs-attribute">tabindex</span>=<span class="hljs-value">&quot;-1&quot;</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">&quot;dialog&quot;</span> <span class="hljs-attribute">aria-labelledby</span>=<span class="hljs-value">&quot;myLargeModalLabel&quot;</span> &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_dialog modal_s&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_content&quot;</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_header&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;close&quot;</span> <span class="hljs-attribute">data-dismiss</span>=<span class="hljs-value">&quot;modal&quot;</span> <span class="hljs-attribute">aria-label</span>=<span class="hljs-value">&quot;Close&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">aria-hidden</span>=<span class="hljs-value">&quot;true&quot;</span>&gt;</span>&#xD7;<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">h4</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_title&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;myLargeModalLabel&quot;</span>&gt;</span>&#x6807;&#x9898;<span class="hljs-tag">&lt;/<span class="hljs-title">h4</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_body&quot;</span>&gt;</span>
+            ...
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<h2 id="t18&#x7981;&#x6B62;&#x52A8;&#x753B;&#x6548;&#x679C;">&#x7981;&#x6B62;&#x52A8;&#x753B;&#x6548;&#x679C; <a href="#t18&#x7981;&#x6B62;&#x52A8;&#x753B;&#x6548;&#x679C;"> # </a></h2>
+<p>&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x9700;&#x8981;&#x6A21;&#x6001;&#x6846;&#x5F39;&#x51FA;&#x65F6;&#x7684;&#x52A8;&#x753B;&#x6548;&#x679C;&#xFF08;&#x6DE1;&#x5165;&#x6DE1;&#x51FA;&#x6548;&#x679C;&#xFF09;&#xFF0C;&#x5220;&#x6389; <code>.fade</code> &#x3001; <code>data-easein=&quot;&quot;</code> &#x3001; <code>data-easeout=&quot;&quot;</code>  &#x5373;&#x53EF;&#x3002;</p>
+<h2 id="t19&#x57FA;&#x4E8E;&#x89E6;&#x53D1;&#x6309;&#x94AE;&#x6539;&#x53D8;&#x5F39;&#x51FA;&#x5C42;&#x5185;&#x5BB9;">&#x57FA;&#x4E8E;&#x89E6;&#x53D1;&#x6309;&#x94AE;&#x6539;&#x53D8;&#x5F39;&#x51FA;&#x5C42;&#x5185;&#x5BB9; <a href="#t19&#x57FA;&#x4E8E;&#x89E6;&#x53D1;&#x6309;&#x94AE;&#x6539;&#x53D8;&#x5F39;&#x51FA;&#x5C42;&#x5185;&#x5BB9;"> # </a></h2>
+<p>&#x591A;&#x4E2A;&#x6309;&#x94AE;&#x89E6;&#x53D1;&#x6A21;&#x5F0F;&#x4E00;&#x6837;&#xFF0C;&#x53EA;&#x6539;&#x53D8;&#x5F39;&#x51FA;&#x5C42;&#x5185;&#x5BB9;&#x3002;&#x4F7F;&#x7528; <code>event.relatedTarget</code> &#x548C;html&#x7684;<code>date-*</code>&#x5C5E;&#x6027;&#x6765;&#x5177;&#x4F53;&#x53D6;&#x51B3;&#x4E8E;&#x54EA;&#x4E2A;&#x6309;&#x94AE;&#x88AB;&#x70B9;&#x51FB;&#x7684;&#x5185;&#x5BB9;</p>
+<div class="bs-example">
+    <button type="button" class="btn btn_primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+<button type="button" class="btn btn_primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
+<button type="button" class="btn btn_primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@get">Open modal for @get</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal_dialog" role="document">
+    <div class="modal_content">
+      <div class="modal_header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#xD7;</span></button>
+        <div class="modal_title" id="exampleModalLabel">New message</div>
+      </div>
+      <div class="modal_body">
+        <form>
+          <div class="form_group">
+            <label for="recipient-name" class="control_label">Recipient:</label>
+            <input type="text" class="form_control" id="recipient-name">
+          </div>
+          <div class="form_group">
+            <label for="message-text" class="control_label">Message:</label>
+            <textarea class="form_control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal_footer">
+        <button type="button" class="btn btn_default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn_primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_primary&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;modal&quot;</span> <span class="hljs-attribute">data-target</span>=<span class="hljs-value">&quot;#exampleModal&quot;</span> <span class="hljs-attribute">data-whatever</span>=<span class="hljs-value">&quot;@mdo&quot;</span>&gt;</span>Open modal for @mdo<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_primary&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;modal&quot;</span> <span class="hljs-attribute">data-target</span>=<span class="hljs-value">&quot;#exampleModal&quot;</span> <span class="hljs-attribute">data-whatever</span>=<span class="hljs-value">&quot;@fat&quot;</span>&gt;</span>Open modal for @fat<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_primary&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;modal&quot;</span> <span class="hljs-attribute">data-target</span>=<span class="hljs-value">&quot;#exampleModal&quot;</span> <span class="hljs-attribute">data-whatever</span>=<span class="hljs-value">&quot;@get&quot;</span>&gt;</span>Open modal for @get<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal fade&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;exampleModal&quot;</span> <span class="hljs-attribute">tabindex</span>=<span class="hljs-value">&quot;-1&quot;</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">&quot;dialog&quot;</span> <span class="hljs-attribute">aria-labelledby</span>=<span class="hljs-value">&quot;exampleModalLabel&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_dialog&quot;</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">&quot;document&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_content&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_header&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;close&quot;</span> <span class="hljs-attribute">data-dismiss</span>=<span class="hljs-value">&quot;modal&quot;</span> <span class="hljs-attribute">aria-label</span>=<span class="hljs-value">&quot;Close&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">aria-hidden</span>=<span class="hljs-value">&quot;true&quot;</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">h4</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_title&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;exampleModalLabel&quot;</span>&gt;</span>New message<span class="hljs-tag">&lt;/<span class="hljs-title">h4</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_body&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">form</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;form_group&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">label</span> <span class="hljs-attribute">for</span>=<span class="hljs-value">&quot;recipient-name&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;control_label&quot;</span>&gt;</span>Recipient:<span class="hljs-tag">&lt;/<span class="hljs-title">label</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;form_control&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;recipient-name&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;form_group&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">label</span> <span class="hljs-attribute">for</span>=<span class="hljs-value">&quot;message-text&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;control_label&quot;</span>&gt;</span>Message:<span class="hljs-tag">&lt;/<span class="hljs-title">label</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">textarea</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;form_control&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;message-text&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">textarea</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_footer&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_default&quot;</span> <span class="hljs-attribute">data-dismiss</span>=<span class="hljs-value">&quot;modal&quot;</span>&gt;</span>Close<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_primary&quot;</span>&gt;</span>Send message<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-javascript">$(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ 
+    $(<span class="hljs-string">&apos;#exampleModal&apos;</span>).on(<span class="hljs-string">&apos;show.bs.modal&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
+        <span class="hljs-keyword">var</span> button = $(event.relatedTarget) 
+        <span class="hljs-keyword">var</span> recipient = button.data(<span class="hljs-string">&apos;whatever&apos;</span>) 
+        <span class="hljs-keyword">var</span> modal = $(<span class="hljs-keyword">this</span>)
+        modal.find(<span class="hljs-string">&apos;.modal_title&apos;</span>).text(<span class="hljs-string">&apos;New message to &apos;</span> + recipient)
+        modal.find(<span class="hljs-string">&apos;.modal_body input&apos;</span>).val(recipient)
+        modal.find(<span class="hljs-string">&apos;.modal_body textarea&apos;</span>).val(recipient)
+    })
+})
+</code></pre>
+<script type="text/javascript">
+    $(function () { 
+        $('#exampleModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) 
+            var recipient = button.data('whatever') 
+            var modal = $(this)
+            modal.find('.modal_title').text('New message to ' + recipient)
+            modal.find('.modal_body input').val(recipient)
+            modal.find('.modal_body textarea').val(recipient)
+        })
+    })
+</script>
+
+<h2 id="t20&#x5404;&#x79CD;css3&#x52A8;&#x753B;&#x5F39;&#x51FA;&#x5C42;">&#x5404;&#x79CD;css3&#x52A8;&#x753B;&#x5F39;&#x51FA;&#x5C42; <a href="#t20&#x5404;&#x79CD;css3&#x52A8;&#x753B;&#x5F39;&#x51FA;&#x5C42;"> # </a></h2>
+<p>css3&#x52A8;&#x753B;&#x6548;&#x679C;&#x5177;&#x4F53;&#x53C2;&#x7167; &#x57FA;&#x7840;&#x6846;&#x67B6; <code>CSS3 Animate</code></p>
+<ul>
+<li>&#x901A;&#x8FC7;&#x6DFB;&#x52A0; <code>data-easein=&quot;&quot;</code> <code>data-easeout=&quot;&quot;</code> &#x5C5E;&#x6027;&#xFF0C; &#x7ED9;&#x5F39;&#x51FA;&#x5C42;&#x8FDB;&#x5165;&#x9000;&#x51FA;&#x6DFB;&#x52A0;&#x52A8;&#x753B;&#x6548;&#x679C;&#x3002;</li>
+</ul>
+<div class="bs-example">
+    <button type="button" class="btn btn_primary btn_lg js_name" data-toggle="modal" data-target="#Modal8">lightSpeedIn/lightSpeedOut</button>
+<div class="modal" data-easein="lightSpeedIn" data-easeout="lightSpeedOut" id="Modal8" tabindex="-1" role="dialog">
+    <div class="modal_dialog">
+        <div class="modal_content">
+            <div class="modal_header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#xD7;</span></button>
+                <div class="modal_title">&#x6807;&#x9898;</div>
+            </div>
+            <div class="modal_body">
+                &#x5185;&#x5BB9;
+            </div>
+            <div class="modal_footer">
+                <button type="button" class="btn btn_default" data-dismiss="modal">&#x5173;&#x95ED;</button>
+                <button type="button" class="btn btn_primary">&#x4FDD;&#x5B58;</button>
+            </div>
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn_primary btn_lg js_name" data-toggle="modal" data-target="#Modal7">flipInX/flipOutX</button>
+<div class="modal" data-easein="flipInX" data-easeout="flipOutX" id="Modal7" tabindex="-1" role="dialog">
+    <div class="modal_dialog">
+        <div class="modal_content">
+            <div class="modal_header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#xD7;</span></button>
+                <div class="modal_title">&#x6807;&#x9898;</div>
+            </div>
+            <div class="modal_body">
+                &#x5185;&#x5BB9;
+            </div>
+            <div class="modal_footer">
+                <button type="button" class="btn btn_default" data-dismiss="modal">&#x5173;&#x95ED;</button>
+                <button type="button" class="btn btn_primary">&#x4FDD;&#x5B58;</button>
+            </div>
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn_primary btn_lg js_name" data-toggle="modal" data-target="#Modal6">flip/flipOutX</button>
+<div class="modal" data-easein="flip" data-easeout="flipOutX" id="Modal6" tabindex="-1" role="dialog">
+    <div class="modal_dialog">
+        <div class="modal_content">
+            <div class="modal_header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&#xD7;</span></button>
+                <div class="modal_title">&#x6807;&#x9898;</div>
+            </div>
+            <div class="modal_body">
+                &#x5185;&#x5BB9;
+            </div>
+            <div class="modal_footer">
+                <button type="button" class="btn btn_default" data-dismiss="modal">&#x5173;&#x95ED;</button>
+                <button type="button" class="btn btn_primary">&#x4FDD;&#x5B58;</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_primary btn_lg js_name&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;modal&quot;</span> <span class="hljs-attribute">data-target</span>=<span class="hljs-value">&quot;#Modal8&quot;</span>&gt;</span>lightSpeedIn/lightSpeedOut<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal&quot;</span>  <span class="hljs-attribute">data-easein</span>=<span class="hljs-value">&quot;lightSpeedIn&quot;</span>  <span class="hljs-attribute">data-easeout</span>=<span class="hljs-value">&quot;lightSpeedOut&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;Modal8&quot;</span> <span class="hljs-attribute">tabindex</span>=<span class="hljs-value">&quot;-1&quot;</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">&quot;dialog&quot;</span> &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_dialog&quot;</span> &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_content&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_header&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;close&quot;</span> <span class="hljs-attribute">data-dismiss</span>=<span class="hljs-value">&quot;modal&quot;</span> <span class="hljs-attribute">aria-label</span>=<span class="hljs-value">&quot;Close&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">aria-hidden</span>=<span class="hljs-value">&quot;true&quot;</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_title&quot;</span>&gt;</span>&#x6807;&#x9898;<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_body&quot;</span>&gt;</span>
+                &#x5185;&#x5BB9;
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_footer&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_default&quot;</span> <span class="hljs-attribute">data-dismiss</span>=<span class="hljs-value">&quot;modal&quot;</span>&gt;</span>&#x5173;&#x95ED;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_primary&quot;</span>&gt;</span>&#x4FDD;&#x5B58;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+         <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_primary btn_lg js_name&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;modal&quot;</span> <span class="hljs-attribute">data-target</span>=<span class="hljs-value">&quot;#Modal7&quot;</span>&gt;</span>flipInX/flipOutX<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal&quot;</span>  <span class="hljs-attribute">data-easein</span>=<span class="hljs-value">&quot;flipInX&quot;</span> <span class="hljs-attribute">data-easeout</span>=<span class="hljs-value">&quot;flipOutX&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;Modal7&quot;</span> <span class="hljs-attribute">tabindex</span>=<span class="hljs-value">&quot;-1&quot;</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">&quot;dialog&quot;</span> &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_dialog&quot;</span> &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_content&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_header&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;close&quot;</span> <span class="hljs-attribute">data-dismiss</span>=<span class="hljs-value">&quot;modal&quot;</span> <span class="hljs-attribute">aria-label</span>=<span class="hljs-value">&quot;Close&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">aria-hidden</span>=<span class="hljs-value">&quot;true&quot;</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_title&quot;</span>&gt;</span>&#x6807;&#x9898;<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_body&quot;</span>&gt;</span>
+                &#x5185;&#x5BB9;
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_footer&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_default&quot;</span> <span class="hljs-attribute">data-dismiss</span>=<span class="hljs-value">&quot;modal&quot;</span>&gt;</span>&#x5173;&#x95ED;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_primary&quot;</span>&gt;</span>&#x4FDD;&#x5B58;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_primary btn_lg js_name&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;modal&quot;</span> <span class="hljs-attribute">data-target</span>=<span class="hljs-value">&quot;#Modal6&quot;</span>&gt;</span>flip/flipOutX<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal&quot;</span>  <span class="hljs-attribute">data-easein</span>=<span class="hljs-value">&quot;flip&quot;</span> <span class="hljs-attribute">data-easeout</span>=<span class="hljs-value">&quot;flipOutX&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;Modal6&quot;</span> <span class="hljs-attribute">tabindex</span>=<span class="hljs-value">&quot;-1&quot;</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">&quot;dialog&quot;</span> &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_dialog&quot;</span> &gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_content&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_header&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;close&quot;</span> <span class="hljs-attribute">data-dismiss</span>=<span class="hljs-value">&quot;modal&quot;</span> <span class="hljs-attribute">aria-label</span>=<span class="hljs-value">&quot;Close&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">aria-hidden</span>=<span class="hljs-value">&quot;true&quot;</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_title&quot;</span>&gt;</span>&#x6807;&#x9898;<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_body&quot;</span>&gt;</span>
+                &#x5185;&#x5BB9;
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;modal_footer&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_default&quot;</span> <span class="hljs-attribute">data-dismiss</span>=<span class="hljs-value">&quot;modal&quot;</span>&gt;</span>&#x5173;&#x95ED;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_primary&quot;</span>&gt;</span>&#x4FDD;&#x5B58;<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<h2 id="t21&#x7528;&#x6CD5;">&#x7528;&#x6CD5; <a href="#t21&#x7528;&#x6CD5;"> # </a></h2>
+<p>&#x901A;&#x8FC7; <code>data</code> &#x5C5E;&#x6027;&#x6216; JavaScript &#x8C03;&#x7528;&#x6A21;&#x6001;&#x6846;&#x63D2;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x9700;&#x8981;&#x52A8;&#x6001;&#x5C55;&#x793A;&#x9690;&#x85CF;&#x7684;&#x5185;&#x5BB9;&#x3002;&#x6A21;&#x6001;&#x6846;&#x5F39;&#x51FA;&#x65F6;&#x8FD8;&#x4F1A;&#x4E3A; <body> &#x5143;&#x7D20;&#x6DFB;&#x52A0; <code>.modal_open</code> &#x7C7B;&#xFF0C;&#x4ECE;&#x800C;&#x8986;&#x76D6;&#x9875;&#x9762;&#x9ED8;&#x8BA4;&#x7684;&#x6EDA;&#x52A8;&#x884C;&#x4E3A;&#xFF0C;&#x5E76;&#x4E14;&#x8FD8;&#x4F1A;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x4E00;&#x4E2A; <code>.modal_backdrop</code> &#x5143;&#x7D20;&#x7528;&#x4E8E;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x53EF;&#x70B9;&#x51FB;&#x7684;&#x533A;&#x57DF;&#xFF0C;&#x70B9;&#x51FB;&#x6B64;&#x533A;&#x57DF;&#x5C31;&#x5373;&#x53EF;&#x5173;&#x95ED;&#x6A21;&#x6001;&#x6846;&#x3002;</body></p>
+<h3 id="t22&#x901A;&#x8FC7; data &#x5C5E;&#x6027;">&#x901A;&#x8FC7; data &#x5C5E;&#x6027; <a href="#t22&#x901A;&#x8FC7; data &#x5C5E;&#x6027;"> # </a></h3>
+<p>&#x4E0D;&#x9700;&#x5199; JavaScript &#x4EE3;&#x7801;&#x4E5F;&#x53EF;&#x6FC0;&#x6D3B;&#x6A21;&#x6001;&#x6846;&#x3002;&#x901A;&#x8FC7;&#x5728;&#x4E00;&#x4E2A;&#x8D77;&#x63A7;&#x5236;&#x5668;&#x4F5C;&#x7528;&#x7684;&#x5143;&#x7D20;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;&#x6309;&#x94AE;&#xFF09;&#x4E0A;&#x6DFB;&#x52A0; <code>data-toggle=&quot;modal&quot;</code> &#x5C5E;&#x6027;&#xFF0C;&#x6216;&#x8005; <code>data-target=&quot;#foo&quot;</code> &#x5C5E;&#x6027;&#xFF0C;&#x518D;&#x6216;&#x8005; <code>href=&quot;#foo&quot;</code> &#x5C5E;&#x6027;&#xFF0C;&#x7528;&#x4E8E;&#x6307;&#x5411;&#x88AB;&#x63A7;&#x5236;&#x7684;&#x6A21;&#x6001;&#x6846;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;modal&quot;</span> <span class="hljs-attribute">data-target</span>=<span class="hljs-value">&quot;#myModal&quot;</span>&gt;</span>Launch modal<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+</code></pre>
+<h3 id="t23&#x901A;&#x8FC7; JavaScript &#x8C03;&#x7528;">&#x901A;&#x8FC7; JavaScript &#x8C03;&#x7528; <a href="#t23&#x901A;&#x8FC7; JavaScript &#x8C03;&#x7528;"> # </a></h3>
+<p>&#x53EA;&#x9700;&#x4E00;&#x884C; JavaScript &#x4EE3;&#x7801;&#xFF0C;&#x5373;&#x53EF;&#x901A;&#x8FC7;&#x5143;&#x7D20;&#x7684; id myModal &#x8C03;&#x7528;&#x6A21;&#x6001;&#x6846;&#xFF1A;</p>
+<pre><code class="lang-javascript">$(<span class="hljs-string">&apos;#myModal&apos;</span>).modal(options)
+</code></pre>
+<h2 id="t24&#x53C2;&#x6570;">&#x53C2;&#x6570; <a href="#t24&#x53C2;&#x6570;"> # </a></h2>
+<p>&#x53EF;&#x4EE5;&#x5C06;&#x9009;&#x9879;&#x901A;&#x8FC7; <code>data</code> &#x5C5E;&#x6027;&#x6216; <code>JavaScript</code> &#x4EE3;&#x7801;&#x4F20;&#x9012;&#x3002;&#x5BF9;&#x4E8E; <code>data</code> &#x5C5E;&#x6027;&#xFF0C;&#x9700;&#x8981;&#x5C06;&#x53C2;&#x6570;&#x540D;&#x79F0;&#x653E;&#x5230; <code>data-</code> &#x4E4B;&#x540E;&#xFF0C;&#x4F8B;&#x5982; <code>data-backdrop=&quot;&quot;</code> &#x3002;</p>
+<table class="table table_hover table_bordered table_striped">
+        <thead>
+            <tr>
+                <th>&#x540D;&#x79F0;</th>
+                <th>&#x7C7B;&#x578B;</th>
+                <th>&#x9ED8;&#x8BA4;&#x503C;</th>
+                <th>&#x63CF;&#x8FF0;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>backdrop</td>
+                <td>boolean &#x6216; &#x5B57;&#x7B26;&#x4E32; static</td>
+                <td>true</td>
+                <td>&#x6307;&#x5B9A;&#x9759;&#x6001;&#x7684;&#x80CC;&#x666F;&#x4E0B;&#xFF0C;&#x4E0D;&#x5173;&#x95ED;&#x5F39;&#x51FA;&#x5C42;&#x4E0A;&#x70B9;&#x51FB;</td>
+            </tr>
+            <tr>
+                <td>keyboard</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>&#x952E;&#x76D8;&#x4E0A;&#x7684; esc &#x952E;&#x88AB;&#x6309;&#x4E0B;&#x65F6;&#x5173;&#x95ED;&#x6A21;&#x6001;&#x6846;&#x3002;</td>
+            </tr>
+            <tr>
+                <td>show</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>&#x6A21;&#x6001;&#x6846;&#x521D;&#x59CB;&#x5316;&#x4E4B;&#x540E;&#x5C31;&#x7ACB;&#x5373;&#x663E;&#x793A;&#x51FA;&#x6765;&#x3002;</td>
+            </tr>
+            <tr>
+                <td>remote</td>
+                <td>path</td>
+                <td>false</td>
+                <td>&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x7684;&#x662F; URL&#xFF0C;&#x5C06;&#x5229;&#x7528; jQuery &#x7684; load &#x65B9;&#x6CD5;&#x4ECE;&#x6B64; URL &#x5730;&#x5740;&#x52A0;&#x8F7D;&#x8981;&#x5C55;&#x793A;&#x7684;&#x5185;&#x5BB9;&#xFF08;&#x53EA;&#x52A0;&#x8F7D;&#x4E00;&#x6B21;&#xFF09;&#x5E76;&#x63D2;&#x5165; .modal-content &#x5185;&#x3002;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x7684;&#x662F; data &#x5C5E;&#x6027; API&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x5229;&#x7528; href &#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x5185;&#x5BB9;&#x6765;&#x6E90;&#x5730;&#x5740;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF1A;
+<code>&lt;a data-toggle=&quot;modal&quot; href=&quot;remote.html&quot; data-target=&quot;#modal&quot;&gt;Click me&lt;/a&gt;</code>
+                </td>
+            </tr>
+        </tbody>
+</table>        
+
+
+
+
+<h2 id="t25&#x65B9;&#x6CD5;">&#x65B9;&#x6CD5; <a href="#t25&#x65B9;&#x6CD5;"> # </a></h2>
+<h3 id="t26.modal(options)">.modal(options) <a href="#t26.modal(options)"> # </a></h3>
+<p>&#x5C06;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x67D0;&#x5757;&#x5185;&#x5BB9;&#x4F5C;&#x4E3A;&#x6A21;&#x6001;&#x6846;&#x6FC0;&#x6D3B;&#x3002;&#x63A5;&#x53D7;&#x53EF;&#x9009;&#x53C2;&#x6570; <code>object</code>&#x3002;</p>
+<pre><code class="lang-javascript">$(<span class="hljs-string">&apos;#myModal&apos;</span>).modal({
+    keyboard: <span class="hljs-literal">false</span>
+})
+</code></pre>
+<h3 id="t27.modal(&apos;toggle&apos;)">.modal(&apos;toggle&apos;) <a href="#t27.modal(&apos;toggle&apos;)"> # </a></h3>
+<p>&#x624B;&#x52A8;&#x6253;&#x5F00;&#x6216;&#x5173;&#x95ED;&#x6A21;&#x6001;&#x6846;&#x3002;&#x5728;&#x6A21;&#x6001;&#x6846;&#x663E;&#x793A;&#x6216;&#x9690;&#x85CF;&#x4E4B;&#x524D;&#x8FD4;&#x56DE;&#x5230;&#x4E3B;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#xFF0C;&#x5728;&#x89E6;&#x53D1; <code>shown.bs.modal</code> &#x6216; <code>hidden.bs.modal</code> &#x4E8B;&#x4EF6;&#x4E4B;&#x524D;&#xFF09;&#x3002;</p>
+<pre><code class="lang-javascript">$(<span class="hljs-string">&apos;#myModal&apos;</span>).modal(<span class="hljs-string">&apos;toggle&apos;</span>)
+</code></pre>
+<h3 id="t28.modal(&apos;show&apos;)">.modal(&apos;show&apos;) <a href="#t28.modal(&apos;show&apos;)"> # </a></h3>
+<p>&#x624B;&#x52A8;&#x6253;&#x5F00;&#x6A21;&#x6001;&#x6846;&#x3002;&#x5728;&#x6A21;&#x6001;&#x6846;&#x663E;&#x793A;&#x4E4B;&#x524D;&#x8FD4;&#x56DE;&#x5230;&#x4E3B;&#x8C03;&#x51FD;&#x6570;&#x4E2D; &#xFF08;&#x4E5F;&#x5C31;&#x662F;&#xFF0C;&#x5728;&#x89E6;&#x53D1; <code>shown.bs.modal</code> &#x4E8B;&#x4EF6;&#x4E4B;&#x524D;&#xFF09;&#x3002;</p>
+<pre><code class="lang-javascript">$(<span class="hljs-string">&apos;#myModal&apos;</span>).modal(<span class="hljs-string">&apos;show&apos;</span>)
+</code></pre>
+<h3 id="t29.modal(&apos;hide&apos;)">.modal(&apos;hide&apos;) <a href="#t29.modal(&apos;hide&apos;)"> # </a></h3>
+<p>&#x624B;&#x52A8;&#x9690;&#x85CF;&#x6A21;&#x6001;&#x6846;&#x3002;&#x5728;&#x6A21;&#x6001;&#x6846;&#x9690;&#x85CF;&#x4E4B;&#x524D;&#x8FD4;&#x56DE;&#x5230;&#x4E3B;&#x8C03;&#x51FD;&#x6570;&#x4E2D; &#xFF08;&#x4E5F;&#x5C31;&#x662F;&#xFF0C;&#x5728;&#x89E6;&#x53D1; <code>hidden.bs.modal</code> &#x4E8B;&#x4EF6;&#x4E4B;&#x524D;&#xFF09;&#x3002;</p>
+<pre><code class="lang-javascript">$(<span class="hljs-string">&apos;#myModal&apos;</span>).modal(<span class="hljs-string">&apos;hide&apos;</span>)
+</code></pre>
+<h2 id="t30&#x4E8B;&#x4EF6;">&#x4E8B;&#x4EF6; <a href="#t30&#x4E8B;&#x4EF6;"> # </a></h2>
+<p>&#x7528;&#x4E8E;&#x76D1;&#x542C;&#x5E76;&#x6267;&#x884C;&#x4F60;&#x81EA;&#x5DF1;&#x7684;&#x4EE3;&#x7801;</p>
+<table class="table table_hover table_bordered table_striped">
+        <thead>
+            <tr>
+                <th>&#x4E8B;&#x4EF6;&#x7C7B;&#x578B;</th>
+                <th>&#x63CF;&#x8FF0;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>show.bs.modal</td>
+                <td>show &#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x4E4B;&#x540E;&#x7ACB;&#x5373;&#x89E6;&#x53D1;&#x8BE5;&#x4E8B;&#x4EF6;&#x3002;&#x5982;&#x679C;&#x662F;&#x901A;&#x8FC7;&#x70B9;&#x51FB;&#x67D0;&#x4E2A;&#x4F5C;&#x4E3A;&#x89E6;&#x53D1;&#x5668;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5219;&#x6B64;&#x5143;&#x7D20;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E8B;&#x4EF6;&#x7684; relatedTarget &#x5C5E;&#x6027;&#x8FDB;&#x884C;&#x8BBF;&#x95EE;&#x3002;</td>
+            </tr>
+            <tr>
+                <td>shown.bs.modal</td>
+                <td>&#x6B64;&#x4E8B;&#x4EF6;&#x5728;&#x6A21;&#x6001;&#x6846;&#x5DF2;&#x7ECF;&#x663E;&#x793A;&#x51FA;&#x6765;&#xFF08;&#x5E76;&#x4E14;&#x540C;&#x65F6;&#x5728; CSS &#x8FC7;&#x6E21;&#x6548;&#x679C;&#x5B8C;&#x6210;&#xFF09;&#x4E4B;&#x540E;&#x88AB;&#x89E6;&#x53D1;&#x3002;&#x5982;&#x679C;&#x662F;&#x901A;&#x8FC7;&#x70B9;&#x51FB;&#x67D0;&#x4E2A;&#x4F5C;&#x4E3A;&#x89E6;&#x53D1;&#x5668;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5219;&#x6B64;&#x5143;&#x7D20;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E8B;&#x4EF6;&#x7684; relatedTarget &#x5C5E;&#x6027;&#x8FDB;&#x884C;&#x8BBF;&#x95EE;&#x3002;</td>
+            </tr>
+            <tr>
+                <td>hide.bs.modal</td>
+                <td>hide &#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x4E4B;&#x540E;&#x7ACB;&#x5373;&#x89E6;&#x53D1;&#x8BE5;&#x4E8B;&#x4EF6;&#x3002;</td>
+            </tr>
+            <tr>
+                <td>hidden.bs.modal</td>
+                <td>&#x6B64;&#x4E8B;&#x4EF6;&#x5728;&#x6A21;&#x6001;&#x6846;&#x88AB;&#x9690;&#x85CF;&#xFF08;&#x5E76;&#x4E14;&#x540C;&#x65F6;&#x5728; CSS &#x8FC7;&#x6E21;&#x6548;&#x679C;&#x5B8C;&#x6210;&#xFF09;&#x4E4B;&#x540E;&#x88AB;&#x89E6;&#x53D1;&#x3002;</td>
+            </tr>
+            <tr>
+                <td>loaded.bs.modal</td>
+                <td>&#x4ECE;&#x8FDC;&#x7AEF;&#x7684;&#x6570;&#x636E;&#x6E90;&#x52A0;&#x8F7D;&#x5B8C;&#x6570;&#x636E;&#x4E4B;&#x540E;&#x89E6;&#x53D1;&#x8BE5;&#x4E8B;&#x4EF6;&#x3002;</td>
+            </tr>
+        </tbody>
+</table>
+
+<pre><code class="lang-javascript">$(<span class="hljs-string">&apos;#myModal&apos;</span>).on(<span class="hljs-string">&apos;hidden.bs.modal&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+  <span class="hljs-comment">// </span>
+})
+</code></pre>
+<h1 id="t31&#x8B66;&#x544A;&#x6846; scrollspy">&#x8B66;&#x544A;&#x6846; scrollspy <a href="#t31&#x8B66;&#x544A;&#x6846; scrollspy"> # </a></h1>
+<h1 id="t32&#x5DE5;&#x5177;&#x63D0;&#x793A; tooltips">&#x5DE5;&#x5177;&#x63D0;&#x793A; tooltips <a href="#t32&#x5DE5;&#x5177;&#x63D0;&#x793A; tooltips"> # </a></h1>
+<h2 id="t33&#x63D0;&#x4F9B;&#x56DB;&#x4E2A;&#x9009;&#x9879;&#xFF1A;&#x9876;&#x90E8;&#xFF0C;&#x53F3;&#x8FB9;&#xFF0C;&#x5E95;&#x90E8;&#x548C;&#x5DE6;&#x5BF9;&#x9F50;">&#x63D0;&#x4F9B;&#x56DB;&#x4E2A;&#x9009;&#x9879;&#xFF1A;&#x9876;&#x90E8;&#xFF0C;&#x53F3;&#x8FB9;&#xFF0C;&#x5E95;&#x90E8;&#x548C;&#x5DE6;&#x5BF9;&#x9F50; <a href="#t33&#x63D0;&#x4F9B;&#x56DB;&#x4E2A;&#x9009;&#x9879;&#xFF1A;&#x9876;&#x90E8;&#xFF0C;&#x53F3;&#x8FB9;&#xFF0C;&#x5E95;&#x90E8;&#x548C;&#x5DE6;&#x5BF9;&#x9F50;"> # </a></h2>
+<div class="bs-example bs-example-tooltip">
+    <div class="tooltip left" role="tooltip">
+        <div class="tooltip_arrow"></div>
+        <div class="tooltip_inner">&#x63D0;&#x793A;&#x5DE6;&#x4FA7;&#x663E;&#x793A;</div>
+    </div>
+    <div class="tooltip top" role="tooltip">
+        <div class="tooltip_arrow"></div>
+        <div class="tooltip_inner">&#x63D0;&#x793A;&#x9876;&#x90E8;&#x663E;&#x793A;</div>
+    </div>
+    <div class="tooltip bottom" role="tooltip">
+        <div class="tooltip_arrow"></div>
+        <div class="tooltip_inner">&#x63D0;&#x793A;&#x5E95;&#x90E8;&#x663E;&#x793A;</div>
+    </div>
+    <div class="tooltip right" role="tooltip">
+        <div class="tooltip_arrow"></div>
+        <div class="tooltip_inner">&#x63D0;&#x793A;&#x53F3;&#x4FA7;&#x663E;&#x793A;</div>
+    </div>
+</div>
+
+<h2 id="t34&#x56DB;&#x65B9;&#x5411;&#x793A;&#x4F8B;">&#x56DB;&#x65B9;&#x5411;&#x793A;&#x4F8B; <a href="#t34&#x56DB;&#x65B9;&#x5411;&#x793A;&#x4F8B;"> # </a></h2>
+<div class="bs-example">
+
+<button type="button" class="btn btn btn_primary" data-container="body" data-toggle="tooltip" data-placement="left" title="&#x6211;&#x662F;&#x63D0;&#x793A;">
+  &#x5DE6;&#x4FA7;&#x63D0;&#x793A;
+</button>
+
+<button type="button" class="btn btn btn_primary" data-container="body" data-toggle="tooltip" data-placement="top" title="&#x6211;&#x662F;&#x63D0;&#x793A;">
+  &#x9876;&#x90E8;&#x63D0;&#x793A;
+</button>
+
+<button type="button" class="btn btn btn_primary" data-container="body" data-toggle="tooltip" data-placement="bottom" title="&#x6211;&#x662F;&#x63D0;&#x793A;">
+  &#x5E95;&#x90E8;&#x63D0;&#x793A;
+</button>
+
+<button type="button" class="btn btn btn_primary" data-container="body" data-toggle="tooltip" data-placement="right" title="&#x6211;&#x662F;&#x63D0;&#x793A;">
+  &#x53F3;&#x4FA7;&#x63D0;&#x793A;
+</button>
+</div>
+
+
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn btn_primary&quot;</span> <span class="hljs-attribute">data-container</span>=<span class="hljs-value">&quot;body&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;tooltip&quot;</span> <span class="hljs-attribute">data-placement</span>=<span class="hljs-value">&quot;left&quot;</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;&#x6211;&#x662F;&#x63D0;&#x793A;&quot;</span> &gt;</span>
+  &#x5DE6;&#x4FA7;&#x63D0;&#x793A;
+<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn btn_primary&quot;</span> <span class="hljs-attribute">data-container</span>=<span class="hljs-value">&quot;body&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;tooltip&quot;</span> <span class="hljs-attribute">data-placement</span>=<span class="hljs-value">&quot;top&quot;</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;&#x6211;&#x662F;&#x63D0;&#x793A;&quot;</span>&gt;</span>
+  &#x9876;&#x90E8;&#x63D0;&#x793A;
+<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn btn_primary&quot;</span> <span class="hljs-attribute">data-container</span>=<span class="hljs-value">&quot;body&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;tooltip&quot;</span> <span class="hljs-attribute">data-placement</span>=<span class="hljs-value">&quot;bottom&quot;</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;&#x6211;&#x662F;&#x63D0;&#x793A;&quot;</span>&gt;</span>
+  &#x5E95;&#x90E8;&#x63D0;&#x793A;
+<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;button&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn btn_primary&quot;</span> <span class="hljs-attribute">data-container</span>=<span class="hljs-value">&quot;body&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;tooltip&quot;</span> <span class="hljs-attribute">data-placement</span>=<span class="hljs-value">&quot;right&quot;</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;&#x6211;&#x662F;&#x63D0;&#x793A;&quot;</span> &gt;</span>
+  &#x53F3;&#x4FA7;&#x63D0;&#x793A;
+<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-javascript">$(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-string">&apos;[data-toggle=&quot;tooltip&quot;]&apos;</span>).tooltip();
+    $(<span class="hljs-string">&apos;.tooltip_show&apos;</span>).tooltip(<span class="hljs-string">&apos;show&apos;</span>);
+})
+</code></pre>
+<script type="text/javascript">
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+    $('.tooltip_show').tooltip('show');
+})
+</script>
+
+<h2 id="t35&#x7528;&#x6CD5;">&#x7528;&#x6CD5; <a href="#t35&#x7528;&#x6CD5;"> # </a></h2>
+<ul>
+<li>&#x901A;&#x8FC7; <code>data</code> &#x5C5E;&#x6027;&#xFF1A;&#x5982;&#x9700;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;&#x63D0;&#x793A;<code>&#xFF08;tooltip&#xFF09;</code>&#xFF0C;&#x53EA;&#x9700;&#x5411;&#x4E00;&#x4E2A;&#x951A;&#x6807;&#x7B7E;&#x6DFB;&#x52A0; <code>data-toggle=&quot;tooltip&quot;</code> &#x5373;&#x53EF;&#x3002;&#x951A;&#x7684; <code>title</code>&#x5373;&#x4E3A;&#x5DE5;&#x5177;&#x63D0;&#x793A;<code>&#xFF08;tooltip&#xFF09;</code>&#x7684;&#x6587;&#x672C;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x63D2;&#x4EF6;&#x628A;&#x5DE5;&#x5177;&#x63D0;&#x793A;<code>&#xFF08;tooltip&#xFF09;</code>&#x8BBE;&#x7F6E;&#x5728;&#x9876;&#x90E8;&#x3002;</li>
+</ul>
+<div class="bs-example">
+    <a href="#" data-toggle="tooltip" title="tooltip">&#x8BF7;&#x60AC;&#x505C;&#x5728;&#x6211;&#x7684;&#x4E0A;&#x9762;</a>
+</div>
+
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;#&quot;</span> <span class="hljs-attribute">data-toggle</span>=<span class="hljs-value">&quot;tooltip&quot;</span> <span class="hljs-attribute">title</span>=<span class="hljs-value">&quot;tooltip&quot;</span>&gt;</span>&#x8BF7;&#x60AC;&#x505C;&#x5728;&#x6211;&#x7684;&#x4E0A;&#x9762;<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+</code></pre>
+<ul>
+<li>&#x901A;&#x8FC7; JavaScript&#xFF1A;&#x901A;&#x8FC7; JavaScript &#x89E6;&#x53D1;&#x5DE5;&#x5177;&#x63D0;&#x793A;&#xFF08;tooltip&#xFF09;</li>
+</ul>
+<pre><code class="lang-javascript">$(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-string">&quot;[data-toggle=&apos;tooltip&apos;]&quot;</span>).tooltip(); 
+});
+</code></pre>
+<h2 id="t36&#x9009;&#x9879;">&#x9009;&#x9879; <a href="#t36&#x9009;&#x9879;"> # </a></h2>
+<table class="table table_hover table_bordered table_striped">
+        <thead>
+            <tr>
+                <th>&#x9009;&#x9879;&#x540D;&#x79F0;</th>
+                <th>&#x7C7B;&#x578B;/&#x9ED8;&#x8BA4;&#x503C;</th>
+                <th>Data &#x5C5E;&#x6027;&#x540D;&#x79F0;</th>
+                <th>&#x63CF;&#x8FF0;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>animation</td>
+                <td>boolean&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;true</td>
+                <td>data-animation</td>
+                <td>&#x5411;&#x5DE5;&#x5177;&#x63D0;&#x793A;&#x5E94;&#x7528; CSS &#x892A;&#x8272;&#x8FC7;&#x6E21;&#x6548;&#x679C;&#x3002;</td>
+            </tr>
+            <tr>
+                <td>html</td>
+                <td>boolean&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;false</td>
+                <td>data-html</td>
+                <td>&#x5411;&#x5DE5;&#x5177;&#x63D0;&#x793A;&#x63D2;&#x5165; HTML&#x3002;&#x5982;&#x679C;&#x4E3A; false&#xFF0C;jQuery &#x7684; text &#x65B9;&#x6CD5;&#x5C06;&#x88AB;&#x7528;&#x4E8E;&#x5411; dom &#x63D2;&#x5165;&#x5185;&#x5BB9;&#x3002;&#x5982;&#x679C;&#x60A8;&#x62C5;&#x5FC3; XSS &#x653B;&#x51FB;&#xFF0C;&#x8BF7;&#x4F7F;&#x7528; text&#x3002;</td>
+            </tr>
+            <tr>
+                <td>placement</td>
+                <td>string|function&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;top</td>
+                <td>data-placement</td>
+                <td>&#x89C4;&#x5B9A;&#x5982;&#x4F55;&#x5B9A;&#x4F4D;&#x5DE5;&#x5177;&#x63D0;&#x793A;&#xFF08;&#x5373; top|bottom|left|right|auto&#xFF09;&#x3002; &#x5F53;&#x6307;&#x5B9A;&#x4E3A; auto &#x65F6;&#xFF0C;&#x4F1A;&#x52A8;&#x6001;&#x8C03;&#x6574;&#x5DE5;&#x5177;&#x63D0;&#x793A;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5982;&#x679C; placement &#x662F; &quot;auto left&quot;&#xFF0C;&#x5DE5;&#x5177;&#x63D0;&#x793A;&#x5C06;&#x4F1A;&#x5C3D;&#x53EF;&#x80FD;&#x663E;&#x793A;&#x5728;&#x5DE6;&#x8FB9;&#xFF0C;&#x5728;&#x60C5;&#x51B5;&#x4E0D;&#x5141;&#x8BB8;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5B83;&#x624D;&#x4F1A;&#x663E;&#x793A;&#x5728;&#x53F3;&#x8FB9;&#x3002;</td>
+            </tr>
+            <tr>
+                <td>selector</td>
+                <td>string&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;false</td>
+                <td>data-selector</td>
+                <td>&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x9009;&#x62E9;&#x5668;&#xFF0C;&#x5DE5;&#x5177;&#x63D0;&#x793A;&#x5BF9;&#x8C61;&#x5C06;&#x88AB;&#x59D4;&#x6D3E;&#x5230;&#x6307;&#x5B9A;&#x7684;&#x76EE;&#x6807;&#x3002;</td>
+            </tr>
+            <tr>
+                <td>title</td>
+                <td>string | function&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;&apos;&apos;</td>
+                <td>data-title</td>
+                <td>&#x5982;&#x679C;&#x672A;&#x6307;&#x5B9A; title &#x5C5E;&#x6027;&#xFF0C;&#x5219; title &#x9009;&#x9879;&#x662F;&#x9ED8;&#x8BA4;&#x7684; title &#x503C;&#x3002;</td>
+            </tr>
+            <tr>
+                <td>trigger</td>
+                <td>string&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;&apos;hover focus&apos;</td>
+                <td>data-trigger</td>
+                <td>&#x5B9A;&#x4E49;&#x5982;&#x4F55;&#x89E6;&#x53D1;&#x5DE5;&#x5177;&#x63D0;&#x793A;&#xFF1A; click| hover | focus | manual&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x591A;&#x4E2A;&#x89E6;&#x53D1;&#x5668;&#xFF0C;&#x6BCF;&#x4E2A;&#x89E6;&#x53D1;&#x5668;&#x4E4B;&#x95F4;&#x7528;&#x7A7A;&#x683C;&#x5206;&#x9694;&#x3002;</td>
+            </tr>
+            <tr>
+                <td>content</td>
+                <td>string | function&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;&apos;&apos;</td>
+                <td>data-content</td>
+                <td>&#x5982;&#x679C;&#x672A;&#x6307;&#x5B9A; data-content &#x5C5E;&#x6027;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684; content &#x503C;&#x3002;</td>
+            </tr>
+            <tr>
+                <td>delay</td>
+                <td>number | object&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;0</td>
+                <td>data-delay</td>
+                <td>&#x5EF6;&#x8FDF;&#x663E;&#x793A;&#x548C;&#x9690;&#x85CF;&#x5DE5;&#x5177;&#x63D0;&#x793A;&#x7684;&#x6BEB;&#x79D2;&#x6570; - &#x5BF9; manual &#x624B;&#x52A8;&#x89E6;&#x53D1;&#x7C7B;&#x578B;&#x4E0D;&#x9002;&#x7528;&#x3002;&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x90A3;&#x4E48;&#x5EF6;&#x8FDF;&#x5C06;&#x4F1A;&#x5E94;&#x7528;&#x4E8E;&#x663E;&#x793A;&#x548C;&#x9690;&#x85CF;&#x3002;&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x7684;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;delay: { &quot;show&quot;: 500, &quot;hide&quot;: 100 }</td>
+            </tr>
+            <tr>
+                <td>container</td>
+                <td>string | false&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;false</td>
+                <td>data-container</td>
+                <td>&#x5411;&#x6307;&#x5B9A;&#x5143;&#x7D20;&#x8FFD;&#x52A0;&#x5DE5;&#x5177;&#x63D0;&#x793A;&#x3002;&#x5B9E;&#x4F8B;&#xFF1A; container: &apos;body&apos;</td>
+            </tr>
+        </tbody>
+</table>  
+
+<h2 id="t37&#x65B9;&#x6CD5;">&#x65B9;&#x6CD5; <a href="#t37&#x65B9;&#x6CD5;"> # </a></h2>
+<p>&#x5DE5;&#x5177;&#x63D0;&#x793A;&#xFF08;Tooltip&#xFF09;&#x63D2;&#x4EF6;&#x4E2D;&#x6709;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#xFF1A; </p>
+<table class="table table_hover table_bordered table_striped">
+        <thead>
+            <tr>
+                <th>&#x65B9;&#x6CD5;</th>
+                <th>&#x63CF;&#x8FF0;</th>
+                <th>&#x63CF;&#x8FF0;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Options: .tooltip(options)</td>
+                <td>&#x5411;&#x5143;&#x7D20;&#x96C6;&#x5408;&#x9644;&#x52A0;&#x63D0;&#x793A;&#x5DE5;&#x5177;&#x53E5;&#x67C4;&#x3002;</td>
+                <td>$().tooltip(options)</td>
+            </tr>
+            <tr>
+                <td>Toggle: .tooltip(&apos;toggle&apos;)</td>
+                <td>&#x5207;&#x6362;&#x663E;&#x793A;/&#x9690;&#x85CF;&#x5143;&#x7D20;&#x7684;&#x63D0;&#x793A;&#x5DE5;&#x5177;&#x3002;</td>
+                <td>$(&apos;#id&apos;).tooltip(&apos;toggle&apos;)</td>
+            </tr>
+            <tr>
+                <td>Show: .tooltip(&apos;show&apos;)</td>
+                <td>&#x663E;&#x793A;&#x5143;&#x7D20;&#x7684;&#x63D0;&#x793A;&#x5DE5;&#x5177;&#x3002;</td>
+                <td>$(&apos;#id&apos;).tooltip(&apos;show&apos;)</td>
+            </tr>
+            <tr>
+                <td>Hide: .tooltip(&apos;hide&apos;)</td>
+                <td>&#x9690;&#x85CF;&#x5143;&#x7D20;&#x7684;&#x63D0;&#x793A;&#x5DE5;&#x5177;&#x3002;</td>
+                <td>$(&apos;#id&apos;).tooltip(&apos;hide&apos;)</td>
+            </tr>
+            <tr>
+                <td>Destroy: .tooltip(&apos;destroy&apos;)</td>
+                <td>&#x9690;&#x85CF;&#x5E76;&#x9500;&#x6BC1;&#x5143;&#x7D20;&#x7684;&#x63D0;&#x793A;&#x5DE5;&#x5177;&#x3002;</td>
+                <td>$(&apos;#id&apos;).tooltip(&apos;destroy&apos;)</td>
+            </tr>
+        </tbody>
+</table>     
+
+<h1 id="t38&#x6309;&#x94AE;">&#x6309;&#x94AE; <a href="#t38&#x6309;&#x94AE;"> # </a></h1>
+<p>&#x5B9E;&#x73B0;&#x6548;&#x679C;&#x70B9;&#x51FB;&#x52A0;&#x8F7D;&#x4E2D;&#x7981;&#x7528;&#x70B9;&#x51FB;&#xFF0C;&#x8BF7;&#x6C42;&#x5B8C;&#x6210;&#x8FD8;&#x539F;&#x6309;&#x94AE;&#x6548;&#x679C;&#x3002;</p>
+<h1 id="t39&#x6EDA;&#x52A8;&#x6761;&#x76D1;&#x542C;">&#x6EDA;&#x52A8;&#x6761;&#x76D1;&#x542C; <a href="#t39&#x6EDA;&#x52A8;&#x6761;&#x76D1;&#x542C;"> # </a></h1>
+<h1 id="t40&#x8868;&#x5355;&#x9A8C;&#x8BC1;">&#x8868;&#x5355;&#x9A8C;&#x8BC1; <a href="#t40&#x8868;&#x5355;&#x9A8C;&#x8BC1;"> # </a></h1>
+<h1 id="t41&#x7B80;&#x5355;AJAX&#x52A0;&#x8F7D;&#x8DEF;&#x7531;">&#x7B80;&#x5355;AJAX&#x52A0;&#x8F7D;&#x8DEF;&#x7531; <a href="#t41&#x7B80;&#x5355;AJAX&#x52A0;&#x8F7D;&#x8DEF;&#x7531;"> # </a></h1>
+<blockquote>
+<p>&#x52A0;&#x8F7D; <code>snippet.js</code></p>
+</blockquote>
+<ul>
+<li><code>href</code> &#x8FDE;&#x63A5;&#x5730;&#x5740;&#x662F;&#x8981;&#x52A0;&#x8F7D;&#x7684;&#x5730;&#x5740;</li>
+<li><code>data-snippet</code> &#x7ED9;&#x5B9A;&#x52A0;&#x8F7D;&#x751F;&#x6210;&#x7684;&#x8282;&#x70B9;&#x4F4D;&#x7F6E;<code>snippet#id</code></li>
+</ul>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;/test/buttons.html&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_primary btn_sm&quot;</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;testUl&quot;</span> <span class="hljs-attribute">data-snippet</span>=<span class="hljs-value">&quot;snippet#wrap_button&quot;</span>&gt;</span>&#x52A0;&#x8F7D;&#x6309;&#x94AE;<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;/test/image.html&quot;</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;btn btn_primary btn_sm&quot;</span> <span class="hljs-attribute">data-snippet</span>=<span class="hljs-value">&quot;snippet#wrap_button&quot;</span>&gt;</span>&#x52A0;&#x8F7D;&#x8868;&#x683C;<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;wrap_button&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;wrap_table&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript">
+    $.snippet({
+        headers : {tokean: <span class="hljs-string">&apos;aaa&apos;</span>}
+    }).on(<span class="hljs-string">&apos;snippet.show&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;snippet&quot;</span>)
+    });
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<ul>
+<li><code>snippet.show</code> &#x52A0;&#x8F7D;&#x6210;&#x529F;&#x4E4B;&#x540E;&#x89E6;&#x53D1;&#x6B64;&#x4E8B;&#x4EF6;&#x3002;</li>
+<li><code>snippet</code> &#x65B9;&#x6CD5;&#x4F20;<code>{headers : {tokean: &apos;aaa&apos;} }</code> &#x7528;&#x4E8E;Ajax&#x53D1;&#x9001;&#x6DFB;&#x52A0;&#x989D;&#x5916;&#x7684; header &#x4FE1;&#x606F;</li>
+</ul>
+<pre><code class="lang-javascript">$.snippet().on(<span class="hljs-string">&apos;snippet.show&apos;</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;snippet&quot;</span>)
+});
+</code></pre>
+<h1 id="t42&#x57FA;&#x4E8E;iframe&#x5355;&#x9875;&#x9762;&#x52A0;&#x8F7D;">&#x57FA;&#x4E8E;iframe&#x5355;&#x9875;&#x9762;&#x52A0;&#x8F7D; <a href="#t42&#x57FA;&#x4E8E;iframe&#x5355;&#x9875;&#x9762;&#x52A0;&#x8F7D;"> # </a></h1>
+<h1 id="t43&#x8868;&#x683C;&#x6392;&#x5E8F;">&#x8868;&#x683C;&#x6392;&#x5E8F; <a href="#t43&#x8868;&#x683C;&#x6392;&#x5E8F;"> # </a></h1>
+<h2 id="t44&#x5168;&#x9009;">&#x5168;&#x9009; <a href="#t44&#x5168;&#x9009;"> # </a></h2>
+<h2 id="t45&#x6392;&#x5E8F;">&#x6392;&#x5E8F; <a href="#t45&#x6392;&#x5E8F;"> # </a></h2>
+
+        <div class="copyright">Powered by <a href="https://github.com/jaywcjlove/idoc" target="_blank">idoc</a>. Dependence <a href="https://nodejs.org">Node.js</a> run.</div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

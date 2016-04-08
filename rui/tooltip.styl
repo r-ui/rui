@@ -1,0 +1,114 @@
+/**   
+* @Title: 工具提示 
+* @Description: ${todo}(用一句话描述该文件做什么) 
+* @author 徐锐
+* @date 2015-10-19
+* @version V1.0   
+*/
+
+
+.tooltip
+    position absolute
+    z-index $zindex-tooltip
+    display block
+    reset_text()
+    font-family $font_family_base
+    font-size $font_size_small
+
+    opacity_ie(0)
+
+    &.in
+        opacity_ie($tooltip_opacity)
+
+    &.top
+        margin-top -3px
+        padding $tooltip_arrow_width 0
+
+    &.right
+        margin-left 3px
+        padding 0 $tooltip_arrow_width
+
+    &.bottom
+        margin-top 3px
+        padding $tooltip_arrow_width 0
+
+    &.left
+        margin-left -3px
+        padding 0 $tooltip_arrow_width
+
+.tooltip_inner
+    max-width $tooltip_max_width
+    padding 3px 8px
+    color $tooltip_color
+    text-align center
+    background-color $tooltip_bg
+    border-radius $border_radius_base
+
+// Arrows
+.tooltip_arrow
+    position absolute
+    width 0
+    height 0
+    border-color transparent
+    border-style solid
+
+// Note: Deprecated .top-left, .top-right, .bottom-left, and .bottom-right as of v3.3.1
+.tooltip
+    &.top .tooltip_arrow
+        bottom 0
+        left 50%
+        margin-left (-($tooltip_arrow_width))
+        border-width $tooltip_arrow_width $tooltip_arrow_width 0
+        border-top-color $tooltip_arrow_color
+
+    &.top_left .tooltip_arrow
+        bottom 0
+        right $tooltip_arrow_width
+        margin-bottom (-($tooltip_arrow_width))
+        border-width $tooltip_arrow_width $tooltip_arrow_width 0
+        border-top-color $tooltip_arrow_color
+
+    &.top_right .tooltip_arrow
+        bottom 0
+        left $tooltip_arrow_width
+        margin-bottom (-($tooltip_arrow_width))
+        border-width $tooltip_arrow_width $tooltip_arrow_width 0
+        border-top-color $tooltip_arrow_color
+
+    &.right .tooltip_arrow
+        top 50%
+        left 0
+        margin-top (-($tooltip_arrow_width))
+        border-width $tooltip_arrow_width $tooltip_arrow_width $tooltip_arrow_width 0
+        border-right-color $tooltip_arrow_color
+
+    &.left .tooltip_arrow
+        top 50%
+        right 0
+        margin-top (-($tooltip_arrow_width))
+        border-width $tooltip_arrow_width 0 $tooltip_arrow_width $tooltip_arrow_width
+        border-left-color $tooltip_arrow_color
+
+    &.bottom .tooltip_arrow
+        top 0
+        left 50%
+        margin-left (-($tooltip_arrow_width))
+        border-width 0 $tooltip_arrow_width $tooltip_arrow_width
+        border-bottom-color $tooltip_arrow_color
+
+    &.bottom_left .tooltip_arrow
+        top 0
+        right $tooltip_arrow_width
+        margin-top (-($tooltip_arrow_width))
+        border-width 0 $tooltip_arrow_width $tooltip_arrow_width
+        border-bottom-color $tooltip_arrow_color
+
+    &.bottom_right .tooltip_arrow
+        top 0
+        left $tooltip_arrow_width
+        margin-top (-($tooltip_arrow_width))
+        border-width 0 $tooltip_arrow_width $tooltip_arrow_width
+        border-bottom-color $tooltip_arrow_color
+    
+
+

@@ -1,0 +1,24 @@
+// 列表组鼠标动作方法
+list-group-item-variant($state, $background, $color)
+  .list_group_item_{$state}
+    color $color
+    background-color $background
+
+    a&,
+    button&
+      color $color
+
+      .list_group_item_heading
+        color inherit
+
+      &:hover,
+      &:focus
+        color $color
+        background-color darken($background, 5%)
+
+      &.active,
+      &.active:hover,
+      &.active:focus
+        color #fff
+        background-color $color
+        border-color $color

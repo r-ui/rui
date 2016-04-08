@@ -1,0 +1,178 @@
+/**   
+* @Title: 表格样式
+* @Description: ${todo}(用一句话描述该文件做什么) 
+* @author 徐锐
+* @date 2015-10-19
+* @version V1.0   
+*/
+
+table
+    background-color $table_bg
+    
+// 标题样式    
+caption
+    padding-top $table_cell_padding
+    padding-bottom $table_cell_padding
+    color $text_muted
+    text-align left
+
+th
+    text-align left
+
+.table
+    border-collapse:collapse
+    width:100%
+    max-width 100%
+    margin-bottom $line_height_computed
+    //table里面元素样式
+    > thead,
+    > tbody,
+    > tfoot
+        > tr
+            > th,
+            > td
+                padding $table_cell_padding
+                line-height $line_height_base
+                vertical-align top
+                border-top 1px solid $table_border_color
+    //对齐列标题
+    > thead > tr > th
+        vertical-align bottom
+        border-bottom 2px solid $table_border_color
+    
+    > caption + thead,
+    > colgroup + thead,
+    > thead:first-child
+        > tr:first-child
+            > th,
+            > td
+                border-top 0
+    
+    //多个tbody        
+    > tbody + tbody
+        border-top 2px solid $table_border_color
+    
+    //嵌套 table    
+    .table
+        background-color $body_bg    
+        
+
+//紧缩表格  单元格填充为5像素
+.table_condensed
+    > thead,
+    > tbody,
+    > tfoot
+        > tr
+            > th,
+            > td
+                padding $table_condensed_cell_padding        
+
+//带边框的表格        
+.table_bordered
+    border 1px solid $table_border_color
+    > thead,
+    > tbody,
+    > tfoot
+        > tr
+            > th,
+            > td
+                border 1px solid $table_border_color
+
+    > thead > tr
+        > th,
+        > td
+            border-bottom-width 2px
+    
+//带条纹表格
+.table_striped
+    > tbody > tr:nth-of-type(odd)
+        background-color $table_bg_accent
+        
+//鼠标悬停
+.table_hover
+    > tbody > tr:hover
+        background-color $table_bg_hover
+
+
+//在火狐浏览器或 IE11表中的列会导致单元格边框不显示
+table col[class*="col-"]
+    position static
+    float none
+    display table-column
+
+table
+    td,
+    th
+        &[class*="col-"]
+            position static
+            float none
+            display table-cell
+
+
+
+// 状态类 (通过这些状态类可以为行或单元格设置颜色。)
+table_row_variant(active, $table_bg_active)
+table_row_variant(success, $state_success_bg)
+table_row_variant(info, $state_info_bg)
+table_row_variant(warning, $state_warning_bg)
+table_row_variant(danger, $state_danger_bg)
+
+
+
+// 响应式表格
+
+// 支持移动端 ，启用水平滚动 仅适用于 < 768 像素， 否则将正常显示
+.table_responsive
+    overflow-x auto
+    min-height 0.01% // IE9表格为空时不占位bug 的解决方法
+    @media screen and (max-width $screen_xs_max)
+        width 100%
+        margin-bottom ($line_height_computed * .75)
+        overflow-y hidden
+        overflow-style autohiding-scrollbar
+        border 1px solid $table_border_color
+        
+        //收紧间距
+        > .table
+            margin-bottom 0
+            
+            //确保内容不换行
+            > thead,
+            > tbody,
+            > tfoot
+                > tr
+                    > th,
+                    > td
+                        white-space nowrap  //强制不换行
+                
+                > tr:first-child //清除叠加在一起的边框
+                    > th,
+                    > td
+                        border-top 0
+                        
+        //重写带边框的表格
+        > .table_bordered
+            border 0
+            
+            //处理边界的边框不重叠
+            > thead,
+            > tbody,
+            > tfoot
+                > tr
+                    > th:first-child,
+                    > td:first-child
+                        border-left 0 //左边边框为0
+                        
+                    > th:last-child,
+                    > td:last-child
+                        border-right 0 //右边边框为0
+            
+                
+            
+
+
+
+
+
+
+

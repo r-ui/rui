@@ -1,0 +1,25 @@
+/**   
+* @Title: 导航位置 - 用一个带方向的层次表明当前页面的位置。
+* @Description: ${todo}(用一句话描述该文件做什么) 
+* @author 徐锐
+* @date 2015-10-19
+* @version V1.0   
+*/
+
+.breadcrumb
+    padding $breadcrumb_padding_vertical $breadcrumb_padding_horizontal
+    margin-bottom $line_height_computed
+    list-style none
+    background-color $breadcrumb_bg
+    border-radius $border_radius_base
+
+    > li
+        display inline-block
+
+        + li:before
+            content "" + $breadcrumb_separator + "\00a0" 
+            padding 0 5px
+            color $breadcrumb_color
+
+    > .active
+        color $breadcrumb_active_color

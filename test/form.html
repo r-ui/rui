@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+    <link rel="stylesheet" type="text/css" href="css/rui.all.min.css">
+</head>
+<body>
+<style type="text/css">
+ h1{font-size: 20px;font-weight: bold;}   
+ .border{border-radius: 5px;border:1px solid #a3a2a5;padding:20px;margin-bottom: 20px;} 
+ #focusedInput {
+    border-color: #ccc;
+    border-color: rgba(82,168,236,.8); */
+    outline: 0;
+    outline: thin dotted\9;
+    /* -webkit-box-shadow: 0 0 8px rgba(82,168,236,.6); */
+    box-shadow: 0 0 8px rgba(82,168,236,.6); */}
+</style>
+
+<div class="container">
+    <h1>基本实例</h1>
+    <form class="border">
+        <div class="form_group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form_control" id="exampleInputEmail1" placeholder="Email">
+        </div>
+        <div class="form_group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form_control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form_group">
+            <label for="exampleInputFile">File input</label>
+            <input type="file" id="exampleInputFile">
+            <p class="help_block">Example block-level help text here.</p>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox"> Check me out</label>
+        </div>
+        <button type="submit" class="btn btn_default">Submit</button>
+    </form>
+
+    <h1>内联表单</h1>
+    <form class="form_inline  border">
+        <div class="form_group">
+            <label for="exampleInputName2">Name</label>
+            <input type="text" class="form_control" id="exampleInputName2" placeholder="Jane Doe">
+        </div>
+        <div class="form_group">
+            <label for="exampleInputEmail2">Email</label>
+            <input type="email" class="form_control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+        </div>
+        <button type="submit" class="btn btn_default">Send invitation</button>
+    </form>
+
+    <form class="form_inline border">
+        <div class="form_group">
+            <label class="sr_only" for="exampleInputEmail3">Email address</label>
+            <input type="email" class="form_control" id="exampleInputEmail3" placeholder="Email">
+        </div>
+        <div class="form_group">
+            <label class="sr_only" for="exampleInputPassword3">Password</label>
+            <input type="password" class="form_control" id="exampleInputPassword3" placeholder="Password">
+        </div>
+        <div class="checkbox">
+            <label>
+            <input type="checkbox"> Remember me
+            </label>
+        </div>
+        <button type="submit" class="btn btn_default">Sign in</button>
+    </form>
+    <form class="form_inline border">
+        <div class="form_group">
+            <label class="sr_only" for="exampleInputAmount">Amount (in dollars)</label>
+            <div class="input_group">
+                <div class="input_group_addon">$</div>
+                <input type="text" class="form_control" id="exampleInputAmount" placeholder="Amount">
+                <div class="input_group_addon">.00</div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn_primary">Transfer cash</button>
+    </form>
+
+    <h1>水平排列的表单</h1>
+    <form class="form_horizontal border">
+        <div class="form_group">
+            <label for="inputEmail3" class="col_sm_2 control_label">Email</label>
+            <div class="col_sm_10">
+                <input type="email" class="form_control" id="inputEmail3" placeholder="Email">
+            </div>
+        </div>
+        <div class="form_group">
+            <label for="inputPassword3" class="col_sm_2 control_label">Password</label>
+            <div class="col_sm_10">
+                <input type="password" class="form_control" id="inputPassword3" placeholder="Password">
+            </div>
+        </div>
+        <div class="form_group">
+            <div class="col_sm_offset_2 col_sm_10">
+                <div class="checkbox">
+                    <label><input type="checkbox"> Remember me</label>
+                </div>
+            </div>
+        </div>
+        <div class="form_group">
+            <div class="col_sm_offset_2 col_sm_10">
+                <button type="submit" class="btn btn_default">Sign in</button>
+            </div>
+        </div>
+    </form>
+
+    <h1>被支持的控件</h1>
+    <h1>输入框</h1>
+    <form class="border">
+        <input type="text" class="form_control" placeholder="Text input">
+    </form>
+
+    <h1>文本域</h1>
+    <form class="border">
+        <textarea class="form_control" rows="3" placeholder="Textarea"></textarea>
+    </form>
+
+    <h1>多选和单选框</h1>
+    <br/>
+    默认外观（堆叠在一起）
+    <br/>
+    <br/>
+    <form class="border">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="">
+                Option one is this and that—be sure to include why it's great
+            </label>
+        </div>
+        <div class="checkbox disabled">
+            <label>
+                <input type="checkbox" value="" disabled="">
+                Option two is disabled
+            </label>
+        </div>
+        <br>
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                Option one is this and that—be sure to include why it's great
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                Option two can be something else and selecting it will deselect option one
+            </label>
+        </div>
+        <div class="radio disabled">
+            <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled="">
+                Option three is disabled
+            </label>
+        </div>
+    </form>
+
+    内联单选和多选框
+    <br/>
+    <br/>
+    <form class="border">
+        <label class="checkbox_inline">
+            <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+        </label>
+        <label class="checkbox_inline">
+            <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+        </label>
+        <label class="checkbox_inline">
+            <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+        </label>
+    </form>
+    <form class="border">
+        <label class="radio_inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+        </label>
+        <label class="radio_inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+        </label>
+        <label class="radio_inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
+        </label>
+    </form>
+    不带label文本的Checkbox 和 radio
+    <br/>
+    <br/>
+    <form class="border">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="blankCheckbox" value="option1" aria-label="Checkbox without label text">
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="Radio button without label text">
+            </label>
+        </div>
+    </form>
+
+    <h1>下拉列表（select）</h1>
+    <form class="border">
+        <select class="form_control">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </form>
+    <form class="border">
+        <select multiple="" class="form_control">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </form>
+
+    <h1>静态控件</h1>
+    <form class="form_horizontal border">
+        <div class="form_group">
+            <label class="col_sm_2 control_label">Email</label>
+            <div class="col_sm_10">
+                <p class="form_control_static">email@example.com</p>
+            </div>
+        </div>
+        <div class="form_group">
+            <label for="inputPassword" class="col_sm_2 control_label">Password</label>
+            <div class="col_sm_10">
+                <input type="password" class="form_control" id="inputPassword" placeholder="Password">
+            </div>
+        </div>
+    </form>
+    <form class="form_inline border">
+        <div class="form_group">
+            <label class="sr_only">Email</label>
+            <p class="form_control_static">email@example.com</p>
+        </div>
+        <div class="form_group">
+            <label for="inputPassword2" class="sr_only">Password</label>
+            <input type="password" class="form_control" id="inputPassword2" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn_default">Confirm identity</button>
+    </form>
+
+    <h1>焦点状态</h1>
+    <form class="border">
+        <input class="form_control" id="focusedInput" type="text" value="Demonstrative focus state">
+    </form>
+
+
+    <h1>禁用状态</h1>
+    <form class="border">
+        <input class="form_control" id="disabledInput" type="text" placeholder="Disabled input here…" disabled="">
+    </form>
+
+
+    <h1>被禁用的 fieldset</h1>
+
+    <form class="border">
+        <fieldset disabled="">
+            <div class="form_group">
+                <label for="disabledTextInput">Disabled input</label>
+                <input type="text" id="disabledTextInput" class="form_control" placeholder="Disabled input">
+            </div>
+            <div class="form_group">
+                <label for="disabledSelect">Disabled select menu</label>
+                <select id="disabledSelect" class="form_control">
+                    <option>Disabled select</option>
+                </select>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> Can't check this
+                </label>
+            </div>
+            <button type="submit" class="btn btn_primary">Submit</button>
+        </fieldset>
+    </form>
+
+    <h1>只读状态</h1>
+    <form class="border">
+        <input class="form_control" type="text" placeholder="Readonly input here…" readonly="">
+    </form>
+
+    <h1>校验状态</h1>
+    <form class="border">
+        <div class="form_group has_success">
+            <label class="control_label" for="inputSuccess1">Input with success</label>
+            <input type="text" class="form_control" id="inputSuccess1">
+        </div>
+        <div class="form_group has_warning">
+            <label class="control_label" for="inputWarning1">Input with warning</label>
+            <input type="text" class="form_control" id="inputWarning1">
+        </div>
+        <div class="form_group has_error">
+            <label class="control_label" for="inputError1">Input with error</label>
+            <input type="text" class="form_control" id="inputError1">
+        </div>
+        <div class="has_success">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="checkboxSuccess" value="option1">
+                    Checkbox with success
+                </label>
+            </div>
+        </div>
+        <div class="has_warning">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="checkboxWarning" value="option1">
+                    Checkbox with warning
+                </label>
+            </div>
+        </div>
+        <div class="has_error">
+            <div class="checkbox">
+            <label>
+                <input type="checkbox" id="checkboxError" value="option1">
+                Checkbox with error
+                </label>
+            </div>
+        </div>
+    </form>
+
+    <h1>添加额外的图标</h1>
+    <form class="border">
+        <div class="form_group has_success has_feedback">
+            <label class="control_label" for="inputSuccess2">Input with success</label>
+            <input type="text" class="form_control input_lg" id="inputSuccess2" aria-describedby="inputSuccess2Status">
+            <span class="icon icon-check form_control_feedback " aria-hidden="true"></span>
+            <span id="inputSuccess2Status" class="sr_only">(success)</span>
+        </div>
+        <div class="form_group has_success has_feedback">
+            <label class="control_label" for="inputSuccess2">Input with success</label>
+            <input type="text" class="form_control " id="inputSuccess2" aria-describedby="inputSuccess2Status">
+            <span class="icon icon-check form_control_feedback " aria-hidden="true"></span>
+            <span id="inputSuccess2Status" class="sr_only">(success)</span>
+        </div>
+        <div class="form_group has_success has_feedback">
+            <label class="control_label" for="inputSuccess2">Input with success</label>
+            <input type="text" class="form_control input_sm" id="inputSuccess2" aria-describedby="inputSuccess2Status">
+            <span class="icon icon-check form_control_feedback " aria-hidden="true"></span>
+            <span id="inputSuccess2Status" class="sr_only">(success)</span>
+        </div>
+
+
+
+
+
+
+        <div class="form_group has_warning has_feedback">
+            <label class="control_label" for="inputWarning2">Input with warning</label>
+            <input type="text" class="form_control" id="inputWarning2" aria-describedby="inputWarning2Status">
+            <span class="icon icon-warning form_control_feedback" aria-hidden="true"></span>
+            <span id="inputWarning2Status" class="sr_only">(warning)</span>
+        </div>
+
+
+        <div class="form_group has_error has_feedback">
+            <label class="control_label" for="inputError2">Input with error</label>
+            <input type="text" class="form_control" id="inputError2" aria-describedby="inputError2Status">
+            <span class="icon icon-times form_control_feedback" aria-hidden="true"></span>
+            <span id="inputError2Status" class="sr_only">(error)</span>
+        </div>
+        <div class="form_group has_success has_feedback">
+            <label class="control_label" for="inputGroupSuccess1">Input group with success</label>
+            <div class="input_group">
+              <span class="input_group_addon">@</span>
+              <input type="text" class="form_control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+            </div>
+            <span class="icon icon-check form_control_feedback" aria-hidden="true"></span>
+            <span id="inputGroupSuccess1Status" class="sr_only">(success)</span>
+        </div>
+    </form>
+    <h1>为水平排列的表单和内联表单设置可选的图标</h1>
+    <form class="form_horizontal border">
+        <div class="form_group has_success has_feedback">
+            <label class="control_label col_sm_3" for="inputSuccess3">Input with success</label>
+            <div class="col_sm_9">
+                <input type="text" class="form_control input_sm" id="inputSuccess3" aria-describedby="inputSuccess3Status">
+                <span class="icon icon-check form_control_feedback" aria-hidden="true"></span>
+                <span id="inputSuccess3Status" class="sr_only">(success)</span>
+            </div>
+        </div>
+        <div class="form_group has_success has_feedback">
+            <label class="control_label col_sm_3" for="inputSuccess3">Input with success</label>
+            <div class="col_sm_9">
+                <input type="text" class="form_control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
+                <span class="icon icon-check form_control_feedback" aria-hidden="true"></span>
+                <span id="inputSuccess3Status" class="sr_only">(success)</span>
+            </div>
+        </div>
+
+        <div class="form_group has_success has_feedback">
+            <label class="control_label col_sm_3" for="inputSuccess3">Input 1111 success</label>
+            <div class="col_sm_9">
+                <input type="text" class="form_control input_lg" id="inputSuccess3" aria-describedby="inputSuccess3Status">
+                <span class="icon icon-check form_control_feedback" aria-hidden="true"></span>
+                <span id="inputSuccess3Status" class="sr_only">(success)</span>
+            </div>
+        </div>
+
+
+
+
+        
+        <div class="form_group has_success has_feedback">
+            <label class="control_label col_sm_3" for="inputGroupSuccess2">Input group with success</label>
+            <div class="col_sm_9">
+                <div class="input_group">
+                    <span class="input_group_addon"><i class="icon icon-check"></i></span>
+                    <input type="text" class="form_control" id="inputGroupSuccess2" aria-describedby="inputGroupSuccess2Status">
+                </div>
+                <span class="icon icon-check form_control_feedback" aria-hidden="true"></span>
+                <span id="inputGroupSuccess2Status" class="sr_only">(success)</span>
+            </div>
+        </div>
+        <div class="form_group has_success has_feedback">
+            <label class="control_label col_sm_3" for="inputGroupSuccess2">Input group with success</label>
+            <div class="col_sm_9">
+                <div class="input_group">
+                    <span class="input_group_addon"><i class="icon icon-check"></i></span>
+                    <input type="text" class="form_control input_sm" id="inputGroupSuccess2" aria-describedby="inputGroupSuccess2Status">
+                </div>
+                <span class="icon icon-check form_control_feedback" aria-hidden="true"></span>
+                <span id="inputGroupSuccess2Status" class="sr_only">(success)</span>
+            </div>
+        </div>
+    </form>
+    <form class="form_inline border">
+        <div class="form_group has_success has_feedback">
+            <label class="control_label" for="inputSuccess4">Input with success</label>
+            <input type="text" class="form_control" id="inputSuccess4" aria-describedby="inputSuccess4Status">
+            <span class="icon icon-check form_control_feedback" aria-hidden="true"></span>
+            <span id="inputGroupSuccess3Status" class="sr_only">(success)</span>
+        </div>
+    </form>
+    <form class="form_inline border">
+        <div class="form_group has_success has_feedback">
+            <label class="control_label" for="inputSuccess4">Input with success</label>
+            <input type="text" class="form_control input_lg" id="inputSuccess4" aria-describedby="inputSuccess4Status">
+            <span class="icon icon-check form_control_feedback" aria-hidden="true"></span>
+            <span id="inputGroupSuccess3Status" class="sr_only">(success)</span>
+        </div>
+    </form>
+    <form class="form_inline border">
+        <div class="form_group has_success has_feedback">
+            <label class="control_label" for="inputSuccess4">Input with success</label>
+            <input type="text" class="form_control input_sm" id="inputSuccess4" aria-describedby="inputSuccess4Status">
+            <span class="icon icon-check form_control_feedback" aria-hidden="true"></span>
+            <span id="inputGroupSuccess3Status" class="sr_only">(success)</span>
+        </div>
+    </form>
+    <form class="form_inline border">
+        <div class="form_group has_success has_feedback">
+            <label class="control_label" for="inputGroupSuccess3">Input group with success</label>
+            <div class="input_group">
+                <span class="input_group_addon">@</span>
+                <input type="text" class="form_control" id="inputGroupSuccess3" aria-describedby="inputGroupSuccess3Status">
+            </div>
+            <span class="icon icon-check form_control_feedback" aria-hidden="true"></span>
+            <span id="inputGroupSuccess3Status" class="sr_only">(success)</span>
+        </div>
+    </form>
+    <br/>
+    <br/>
+    <br/>
+
+    <p>可选的图标与设置 .sr_only 类的 label
+
+如果你使用 .sr_only 类来隐藏表单控件的 <label> （而不是使用其它标签选项，如 aria-label 属性）， 一旦它被添加，rui 会自动调整图标的位置。</p>
+    <div class="form_group has_success has_feedback">
+        <label class="control_label sr_only" for="inputSuccess5">Hidden label</label>
+        <input type="text" class="form_control" id="inputSuccess5" aria-describedby="inputSuccess5Status">
+        <span class="icon icon-check form_control_feedback" aria-hidden="true"></span>
+        <span id="inputSuccess5Status" class="sr_only">(success)</span>
+    </div>
+    <div class="form_group has_success has_feedback">
+        <label class="control_label sr_only" for="inputGroupSuccess4">Input group with success</label>
+        <div class="input_group">
+            <span class="input_group_addon">@</span>
+            <input type="text" class="form_control" id="inputGroupSuccess4" aria-describedby="inputGroupSuccess4Status">
+        </div>
+        <span class="icon icon-check form_control_feedback" aria-hidden="true"></span>
+        <span id="inputGroupSuccess4Status" class="sr_only">(success)</span>
+    </div>
+
+
+    <div class="form_group has_success has_feedback">
+        <label class="control_label sr_only" for="inputGroupSuccess4">Input group with success</label>
+        <div class="input_group">
+            <span class="input_group_addon">@</span>
+            <input type="text" class="form_control" id="inputGroupSuccess4" aria-describedby="inputGroupSuccess4Status">
+        </div>
+        <span class="icon icon-check form_control_feedback" aria-hidden="true"></span>
+        <span id="inputGroupSuccess4Status" class="sr_only">(success)</span>
+    </div>
+
+
+    <h1>控件尺寸</h1>
+    高度尺寸
+    <br/>
+    <br/>
+    <form class="border">
+        <div class="controls">
+            <input class="form_control input_lg" type="text" placeholder=".input_lg">
+            <br/>
+            <input type="text" class="form_control" placeholder="Default input">
+            <br/>
+            <input class="form_control input_sm" type="text" placeholder=".input_sm">
+            <br/>
+
+            <select class="form_control input_lg">
+                <option value="">.input_lg</option>
+            </select>
+            <br/>
+            <select class="form_control">
+                <option value="">Default select</option>
+            </select>
+            <br/>
+            <select class="form_control input_sm">
+                <option value="">.input_sm</option>
+            </select>
+        </div>
+    </form>
+
+    水平排列的表单组的尺寸
+    <br/>
+    <br/>
+    <form class="form_horizontal border">
+        <div class="form_group form_group_lg">
+            <label class="col_sm_2 control_label" for="formGroupInputLarge">Large label</label>
+            <div class="col_sm_10">
+                <input class="form_control" type="text" id="formGroupInputLarge" placeholder="Large input">
+            </div>
+        </div>
+        <div class="form_group form_group_sm">
+            <label class="col_sm_2 control_label" for="formGroupInputSmall">Small label</label>
+            <div class="col_sm_10">
+                <input class="form_control" type="text" id="formGroupInputSmall" placeholder="Small input">
+            </div>
+        </div>
+    </form>
+
+    调整列（column）尺寸
+    <br/>
+    <br/>
+    <form class="border">
+        <div class="row">
+            <div class="col_xs_2">
+                <input type="text" class="form_control" placeholder=".col_xs_2">
+            </div>
+            <div class="col_xs_3">
+                <input type="text" class="form_control" placeholder=".col_xs_3">
+            </div>
+            <div class="col_xs_4">
+                <input type="text" class="form_control" placeholder=".col_xs_4">
+            </div>
+        </div>
+    </form>
+
+    <h1>辅助文本</h1>
+    <form class="border">
+        <div class="form_group">
+            <label for="inputHelpBlock">Input with help text</label>
+            <input type="text" id="inputHelpBlock" class="form_control" aria-describedby="helpBlock">
+        </div>
+        <span id="helpBlock" class="help_block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+    </form>
+
+
+
+
+
+
+
+<div style="height:400px"></div>
+</div>
+
+</body>
+</html>

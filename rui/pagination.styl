@@ -1,0 +1,83 @@
+/**   
+* @Title: 复杂分页 － 带页码 跳转到
+* @date 2015-10-19
+* @version V1.0   
+    依赖按钮组：button-group.styl
+*/
+
+.pagination
+    @extends .btn_group
+    li
+        position: relative;
+        float: left;
+        margin-left: -1px;
+        &:first-child
+            > a,
+            > span
+                margin-left 0
+                border-left-radius($border_radius_base)
+        &:last-child
+            > a,
+            > span
+                border-right-radius($border_radius_base)
+        > a,
+        > span
+            @extends .btn 
+            @extends .btn_default
+            position: relative
+            border-radius 0
+            &:hover,
+            &:active,
+            &:focus
+                z-index 3
+        &.active
+            > a
+                @extends .btn.active
+                
+        &.disabled
+            cursor: $cursor_disabled;
+            > a
+                @extends .btn.disabled
+                pointer-events: none
+
+// 默认样式 btn_default
+// 首选项 btn_primary
+// 成功 btn_success
+// 一般信息 btn_info
+// 警告 btn_warning
+// 危险 btn_danger
+// 链接 btn_link     
+.pagination_blue li
+    > a,
+    > span
+        @extends .btn_primary
+.pagination_green li
+    > a,
+    > span
+        @extends .btn_success
+.pagination_blue li
+    > a,
+    > span
+        @extends .btn_info
+.pagination_yellow li
+    > a,
+    > span
+        @extends .btn_warning
+.pagination_red li
+    > a,
+    > span
+        @extends .btn_danger
+
+// 翻页尺寸
+.pagination_l li //比预设值大
+    > a,
+    > span
+        @extends .btn_l
+.pagination_s li // 比预设值小一点
+    > a,
+    > span
+        @extends .btn_s
+.pagination_x li //  再小一点
+    > a,
+    > span
+        @extends .btn_x

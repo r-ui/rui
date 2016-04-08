@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab 切换</title>
+    <link rel="stylesheet" type="text/css" href="css/rui.all.min.css">
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/tab.js"></script>
+    <script type="text/javascript" src="../js/dropdown.js"></script>
+    <script type="text/javascript" src="../js/transition.js"></script>
+
+</head>
+
+<body>
+<br/>
+<br/>
+<br/>
+<div class="container">
+
+   <h3>通过 data 属性添加data-toggle="tab" 或者 data-toggle="pill" 来激活选项卡切换效果，就无需编写额外的javascript</h3>
+   <br/>
+   <ul class="nav nav_tabs">
+        <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
+        <li class=""><a href="#tab2" data-toggle="tab">Section 2</a></li>
+        <li class=""><a href="#tab3" data-toggle="tab">Section 3</a></li>
+        <li class=""><a href="#tab4" data-toggle="tab">Section 4</a></li>
+        <li class=""><a href="#tab5" data-toggle="tab">Section 5</a></li>
+        <li class="dropdown pull_right tabdrop active">
+            <a class="dropdown_toggle" data-toggle="dropdown" href="#"> <b class="caret"></b></a>
+            <ul class="dropdown_menu dropdown_menu_right">
+                <li class=""><a href="#tab6" data-toggle="tab">Section 6</a></li>
+                <li class=""><a href="#tab7" data-toggle="tab">Section 7</a></li>
+                <li class=""><a href="#tab8" data-toggle="tab">Section 8</a></li>
+                <li><a href="#tab9" data-toggle="tab">Section 9</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="tab_content">
+        <div class="tab_pane  fade in active" id="tab1"> 1 </p></div>
+        <div class="tab_pane fade" id="tab2"><p> 2 </p></div>
+        <div class="tab_pane fade" id="tab3"><p> 3 </p></div>
+        <div class="tab_pane fade" id="tab4"><p> 4 </p></div>
+        <div class="tab_pane fade" id="tab5"><p> 5 </p></div>
+        <div class="tab_pane fade" id="tab6"><p> 6 </p></div>
+        <div class="tab_pane fade" id="tab7"><p> 7 </p></div>
+        <div class="tab_pane fade" id="tab8"><p> 8 </p></div>
+        <div class="tab_pane fade" id="tab9"><p> 9 </p></div>
+    </div>
+
+<br>
+<br>
+<br>
+<br>
+
+    <ul class="nav nav_tabs">
+        <li class="active"><a href="#home" data-toggle="pill">首页</a></li>
+        <li><a href="#profile" data-toggle="pill">档案</a></li>
+        <li><a href="#messages" data-toggle="pill">信息</a></li>
+        <li><a href="#settings" data-toggle="pill">设置</a></li>
+    </ul>
+     
+    <div class="tab_content">
+        <div class="tab_pane  fade in active" id="home">1</div>
+        <div class="tab_pane fade" id="profile">2</div>
+        <div class="tab_pane fade" id="messages">3</div>
+        <div class="tab_pane fade" id="settings">4</div>
+    </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <ul class="nav nav_tabs">
+        <li class="active"><a href="#home11" data-toggle="tab">菜单一</a></li>
+        <li><a href="#ios" data-toggle="tab">菜单二</a></li>
+        <li class="dropdown">
+            <a href="#"  class="dropdown_toggle" data-toggle="dropdown">菜单三 
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown_menu"  >
+                <li><a href="#jmeter" tabindex="-1" data-toggle="tab">a</a></li>
+                <li><a href="#ejb" tabindex="-1" data-toggle="tab">b</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div  class="tab_content">
+         <div class="tab_pane fade in active" id="home11">
+             <p>1</p>
+         </div>
+         <div class="tab_pane fade" id="ios">
+             <p>2</p>
+         </div>
+         <div class="tab_pane fade" id="jmeter">
+             <p>3</p>
+         </div>
+         <div class="tab_pane fade" id="ejb">
+             <p>4</p>
+         </div>
+    </div>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+    <ul class="nav nav_pills">
+        <li role="presentation" class="active"><a href="#pill1" data-toggle="tab">Home</a></li>
+
+        <li role="presentation"><a href="#pill2" data-toggle="tab">Profile</a></li>
+        <li role="presentation"><a href="#pill3" data-toggle="tab">Messages</a></li>
+    </ul>
+    <div class="tab_content">
+        <div class="tab_pane fade in active" id="pill1"> 1 </p></div>
+        <div class="tab_pane fade" id="pill2"><p> 2 </p></div>
+        <div class="tab_pane fade" id="pill3"><p> 3 </p></div>
+    </div>
+<br/>
+<br/>
+<br/>
+<br/>
+    <ul class="nav nav_tabs nav_justified">
+        <li role="presentation" class="active"><a href="#justified1" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#justified2" data-toggle="tab">Profile</a></li>
+        <li role="presentation"><a href="#justified3" data-toggle="tab">Messages</a></li>
+    </ul>
+    <div class="tab_content">
+        <div class="tab_pane fade in active" id="justified1"> 1 </p></div>
+        <div class="tab_pane fade" id="justified2"><p> 2 </p></div>
+        <div class="tab_pane fade" id="justified3"><p> 3 </p></div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <ul class="nav nav_pills nav_justified">
+        <li role="presentation" class="active"><a href="#just1" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#just2" data-toggle="tab">Profile</a></li>
+        <li role="presentation"><a href="#just3" data-toggle="tab">Messages</a></li>
+    </ul>
+    <div class="tab_content">
+        <div class="tab_pane fade in active" id="just1"> 1 </p></div>
+        <div class="tab_pane fade" id="just2"><p> 2 </p></div>
+        <div class="tab_pane fade" id="just3"><p> 3 </p></div>
+    </div>
+<br/>
+<br/>
+<br/>
+<br/>
+<h3>关于$().tab()一般用来实现标签页和胶囊链接内容片段的切换，或是相关内容的页面导航：</h3>
+<br/>
+<p>需要注意的一点是，每个li中的a标签都要有个href=#id,这个id指向的正是该链接对应的content的id，如果使用
+javascript实现这种导航内容的切换，a标签中无须再添加data-toggle='tab'</p>
+    <ul class="nav nav_tabs" id="myTab"> 
+        <li class="active"><a href="#home1">Home</a></li> 
+        <li><a href="#profile1">Profile</a></li> 
+        <li><a href="#messages1">Messages</a></li> 
+        <li><a href="#settings1">Settings</a></li> 
+    </ul> 
+       
+    <div class="tab_content"> 
+        <div class="tab_pane fade in active" id="home1">...1</div> 
+        <div class="tab_pane fade" id="profile1">...2</div> 
+        <div class="tab_pane fade" id="messages1">...3</div> 
+        <div class="tab_pane fade " id="settings1">...4</div> 
+    </div> 
+    
+<br/>
+<br/>
+<br/>
+
+<h3>标签页（Tab）插件中要用到的事件</h3>
+
+    <hr>
+       <p class="active_tab"><strong>激活的标签页</strong>：<span></span></p>
+       <p class="previous_tab"><strong>前一个激活的标签页</strong>：<span></span></p>
+    <hr>
+    <ul id="myTaba" class="nav nav_tabs">
+        <li class="active"><a href="#home1" data-toggle="tab">1</a></li>
+        <li><a href="#ios2" data-toggle="tab">2</a></li>
+        <li class="dropdown">
+            <a href="#" id="myTabDrop1" class="dropdown_toggle" data-toggle="dropdown"> a <b class="caret"></b></a>
+            <ul class="dropdown_menu" role="menu" aria-labelledby="myTabDrop1">
+                <li><a href="#jmeter3" tabindex="-1" data-toggle="tab">3</a></li>
+                <li><a href="#ejb4" tabindex="-1" data-toggle="tab">4</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div id="myTabContent" class="tab_content">
+        <div class="tab_pane fade in active" id="home1">
+            <p>1</p>
+        </div>
+        <div class="tab_pane fade" id="ios2">
+            <p>2</p>
+        </div>
+        <div class="tab_pane fade" id="jmeter3">
+            <p>3</p>
+        </div>
+        <div class="tab_pane fade" id="ejb4">
+            <p>4</p>
+        </div>
+    </div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>   
+
+
+
+
+
+
+<script> 
+    $(function () { 
+    //     $('#myTab a:last').tab('show');//初始化显示哪个tab 
+    //     // $('#myTabs a[href="#profile"]').tab('show') // 按名称选择选项卡
+    //     // $('#myTabs a:first').tab('show') // 选择第一个选项卡
+    //     // $('#myTabs a:last').tab('show') // 选择最后一个选项卡
+    //     // $('#myTabs li:eq(2) a').tab('show') // 选择第三个选项卡 (从 0 开始编制索引)
+
+        $('#myTab a').click(function (e) { 
+            e.preventDefault();//阻止a链接的跳转行为 
+            $(this).tab('show');//显示当前选中的链接及关联的content 
+        }) 
+
+        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+            // 获取已激活的标签页的名称
+            var activeTab = $(e.target).text(); 
+            // 获取前一个激活的标签页的名称
+            var previousTab = $(e.relatedTarget).text(); 
+            $(".active_tab span").html(activeTab);
+            $(".previous_tab span").html(previousTab);
+        });
+
+    }) 
+
+
+</script>
+
+
+
+</div>
+</body>
+</html>

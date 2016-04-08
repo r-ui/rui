@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉菜单</title>
+    <link rel="stylesheet" type="text/css" href="css/rui.all.min.css">
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/dropdown.js"></script>
+    <style type="text/css">
+    h2{margin: 15px 15px 15px 0;}
+    a{text-decoration: none;}
+    /*.dropup{position: absolute;}*/
+/*    .dropdown_toggle{float: left;}
+    .dropdown .dropdown_menu{ position: static; clear:left !important;}
+    .dropup{margin-top: 110px;}
+    .dropdown_menu li a{text-decoration: none;}
+    .dropdown_submenu .dropdown_menu{position: absolute; clear: both !important;}*/
+    </style>
+</head>
+<body>
+         <!--  <div class="dropdown clearfix">
+                <button class="btn btn_default dropdown_toggle" type="button"  aria-haspopup="true" aria-expanded="true">
+                    下拉
+                    <span class="caret"></span>   
+                </button>
+                <ul class="dropdown_menu" >
+                    <li><a href="#">项目一</a></li>
+                    <li class="active"><a href="#">项目二</a></li>
+                    <li><a href="#">项目三</a></li>
+                    <li><a href="#">项目四</a></li>
+                </ul>
+            </div> -->
+            <script type="text/javascript">
+                // $(function () { 
+                //     $('.dropdown_toggle').dropdown()
+                //  }) 
+            </script>
+
+
+<!-- aria-haspopup 有子菜单，aria-expanded 展开状态， aria-labelledby 想要的标签文本已在其他元素中存在时，可以将其值为该元素的id   -->
+    <div class="container">
+        <h2>下拉</h2>
+        <div class="row">
+            <div class="dropdown clearfix">
+                <button class="btn btn_default dropdown_toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    下拉
+                    <span class="caret"></span>   
+                </button>
+                <ul class="dropdown_menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">项目一</a></li>
+                    <li class="active"><a href="#">项目二</a></li>
+                    <li><a href="#">项目三</a></li>
+                    <li><a href="#">项目四</a></li>
+                </ul>
+            </div>
+        </div>
+        <br/>
+
+        <h2>分割线</h2>
+        <div class="row">
+            <div class="dropdown clearfix">
+                <button class="btn btn_default dropdown_toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    下拉
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown_menu" aria-labelledby="dropdownMenuDivider">
+                    <li><a href="#">项目一</a></li>
+                    <li class="active"><a href="#">项目二</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">项目四</a></li>
+                </ul>
+            </div>
+        </div>
+        <br/>
+
+        <h2>向上弹出</h2>
+        <div class="row">
+            <div class="dropup clearfix">
+                <button class="btn btn_default dropdown_toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                   向上弹出
+                   <span class="caret"></span> 
+                </button>
+                <ul class="dropdown_menu" aria-labelledby="dropdownMenu2">
+                    <li><a href="#">项目一</a></li>
+                    <li class="active"><a href="#">项目二</a></li>
+                    <li><a href="#">项目三</a></li>
+                    <li><a href="#">项目四</a></li>
+                </ul>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+
+        <h2>带标题式</h2>
+        <div class="row">
+            <div class="dropdown clearfix">
+                <button class="btn btn_default dropdown_toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    下拉
+                    <span class="caret"></span>   
+                </button>
+                <ul class="dropdown_menu" aria-labelledby="dropdownMenu4">
+                    <li class="dropdown_header">项目一</li>
+                    <li><a href="#">天眼</a></li>
+                    <li><a href="#">天眼</a></li>
+                    <li><a href="#">天眼</a></li>
+                    <li class="dropdown_header">项目二</li>
+                    <li><a href="#">在线客服</a></li>
+                    <li><a href="#">在线客服</a></li>
+                    <li><a href="#">在线客服</a></li>
+                    <li><a href="#">在线客服</a></li>
+                </ul>
+            </div>
+        </div>
+        <br/>
+
+        <div class="row">
+            <h2>禁用的菜单项</h2>
+            <div class="dropdown clearfix">
+                <button class="btn btn_default dropdown_toggle" id="dropdownMenu5" data-toggle="dropdown">
+                    下拉
+                    <span class="caret"></span>
+                </button>    
+                <ul class="dropdown_menu" aria-labelledby="dropdownMenu5">
+                    <li><a href="#">项目一</a></li>
+                    <li class="disabled"><a href="#">项目二</a></li>
+                    <li><a href="#">项目三</a></li>
+                    <li><a href="#">项目四</a></li>
+                </ul>
+            </div>
+        </div>
+        <br/>
+
+
+        <div class="row show_grid example_submenus"> 
+            <h2>多种样式</h2>
+            <div class="col_md_4">
+                <h2>默认式</h2>
+                <div class="dropdown clearfix">
+                    <button class="btn btn_default dropdown_toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        下拉
+                        <span class="caret"></span>   
+                    </button>
+                    <ul class="dropdown_menu" aria-labelledby="dLabel">
+                        <li><a href="#">项目一</a></li>
+                        <li><a href="#">项目二</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a tabindex="-1" href="#">更多</a>
+                            <ul class="dropdown_menu">
+                                <li><a tabindex="-1" href="#">一组</a></li>
+                                <li><a tabindex="-1" href="#">二组</a></li>
+                                <li><a tabindex="-1" href="#">三组</a></li>
+                                <li><a tabindex="-1" href="#">四组</a></li>
+                                <li><a tabindex="-1" href="#">五组</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div> 
+            <div class="col_md_4">
+                <h2>右对齐</h2>
+                <div class="dropup clearfix ">
+                    <button class="btn btn_default dropdown_toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        上拉
+                        <span class="caret"></span>   
+                    </button>
+                    <ul class="dropdown_menu dropdown_menu_right" aria-labelledby="dLabel">
+                        <li><a href="#">项目一</a></li>
+                        <li><a href="#">项目二</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a tabindex="-1" href="#">更多</a>
+                            <ul class="dropdown_menu">
+                                <li><a tabindex="-1" href="#">一组</a></li>
+                                <li><a tabindex="-1" href="#">二组</a></li>
+                                <li><a tabindex="-1" href="#">三组</a></li>
+                                <li><a tabindex="-1" href="#">四组</a></li>
+                                <li><a tabindex="-1" href="#">五组</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+            <div class="col_md_4">
+                <h2>左对齐</h2>
+                <div class="dropup clearfix ">
+                    <button class="btn btn_default dropdown_toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        上拉
+                        <span class="caret"></span>   
+                    </button>
+                    <ul class="dropdown_menu dropdown_menu_left" aria-labelledby="dLabel">
+                        <li><a href="#">项目一</a></li>
+                        <li><a href="#">项目二</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a tabindex="-1" href="#">更多</a>
+                            <ul class="dropdown_menu">
+                                <li><a tabindex="-1" href="#">一组</a></li>
+                                <li><a tabindex="-1" href="#">二组</a></li>
+                                <li><a tabindex="-1" href="#">三组</a></li>
+                                <li><a tabindex="-1" href="#">四组</a></li>
+                                <li><a tabindex="-1" href="#">五组</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+        </div>
+        <br/>
+
+<div class="dropdown clearfix">
+    <button class="btn btn_default dropdown_toggle" type="button" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="true">
+    下拉菜单
+        <span class="caret"></span>   
+    </button>
+    <ul class="dropdown_menu" >
+        <li><a href="#">项目一</a></li>
+        <li class="active"><a href="#">项目二</a></li>
+        <li><a href="#">项目三</a></li>
+        <li><a href="#">项目四</a></li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(function () { 
+        $('.dropdown_toggle').dropdown()
+    })
+</script>
+    </div>
+
+
+<!-- 下拉菜单的子菜单
+        <div class="example_submenus"> 
+            <div class="left">
+                <h2>默认样式</h2>
+                <div class="dropdown clearfix">
+                    <button class="btn btn_default dropdown_toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        下拉
+                        <span class="caret"></span>   
+                    </button>
+                    <ul class="dropdown_menu dropdown_menu_right" aria-labelledby="dLabel">
+                        <li><a href="#">项目一</a></li>
+                        <li><a href="#">项目二</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown_submenu">
+                            <a tabindex="-1" href="#">更多</a>
+                            <ul class="dropdown_menu">
+                                <li><a tabindex="-1" href="#">一组</a></li>
+                                <li><a tabindex="-1" href="#">二组</a></li>
+                                <li><a tabindex="-1" href="#">三组</a></li>
+                                <li><a tabindex="-1" href="#">四组</a></li>
+                                <li><a tabindex="-1" href="#">五组</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div> 
+            <div class="left">
+                <h2>向上弹出子菜单</h2>
+                <div class="dropdown clearfix">
+                    <button class="btn btn_default dropdown_toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        下拉
+                        <span class="caret"></span>   
+                    </button>
+                    <ul class="dropdown_menu dropdown_menu_right" aria-labelledby="dLabel">
+                        <li><a href="#">项目一</a></li>
+                        <li><a href="#">项目二</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown_submenu">
+                            <a tabindex="-1" href="#">更多</a>
+                            <ul class="dropdown_menu">
+                                <li><a tabindex="-1" href="#">一组</a></li>
+                                <li><a tabindex="-1" href="#">二组</a></li>
+                                <li><a tabindex="-1" href="#">三组</a></li>
+                                <li><a tabindex="-1" href="#">四组</a></li>
+                                <li><a tabindex="-1" href="#">五组</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>  
+        </div>
+ -->
+ <div style="height:400px;"></div>
+</body>
+</html>

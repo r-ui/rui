@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>输入框组</title>
+    <link rel="stylesheet" type="text/css" href="css/rui.all.min.css">
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/dropdown.js"></script>
+</head>
+
+<style type="text/css">
+ h1{font-size: 20px;font-weight: bold;}   
+ .border{border-radius: 5px;border:1px solid #a3a2a5;padding:20px;margin-bottom: 20px;} 
+ #focusedInput {
+    border-color: #ccc;
+    border-color: rgba(82,168,236,.8);
+    outline: 0;
+    outline: thin dotted\9;
+    /* -webkit-box-shadow: 0 0 8px rgba(82,168,236,.6); */
+    box-shadow: 0 0 8px rgba(82,168,236,.6); }
+</style>
+
+<body>
+
+<div class="container">
+
+    <h1> 输入框组</h1>
+    <p>通过在文本输入框 input 前面、后面或是两边加上文字或按钮，可以实现对表单控件的扩展。为 .input_group 赋予 .input_group_addon 类，可以给 .form_control 的前面或后面添加额外的元素。
+    </p>
+
+    <h1>基本实例</h1>
+    <p>在输入框的任意一侧添加额外元素或按钮。你还可以在输入框的两侧同时添加额外元素。</p>
+    <p class="text_danger">我们不支持在输入框的单独一侧添加多个额外元素。</p>
+    <p class="text_danger">我们不支持在单个输入框组中添加多个表单控件。</p>
+    <form class="border">
+        <div class="input_group">
+            <span class="input_group_addon" id="basic-addon1">@</span>
+            <input type="text" class="form_control" placeholder="Username" aria-describedby="basic-addon1">
+        </div> 
+        <br>
+        <div class="input_group">
+            <input type="text" class="form_control" placeholder="Recipient's username" aria-describedby="basic-addon2">
+            <span class="input_group_addon" id="basic-addon2">@example.com</span>
+        </div>
+        <br>
+        <div class="input_group">
+            <span class="input_group_addon">$</span>
+            <input type="text" class="form_control" aria-label="Amount (to the nearest dollar)">
+            <span class="input_group_addon">.00</span>
+        </div>
+    </form>
+    <form class="border">
+        <div class="input_group">
+            <span class="input_group_addon" id="basic-addon1"><i class="icon icon-adjust"></i></span>
+            <input type="text" class="form_control" placeholder="Username" aria-describedby="basic-addon1">
+        </div> 
+        <br>
+    </form>
+
+    <h1>尺寸</h1>
+    <p>为 .input_group 添加相应的尺寸类，其内部包含的元素将自动调整自身的尺寸。不需要为输入框组中的每个元素重复地添加控制尺寸的类。</p>
+    <form   class="border">
+        <div class="input_group input_group_lg">
+            <span class="input_group_addon" id="sizing-addon1"><i class="icon icon-check"></i></span>
+            <input type="text" class="form_control" placeholder="Username" aria-describedby="sizing-addon1">
+        </div>
+        <br>
+
+        <div class="input_group input_group_lg">
+            <span class="input_group_addon" id="sizing-addon1">@</span>
+            <input type="text" class="form_control" placeholder="Username" aria-describedby="sizing-addon1">
+        </div>
+        <br>
+        <div class="input_group">
+            <span class="input_group_addon" id="sizing-addon2">@</span>
+            <input type="text" class="form_control" placeholder="Username" aria-describedby="sizing-addon2">
+        </div>
+        <br>
+        <div class="input_group">
+            <span class="input_group_addon" id="sizing-addon2"><i class="icon icon-check"></i></span>
+            <input type="text" class="form_control" placeholder="Username" aria-describedby="sizing-addon2">
+        </div>
+        <br>
+        <div class="input_group input_group_sm">
+            <span class="input_group_addon" id="sizing-addon3">@</span>
+            <input type="text" class="form_control" placeholder="Username" aria-describedby="sizing-addon3">
+        </div>
+        <br>
+        <div class="input_group input_group_sm">
+            <span class="input_group_addon" id="sizing-addon3"><i class="icon icon-check"></i></span>
+            <input type="text" class="form_control" placeholder="Username" aria-describedby="sizing-addon3">
+        </div>
+    </form>
+
+    <h1>带多选框和单选框的输入组 </h1>
+    <p>可以将多选框或单选框作为额外元素添加到输入框组中。</p>
+    <form  class="border">
+        <div class="row">
+            <div class="col_lg_6">
+                <div class="input_group">
+                    <span class="input_group_addon">
+                        <input type="checkbox" aria-label="Checkbox for following text input">
+                    </span>
+                    <input type="text" class="form_control" aria-label="Text input with checkbox">
+                </div>
+            </div>
+            <div class="col_lg_6">
+                <div class="input_group">
+                    <span class="input_group_addon">
+                        <input type="radio" aria-label="Radio button for following text input">
+                    </span>
+                    <input type="text" class="form_control" aria-label="Text input with radio button">
+                </div>
+            </div>
+        </div>
+    </form>
+    <h1>带按钮的输入组 </h1>
+    <p>为输入框组添加按钮需要额外添加一层嵌套，不是 .input_group_addon，而是添加 .input_group_btn 来包裹按钮元素。由于不同浏览器的默认样式无法被统一的重新赋值，所以才需要这样做。</p>
+    <form class="border">
+        <div class="row">
+            <div class="col_lg_6">
+                <div class="input_group">
+                    <span class="input_group_btn">
+                        <button class="btn btn_default" type="button">Go!</button>
+                    </span>
+                    <input type="text" class="form_control" placeholder="Search for...">
+                </div>
+            </div>
+            <div class="col_lg_6">
+                <div class="input_group">
+                    <input type="text" class="form_control" placeholder="Search for...">
+                    <span class="input_group_btn">
+                        <button class="btn btn_default" type="button">Go!</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <h1>按钮式下拉菜单的输入框组</h1>
+    <form  class="border">
+        <div class="row">
+            <div class="col_lg_6">
+                <div class="input_group">
+                    <div class="input_group_btn clearfix">
+                        <button type="button" class="btn btn_default dropdown_toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
+                        <ul class="dropdown_menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                    <input type="text" class="form_control" aria-label="Text input with dropdown button">
+                </div>
+            </div>
+            <div class="col_lg_6">
+                <div class="input_group">
+                    <input type="text" class="form_control" aria-label="Text input with dropdown button">
+                    <div class="input_group_btn  clearfix">
+                        <button type="button" class="btn btn_default dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
+                        <ul class="dropdown_menu dropdown_menu_right">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <h1>分裂式按钮下拉菜单的输入框组</h1>
+    <form  class="border">
+        <div class="row">
+            <div class="col_lg_6">
+                <div class="input_group">
+                    <div class="input_group_btn clearfix">
+                        <button type="button" class="btn btn_default">Action</button>
+                        <button type="button" class="btn btn_default dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr_only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown_menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                    <input type="text" class="form_control" aria-label="Text input with segmented button dropdown">
+                </div>
+            </div>
+            <div class="col_lg_6">
+                <div class="input_group">
+                    <input type="text" class="form_control" aria-label="Text input with segmented button dropdown">
+                    <div class="input_group_btn clearfix">
+                        <button type="button" class="btn btn_default">Action</button>
+                        <button type="button" class="btn btn_default dropdown_toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr_only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown_menu dropdown_menu_right">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+
+
+
+<div style="height:400px"></div>
+</div>
+
+</body>
+</html>

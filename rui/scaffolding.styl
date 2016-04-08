@@ -1,0 +1,44 @@
+/**   
+* @Title: 基础的手脚架 scaffolding
+* @Description: 
+*/
+
+
+//响应图像，图片过大不至于撑开父及节点
+.img_responsive
+    img-responsive()
+
+//图片圆角
+.img_rounded
+    border-radius $border_radius_large
+
+// 图片圆的
+.img_circle
+    border-radius 50%
+
+.img_thumbnail
+    padding $thumbnail_padding
+    line-height $line_height_base
+    background-color $thumbnail_bg
+    border 1px solid $thumbnail_border
+    border-radius $thumbnail_border_radius
+    transition all .2s ease-in-out
+
+    // 让图片支持响应式
+    img-responsive(inline-block)
+
+hr
+    margin-top $line_height_computed
+    margin-bottom $line_height_computed
+    border 0
+    border-top 1px solid $hr_border
+
+.sr_only
+    position absolute
+    width 1px
+    height 1px
+    margin -1px
+    padding 0
+    overflow hidden
+    clip rect(0, 0, 0, 0)
+    border 0
