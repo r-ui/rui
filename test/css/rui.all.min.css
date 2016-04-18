@@ -4518,12 +4518,12 @@ body {
   z-index: 1060;
   display: none;
   padding: 1px;
-  font-family: $font-family-base;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
   line-break: auto;
-  line-height: $line-height-base;
+  line-height: 1.428571429;
   text-align: left;
   text-align: start;
   text-decoration: none;
@@ -4645,14 +4645,14 @@ body {
 }
 .tooltip {
   position: absolute;
-  z-index: $zindex-tooltip;
+  z-index: 1070;
   display: block;
-  font-family: $font-family-base;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
   line-break: auto;
-  line-height: $line-height-base;
+  line-height: 1.428571429;
   text-align: left;
   text-align: start;
   text-decoration: none;
